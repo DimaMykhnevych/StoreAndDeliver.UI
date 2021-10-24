@@ -15,11 +15,13 @@ export class CurrentUserService {
   }
 
   public get userInfo(): UserInfo {
-    return this._userInfo;
+    return JSON.parse(localStorage.getItem('currentUserInfo') || '');
   }
 
   public set userInfo(info: UserInfo) {
     this._userInfo = info;
+    localStorage.removeItem('currentUserInfo');
+    localStorage.setItem('currentUserInfo', JSON.stringify(this._userInfo));
     this.userInfoChanged.next(this._userInfo);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, UserInfoService } from 'src/app/core/auth';
+import { AuthService } from 'src/app/core/auth';
+import { CurrentUserService } from 'src/app/core/permission/services';
 
 @Component({
   selector: 'app-navbar',
@@ -12,17 +13,11 @@ export class NavbarComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private router: Router,
-    private _userService: UserInfoService
+    private _userService: CurrentUserService
   ) {}
 
   public ngOnInit(): void {
-    this.loadUserData();
-  }
-
-  public loadUserData(): void {
-    this._userService.loadUserInfo().subscribe((resp) => {
-      this.userName = resp.userName;
-    });
+    this.userName = this._userService.userInfo.userName;
   }
 
   public OnLogOutButtonCLick(): void {
