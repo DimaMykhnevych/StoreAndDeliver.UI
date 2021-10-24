@@ -31,10 +31,10 @@
       <a class="lang" (click)="onUsaLangClick()">
         <img src="assets/images/usa.png" class="img" alt="USA" width="30px" />
       </a>
-      <a mat-button class="signIn" routerLink="/login">{{
+      <a mat-button class="signIn" (click)="openLoginDialog()">{{
         "common.signin" | translate
       }}</a>
-      <a mat-button class="signUp" routerLink="/register">{{
+      <a mat-button class="signUp" (click)="openRegisterDialog()">{{
         "common.signup" | translate
       }}</a>
     </div>

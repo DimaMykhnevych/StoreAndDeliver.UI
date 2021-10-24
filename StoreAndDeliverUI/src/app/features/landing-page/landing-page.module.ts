@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LandingPageRoutingModule } from './routes/landing-page-routnig.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { DialogsModule } from 'src/app/layout/dialogs/dialogs.module';
 
 @NgModule({
   declarations: [LandingPageComponent],
@@ -14,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
     RouterModule,
     LandingPageRoutingModule,
     TranslateModule,
+    DialogsModule,
   ],
 })
 export class LandingPageModule {}

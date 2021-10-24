@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/core/auth';
+import { DialogService } from 'src/app/layout/dialogs/services/dialog.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +10,30 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-  constructor(private _translate: TranslateService) {}
+  constructor(
+    private _translate: TranslateService,
+    private _dialogService: DialogService,
+    private _auth: AuthService,
+    private _router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {}
+
+  public openRegisterDialog(): void {
+    if (this._auth.isAuthenticated()) {
+      this._router.navigate(['/dashboard']);
+      return;
+    }
+    this._dialogService.openRegisterDialog();
+  }
+
+  public openLoginDialog(): void {
+    if (this._auth.isAuthenticated()) {
+      this._router.navigate(['/dashboard']);
+      return;
+    }
+    this._dialogService.openLoginDialog();
+  }
 
   public onUkraineLangClick(): void {
     this._translate.setDefaultLang('ua');

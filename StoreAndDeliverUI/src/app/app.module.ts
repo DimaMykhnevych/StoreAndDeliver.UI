@@ -8,6 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingPageModule } from './features/landing-page/landing-page.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { DialogsModule } from './layout/dialogs/dialogs.module';
+import { ToastrModule } from 'ngx-toastr';
+import { SpinnerModule } from './layout/spinner/spinner.module';
+import { EmailConfirmationModule } from './features/email-confirmation/email-confirmation.module';
+import { RouterModule } from '@angular/router';
+import { NavbarModule } from './layout/navbar/navbar.module';
+import { DashboardModule } from './features/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +34,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       },
     }),
     LandingPageModule,
+    CoreModule,
+    DialogsModule,
+    SpinnerModule,
+    RouterModule,
+    NavbarModule,
+    DashboardModule,
+    EmailConfirmationModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
