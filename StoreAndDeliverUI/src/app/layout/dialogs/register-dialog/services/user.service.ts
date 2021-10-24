@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../../../../core/settings';
@@ -12,15 +12,16 @@ export class UserService {
   constructor(private _http: HttpClient) {}
 
   public create(user: RegistrationForm): Observable<any> {
-    return this._http.post<any>(`${AppSettings.apiHost}/user`, user);
+    const headers = {
+      language: localStorage.getItem('language') || 'en',
+    };
+    const requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return this._http.post<any>(
+      `${AppSettings.apiHost}/user`,
+      user,
+      requestOptions
+    );
   }
-
-  // public confirmEmail(
-  //   confirmModel: IConfirmEmailModel
-  // ): Observable<IConfirmEmailModel> {
-  //   return this._http.post<IConfirmEmailModel>(
-  //     `${AppSettings.apiHost}/user/confirmEmail`,
-  //     confirmModel
-  //   );
-  // }
 }

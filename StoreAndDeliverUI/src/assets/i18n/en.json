@@ -9,8 +9,44 @@
         "card3Header": "Warehouses... A lot of warehouses",
         "card3Body": "In addition to the transportation of goods, our service also provides their storage. As with transportation, you yourself indicate all the necessary environmental parameters."
     },
+    "registration": {
+        "registration": "Registration",
+        "nameAlreadyTaken": "Username has already been taken",
+        "passwordsNotEqual": "Password and confirm password must be equal.",
+        "weakPassword": "Passwords must have 6 characters and at least one non alphanumeric character, one lowercase ('a'-'z'), one uppercase ('A'-'Z').",
+        "register": "Register"
+    },
+    "login": {
+        "usernameOrPasswordInvalid": "Username or password is invalid",
+        "emailConfirmationRequired": "Email confirmation is required"
+    },
+    "validation": {
+        "userNameRequired": "Username is required",
+        "emailRequired": "Email is required",
+        "invalidEmail": "Not a valid email",
+        "passwordRequired": "Password is required",
+        "confirmPasswordRequired": "Confirm password is required"
+    },
+    "emailConfirmation": {
+        "emailConfirmation": "Email Confirmation",
+        "success": "Your email has been successfully confirmed.",
+        "clickToLogin": "Click here to log in"
+    },
+    "navbar": {
+        "dashboard": "Dashboard"
+    },
+    "toastrs": {
+        "registration": "You are registered successfully. Confirmation email was send to "
+    },
     "common": {
         "signin": "Sign In",
-        "signup": "Sign Up"
+        "login": "Log In",
+        "logout": "Log Out",
+        "signup": "Sign Up",
+        "userName": "Username",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "close": "Close"
     }
 }

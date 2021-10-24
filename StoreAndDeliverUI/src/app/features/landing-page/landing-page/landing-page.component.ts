@@ -38,11 +38,13 @@ export class LandingPageComponent implements OnInit {
   public onUkraineLangClick(): void {
     this._translate.setDefaultLang('ua');
     this._translate.use('ua');
+    localStorage.setItem('language', 'ua');
   }
 
   public onUsaLangClick(): void {
     this._translate.setDefaultLang('en');
     this._translate.use('en');
+    localStorage.setItem('language', 'en');
   }
 
   onScrollDownClick($event: Event) {

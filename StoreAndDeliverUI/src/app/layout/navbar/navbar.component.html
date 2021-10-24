@@ -27,7 +27,7 @@
           id="dashboard"
           routerLink="/dashboard"
           routerLinkActive="active current"
-          >Dashboard</a
+          >{{ "navbar.dashboard" | translate }}</a
         >
       </li>
     </ul>
@@ -49,7 +49,7 @@
           aria-labelledby="navbarDropdownMenuLink"
         >
           <button class="dropdown-item" (click)="OnLogOutButtonCLick()">
-            Log Out
+            {{ "common.logout" | translate }}
           </button>
         </div>
       </li>

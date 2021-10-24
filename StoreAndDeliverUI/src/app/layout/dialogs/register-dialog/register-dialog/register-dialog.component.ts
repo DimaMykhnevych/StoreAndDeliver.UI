@@ -13,6 +13,7 @@ import { AppUser } from 'src/app/core/models/app-user';
 import { AppSettings } from 'src/app/core/settings';
 import { UserService } from '../services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-dialog',
@@ -23,13 +24,15 @@ export class RegisterDialogComponent implements OnInit {
   public form: FormGroup = this._builder.group({});
   public isUserNameAlreadyTaken: boolean = false;
   public isPasswordsMismatched: boolean = false;
+  public isPasswordWeak: boolean = false;
   public isAddingUser: boolean = false;
 
   constructor(
     private _builder: FormBuilder,
     public _dialogRef: MatDialogRef<RegisterDialogComponent>,
     private _userService: UserService,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _translate: TranslateService
   ) {}
 
   public ngOnInit(): void {
@@ -40,6 +43,7 @@ export class RegisterDialogComponent implements OnInit {
     this.isAddingUser = true;
     this.isPasswordsMismatched = false;
     this.isUserNameAlreadyTaken = false;
+    this.isPasswordWeak = false;
     value.clientURIForEmailConfirmation = AppSettings.confirmEmailPath;
     this._userService
       .create(value)
@@ -60,6 +64,8 @@ export class RegisterDialogComponent implements OnInit {
       this.isUserNameAlreadyTaken = true;
     } else if (error.status === 400 && error.error['password']) {
       this.isPasswordsMismatched = true;
+    } else {
+      this.isPasswordWeak = true;
     }
     this.isAddingUser = false;
     return of({});
@@ -67,13 +73,6 @@ export class RegisterDialogComponent implements OnInit {
 
   public onRegisterButtonClick(): void {
     this.register(this.form.value);
-  }
-
-  public getEmailErrorMessage(): string {
-    if (this.email?.hasError('required')) {
-      return 'Email is required';
-    }
-    return this.email?.hasError('email') ? 'Not a valid email' : '';
   }
 
   private initializeForm(): void {
@@ -87,11 +86,15 @@ export class RegisterDialogComponent implements OnInit {
 
   private onUserAdded(user: AppUser): void {
     this.isAddingUser = false;
-    this._toastr.success(
-      `You are registered successfully. 
-       Confirmation email was send to ${user.email}`
-    );
+    this._translate.get('toastrs.registration').subscribe((resp: string) => {
+      this.showSuccess(resp, user.email || 'test');
+    });
+
     this._dialogRef.close();
+  }
+
+  private showSuccess(text: string, email: string): void {
+    this._toastr.success(`${text} ${email}`);
   }
 
   get userName() {

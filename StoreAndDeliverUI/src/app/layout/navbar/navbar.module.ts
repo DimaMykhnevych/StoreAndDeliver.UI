@@ -5,6 +5,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MaterialModule } from '../material';
 import { CoreModule } from 'src/app/core/core.module';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     CoreModule,
     RouterModule,
+    TranslateModule,
   ],
   exports: [NavbarComponent],
 })

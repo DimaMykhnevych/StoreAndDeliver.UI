@@ -4,20 +4,24 @@
       <mat-card class="card">
         <mat-card-header>
           <mat-card-title>
-            <h1 class="card-title">Email Confirmation</h1>
+            <h1 class="card-title">
+              {{ "emailConfirmation.emailConfirmation" | translate }}
+            </h1>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <div *ngIf="showError" class="alert alert-danger" role="alert">
-            {{ errorMessage }}
+            {{ errorMessage | json }}
           </div>
 
           <div *ngIf="showSuccess" class="alert alert-success" role="alert">
-            Your email has been successfully confirmed.
+            {{ "emailConfirmation.success" | translate }}
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <a [routerLink]="['/home']"> Click here to log in. </a>
+          <a [routerLink]="['/home']">
+            {{ "emailConfirmation.clickToLogin" | translate }}
+          </a>
         </mat-card-actions>
       </mat-card>
     </div>

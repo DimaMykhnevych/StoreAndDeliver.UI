@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerModule } from '../spinner/spinner.module';
 import { LoginDialogComponent } from './login-dialog/login-dialog/login-dialog.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [RegisterDialogComponent, LoginDialogComponent],
@@ -17,6 +18,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     ReactiveFormsModule,
     SpinnerModule,
     AppRoutingModule,
+    TranslateModule,
   ],
 })
 export class DialogsModule {}

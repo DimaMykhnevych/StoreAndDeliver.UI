@@ -1,19 +1,19 @@
-<h1 mat-dialog-title>Sign In</h1>
+<h1 mat-dialog-title>{{ "common.signin" | translate }}</h1>
 <div mat-dialog-content>
   <form [formGroup]="form">
     <div class="row">
       <div class="col-lg-12 col-12">
         <mat-form-field>
-          <mat-label>Username</mat-label>
+          <mat-label>{{ "common.userName" | translate }}</mat-label>
           <input
             matInput
             type="text"
             formControlName="userName"
-            placeholder="username"
+            placeholder="{{ 'common.userName' | translate }}"
             required
           />
           <mat-error *ngIf="userName?.invalid && userName?.touched">
-            Username is required
+            {{ "validation.userNameRequired" | translate }}
           </mat-error>
         </mat-form-field>
       </div>
@@ -21,30 +21,32 @@
     <div class="row">
       <div class="col-lg-12 col-12">
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>{{ "common.password" | translate }}</mat-label>
           <input
             matInput
             type="password"
             formControlName="password"
-            placeholder="password"
+            placeholder="{{ 'common.password' | translate }}"
             required
           />
           <mat-error *ngIf="password?.invalid && password?.touched">
-            Password is required
+            {{ "validation.passwordRequired" | translate }}
           </mat-error>
         </mat-form-field>
       </div>
     </div>
   </form>
   <div *ngIf="isInvalidCredentials()" class="alert alert-danger">
-    Username or password is invalid
+    {{ "login.usernameOrPasswordInvalid" | translate }}
   </div>
   <div *ngIf="isEmailConfirmationRequired()" class="alert alert-danger">
-    Email confirmation is required
+    {{ "login.emailConfirmationRequired" | translate }}
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close="yes">Close</button>
+  <button mat-button mat-dialog-close="yes">
+    {{ "common.close" | translate }}
+  </button>
   <button
     type="submit"
     mat-button
@@ -52,6 +54,6 @@
     (click)="onLoginButtonClick()"
   >
     <app-spinner *ngIf="isLoggingIn" [diameter]="25"></app-spinner>
-    <span *ngIf="!isLoggingIn">Log In</span>
+    <span *ngIf="!isLoggingIn">{{ "common.login" | translate }}</span>
   </button>
 </div>
