@@ -33,7 +33,9 @@
         "clickToLogin": "Click here to log in"
     },
     "navbar": {
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "createRequest": "Cargo delivery",
+        "aboutUs": "About Us"
     },
     "toastrs": {
         "registration": "You are registered successfully. Confirmation email was send to "

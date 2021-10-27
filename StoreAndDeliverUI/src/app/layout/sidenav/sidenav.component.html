@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="main">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      opened
+      [ngStyle]="{ 'width.em': sidenavWidth }"
+      (mouseenter)="increase()"
+      (mouseleave)="decrease()"
+      class="sidenav"
+    >
+      <mat-nav-list>
+        <mat-list-item routerLink="/dashboard" routerLinkActive="active">
+          <mat-icon class="mr-2" aria-hidden="false" aria-label="Home icon"
+            >dashboard</mat-icon
+          >
+          <div fxFlex="10"></div>
+          <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+            <h3>{{ "navbar.dashboard" | translate }}</h3>
+          </div>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/create-request" routerLinkActive="active">
+          <i class="fa fa-truck" aria-hidden="false"></i>
+          <div fxFlex="10"></div>
+          <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+            <h3 class="ml-2">{{ "navbar.createRequest" | translate }}</h3>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -16,6 +16,8 @@ import { EmailConfirmationModule } from './features/email-confirmation/email-con
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './layout/navbar/navbar.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
+import { CargoRequestsModule } from './features/cargo-requests/cargo-requests.module';
+import { SidenavModule } from './layout/sidenav/sidenav.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +42,9 @@ import { DashboardModule } from './features/dashboard/dashboard.module';
     RouterModule,
     NavbarModule,
     DashboardModule,
+    CargoRequestsModule,
     EmailConfirmationModule,
+    SidenavModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
