@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,12 +12,18 @@ export class SidenavComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  increase() {
-    this.sidenavWidth = 15;
-    console.log('increase sidenav width');
+  increase(sidenav: MatSidenav) {
+    sidenav.close();
+    setTimeout(() => {
+      sidenav.open();
+      this.sidenavWidth = 20;
+    });
   }
-  decrease() {
-    this.sidenavWidth = 4;
-    console.log('decrease sidenav width');
+  decrease(sidenav: MatSidenav) {
+    sidenav.close();
+    setTimeout(() => {
+      sidenav.open();
+      this.sidenavWidth = 4;
+    });
   }
 }
