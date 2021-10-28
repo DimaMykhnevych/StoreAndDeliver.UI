@@ -25,7 +25,8 @@
         "emailRequired": "Email is required",
         "invalidEmail": "Not a valid email",
         "passwordRequired": "Password is required",
-        "confirmPasswordRequired": "Confirm password is required"
+        "confirmPasswordRequired": "Confirm password is required",
+        "requiredField": "This field is required"
     },
     "emailConfirmation": {
         "emailConfirmation": "Email Confirmation",
@@ -39,6 +40,26 @@
     },
     "toastrs": {
         "registration": "You are registered successfully. Confirmation email was send to "
+    },
+    "cargoRequest":{
+        "header": "Create a request for the transportaion or storage of cargo",
+        "reviewRequests": "Review my requests",
+        "requestType": "Request Type",
+        "requestDetails": "Request Details",
+        "cargoDetails": "Cargo Details",
+        "cargoTransportation": "Cargo Transportation",
+        "cargoStorage": "Cargo Storage",
+        "country": "Country",
+        "city": "City",
+        "street": "Street",
+        "fromAddress": "From Address",
+        "toAddress": "To Address",
+        "requiredDates": "Required Dates",
+        "deliverCargoBy": "Deliver the cargo by",
+        "storeFromDate": "Store cargo from date",
+        "storeByDate": "Store cargo by date",
+        "securityMode": "Security Mode",
+        "securityModeToolTip": "Check this if you want to enable additional security mode for cargo storing"
     },
     "common": {
         "signin": "Sign In",

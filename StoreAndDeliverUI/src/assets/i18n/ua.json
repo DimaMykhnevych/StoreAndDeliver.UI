@@ -25,7 +25,8 @@
         "emailRequired": "Електронна адреса обов’язкова",
         "invalidEmail": "Електронна адреса невірна",
         "passwordRequired": "Пароль обов'язковий",
-        "confirmPasswordRequired": "Підтвердження паролю обов'язкове"
+        "confirmPasswordRequired": "Підтвердження паролю обов'язкове",
+        "requiredField": "Це поле обов'язкове"
     },
     "emailConfirmation": {
         "emailConfirmation": "Підтвердження електронною поштою",
@@ -39,6 +40,26 @@
     },
     "toastrs": {
         "registration": "Ви успішно зареєстровані. Лист-підтвердження надіслано на адресу "
+    },
+    "cargoRequest":{
+        "header": "Створити заяву на перевезення або збереження вантажу",
+        "reviewRequests": "Переглянути мої заяви",
+        "requestType": "Тип звяви",
+        "requestDetails": "Деталі заяви",
+        "cargoDetails": "Деталі вантажу",
+        "cargoTransportation": "Перевезення вантажу",
+        "cargoStorage": "Зберігання вантажу",
+        "country": "Країна",
+        "city": "Місто",
+        "street": "Вулиця",
+        "fromAddress": "Перевезти з",
+        "toAddress": "Адреса доставки",
+        "requiredDates": "Необхідні дати",
+        "deliverCargoBy": "Доставити груз до",
+        "storeFromDate": "Зберігати груз з",
+        "storeByDate": "Зберігати груз по",
+        "securityMode": "Режим додаткової охорони",
+        "securityModeToolTip": "Виберіть, якщо хочете додати режим додаткової охорони під час зберігання вантажу"
     },
     "common": {
         "signin": "Увійти",

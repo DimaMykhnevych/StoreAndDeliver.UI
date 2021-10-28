@@ -11,3 +11,20 @@ body {
   margin: 0;
   // font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: rgb(58, 68, 58);
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  color: rgb(58, 68, 58);
+  background-color: rgb(58, 68, 58);
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgb(255, 37, 37, 0.26);
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: rgb(58, 68, 58);
+}
