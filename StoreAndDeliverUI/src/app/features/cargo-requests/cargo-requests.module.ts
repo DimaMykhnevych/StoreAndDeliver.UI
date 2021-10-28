@@ -11,6 +11,8 @@ import { RequestTypeFormContainerComponent } from './containers/request-type-for
 import { RequestDetailsFormContainerComponent } from './containers/request-details-form-container/request-details-form-container.component';
 import { RequestDetailsFormComponent } from './forms/request-details-form/request-details-form.component';
 import { AddressFormComponent } from './forms/address-form/address-form.component';
+import { CargoFormComponent } from './forms/cargo-form/cargo-form.component';
+import { CargoFormContainerComponent } from './containers/cargo-form-container/cargo-form-container.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { AddressFormComponent } from './forms/address-form/address-form.componen
     RequestDetailsFormContainerComponent,
     RequestDetailsFormComponent,
     AddressFormComponent,
+    CargoFormComponent,
+    CargoFormContainerComponent,
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth';
 import { CurrentUserService } from 'src/app/core/permission/services';
 
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private router: Router,
-    private _userService: CurrentUserService
+    private _userService: CurrentUserService,
+    private _translate: TranslateService
   ) {}
 
   public ngOnInit(): void {
@@ -23,5 +25,11 @@ export class NavbarComponent implements OnInit {
   public OnLogOutButtonCLick(): void {
     this._authService.unauthorize();
     this.router.navigate(['/home']);
+  }
+
+  public onLanguageClick(language: string): void {
+    this._translate.setDefaultLang(language);
+    this._translate.use(language);
+    localStorage.setItem('language', language);
   }
 }

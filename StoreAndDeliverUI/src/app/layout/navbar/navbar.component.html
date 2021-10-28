@@ -20,7 +20,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavId">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav mr-auto mt-lg-0">
       <li class="nav-item">
         <a
           class="nav-link"
@@ -29,6 +29,24 @@
           routerLinkActive="active current"
           >{{ "navbar.aboutUs" | translate }}</a
         >
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" (click)="onLanguageClick('ua')">
+          <img
+            src="assets/images/ukraine.png"
+            class="img"
+            alt="ukraine"
+            width="30px"
+        /></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" (click)="onLanguageClick('en')"
+          ><img src="assets/images/usa.png" class="img" alt="USA" width="30px"
+        /></a>
       </li>
     </ul>
     <ul class="navbar-nav">

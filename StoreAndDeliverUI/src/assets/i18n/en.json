@@ -59,7 +59,14 @@
         "storeFromDate": "Store cargo from date",
         "storeByDate": "Store cargo by date",
         "securityMode": "Security Mode",
-        "securityModeToolTip": "Check this if you want to enable additional security mode for cargo storing"
+        "securityModeToolTip": "Check this if you want to enable additional security mode for cargo storing",
+        "addCargo": "Add Cargo",
+        "weight": "Weight",
+        "amount": "Amount",
+        "length": "Length",
+        "height": "Height",
+        "description": "Description",
+        "width": "Width"
     },
     "common": {
         "signin": "Sign In",
@@ -70,6 +77,8 @@
         "email": "Email",
         "password": "Password",
         "confirmPassword": "Confirm Password",
-        "close": "Close"
+        "close": "Close",
+        "cargo": "Cargo",
+        "delete": "Delete"
     }
 }

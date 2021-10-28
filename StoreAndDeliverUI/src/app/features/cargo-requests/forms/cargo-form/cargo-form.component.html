@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-lg-12 d-flex">
+    <button mat-raised-button color="primary" (click)="onAddCargoClick()">
+      {{ "cargoRequest.addCargo" | translate }}
+    </button>
+  </div>
+</div>
+<form [formGroup]="form">
+  <div formArrayName="cargo" class="container-fluid p-3 d-flex flex-column">
+    <div
+      *ngFor="let route of cargo.controls; let i = index"
+      [formGroupName]="i"
+      class="cargo-wrapper p-2 mr-2 mb-2"
+    >
+      <div class="row">
+        <div class="d-flex p-3">
+          {{ "common.cargo" | translate }} №{{ i + 1 }}
+        </div>
+        <div>
+          <button
+            *ngIf="i != 0"
+            class="m-3"
+            mat-raised-button
+            (click)="onDeleteCargoClick(i)"
+          >
+            {{ "common.delete" | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-8 col-12">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ "cargoRequest.weight" | translate }}</mat-label>
+            <input
+              formControlName="weight"
+              required
+              matInput
+              type="number"
+              min="0"
+            />
+            <mat-error
+              *ngIf="
+                getCurrentFormControl(i, 'weight')?.touched &&
+                getCurrentFormControl(i, 'weight')?.invalid
+              "
+              >{{ "validation.requiredField" | translate }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ "cargoRequest.amount" | translate }}</mat-label>
+            <input
+              formControlName="amount"
+              required
+              matInput
+              type="number"
+              min="0"
+            />
+            <mat-error
+              *ngIf="
+                getCurrentFormControl(i, 'amount')?.touched &&
+                getCurrentFormControl(i, 'amount')?.invalid
+              "
+              >{{ "validation.requiredField" | translate }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ "cargoRequest.length" | translate }}</mat-label>
+            <input
+              formControlName="length"
+              required
+              matInput
+              type="number"
+              min="0"
+            />
+            <mat-error
+              *ngIf="
+                getCurrentFormControl(i, 'length')?.touched &&
+                getCurrentFormControl(i, 'length')?.invalid
+              "
+              >{{ "validation.requiredField" | translate }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <mat-form-field appearance="fill" [style.width.px]="185">
+            <mat-label>{{ "cargoRequest.width" | translate }}</mat-label>
+            <input
+              formControlName="width"
+              required
+              matInput
+              type="number"
+              min="0"
+            />
+            <mat-error
+              *ngIf="
+                getCurrentFormControl(i, 'width')?.touched &&
+                getCurrentFormControl(i, 'width')?.invalid
+              "
+              >{{ "validation.requiredField" | translate }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ "cargoRequest.height" | translate }}</mat-label>
+            <input
+              formControlName="height"
+              required
+              matInput
+              type="number"
+              min="0"
+            />
+            <mat-error
+              *ngIf="
+                getCurrentFormControl(i, 'height')?.touched &&
+                getCurrentFormControl(i, 'height')?.invalid
+              "
+              >{{ "validation.requiredField" | translate }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ "cargoRequest.description" | translate }}</mat-label>
+            <textarea
+              formControlName="description"
+              required
+              matInput
+            ></textarea>
+            <mat-error
+              *ngIf="
+                getCurrentFormControl(i, 'description')?.touched &&
+                getCurrentFormControl(i, 'description')?.invalid
+              "
+              >{{ "validation.requiredField" | translate }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
