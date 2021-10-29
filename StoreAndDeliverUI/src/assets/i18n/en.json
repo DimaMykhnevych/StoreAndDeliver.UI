@@ -47,6 +47,7 @@
         "requestType": "Request Type",
         "requestDetails": "Request Details",
         "cargoDetails": "Cargo Details",
+        "indicatorsSettings": "Indicators Settings",
         "cargoTransportation": "Cargo Transportation",
         "cargoStorage": "Cargo Storage",
         "country": "Country",

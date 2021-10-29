@@ -13,6 +13,8 @@ import { RequestDetailsFormComponent } from './forms/request-details-form/reques
 import { AddressFormComponent } from './forms/address-form/address-form.component';
 import { CargoFormComponent } from './forms/cargo-form/cargo-form.component';
 import { CargoFormContainerComponent } from './containers/cargo-form-container/cargo-form-container.component';
+import { IndicatorsSetupContainerComponent } from './containers/indicators-setup-container/indicators-setup-container.component';
+import { IndicatorsSetupFormComponent } from './forms/indicators-setup-form/indicators-setup-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CargoFormContainerComponent } from './containers/cargo-form-container/c
     AddressFormComponent,
     CargoFormComponent,
     CargoFormContainerComponent,
+    IndicatorsSetupContainerComponent,
+    IndicatorsSetupFormComponent,
   ],
   imports: [
     CommonModule,

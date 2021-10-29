@@ -47,6 +47,7 @@
         "requestType": "Тип звяви",
         "requestDetails": "Деталі заяви",
         "cargoDetails": "Деталі вантажу",
+        "indicatorsSettings": "Налаштування показників",
         "cargoTransportation": "Перевезення вантажу",
         "cargoStorage": "Зберігання вантажу",
         "country": "Країна",
