@@ -1,3 +1,20 @@
 <div class="main p-3">
-  <app-request-details-form></app-request-details-form>
+  <h3 class="mb-0">{{ "cargoRequest.fromAddress" | translate }}</h3>
+  <app-address-form
+    #fromAddressForm
+    (valueChanges)="onFromAddressValueChanges()"
+    [address]="request.fromAddress!"
+  ></app-address-form>
+  <h3 class="mb-0">{{ "cargoRequest.toAddress" | translate }}</h3>
+  <app-address-form
+    #toAddressForm
+    (valueChanges)="onToAddressValueChanges()"
+    [address]="request.toAddress!"
+  ></app-address-form>
+  <h3 class="mb-1">{{ "cargoRequest.requiredDates" | translate }}</h3>
+  <app-request-details-form
+    #requestDetails
+    (valueChanges)="onDetailsValueChanges()"
+    [request]="request"
+  ></app-request-details-form>
 </div>

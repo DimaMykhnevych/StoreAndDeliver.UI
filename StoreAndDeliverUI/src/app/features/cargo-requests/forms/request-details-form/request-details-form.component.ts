@@ -1,30 +1,70 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Request } from 'src/app/core/models/request';
 
 @Component({
   selector: 'app-request-details-form',
   templateUrl: './request-details-form.component.html',
   styleUrls: ['./request-details-form.component.scss'],
 })
-export class RequestDetailsFormComponent implements OnInit {
+export class RequestDetailsFormComponent implements OnInit, OnDestroy {
+  @Output() public valueChanges: EventEmitter<void> = new EventEmitter<void>();
   public form: FormGroup = this._builder.group({});
+  private _destroy$: Subject<void> = new Subject<void>();
+  @Input() public set request(r: Request) {
+    this._request = r;
+  }
+  public get request(): Request {
+    return this._request;
+  }
+  public _request: Request = null as any;
 
   constructor(private _builder: FormBuilder) {}
 
   public ngOnInit(): void {
     this.initializeForm();
+    this.subscribeOnFormValueChanges();
+  }
+
+  public ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 
   private initializeForm(): void {
     this.form = this._builder.group({
-      carryOutBefore: new FormControl('', [Validators.required]),
-      storeFromDate: new FormControl('', [Validators.required]),
-      storeUntilDate: new FormControl('', [Validators.required]),
+      carryOutBefore: new FormControl(this._request?.carryOutBefore, [
+        Validators.required,
+      ]),
+      storeFromDate: new FormControl(this._request?.storeFromDate, [
+        Validators.required,
+      ]),
+      storeUntilDate: new FormControl(this._request?.storeUntilDate, [
+        Validators.required,
+      ]),
+      isSecurityModeEnabled: new FormControl(
+        this._request?.isSecurityModeEnabled
+      ),
+    });
+  }
+
+  private subscribeOnFormValueChanges(): void {
+    this.form.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(() => {
+      this.valueChanges.emit();
     });
   }
 
@@ -38,5 +78,8 @@ export class RequestDetailsFormComponent implements OnInit {
 
   get storeUntilDate() {
     return this.form.get('storeUntilDate');
+  }
+  get isSecurityModeEnabled() {
+    return this.form.get('isSecurityModeEnabled');
   }
 }

@@ -1,3 +1,7 @@
 <div class="main p-3">
-  <app-request-type-form></app-request-type-form>
+  <app-request-type-form
+    #requestTypeForm
+    (valueChanges)="onValueChanges()"
+    [request]="request"
+  ></app-request-type-form>
 </div>
