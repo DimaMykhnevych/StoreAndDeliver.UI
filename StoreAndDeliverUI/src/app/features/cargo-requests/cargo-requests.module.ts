@@ -15,6 +15,7 @@ import { CargoFormComponent } from './forms/cargo-form/cargo-form.component';
 import { CargoFormContainerComponent } from './containers/cargo-form-container/cargo-form-container.component';
 import { IndicatorsSetupContainerComponent } from './containers/indicators-setup-container/indicators-setup-container.component';
 import { IndicatorsSetupFormComponent } from './forms/indicators-setup-form/indicators-setup-form.component';
+import { IndicatorItemFormComponent } from './forms/indicator-item-form/indicator-item-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { IndicatorsSetupFormComponent } from './forms/indicators-setup-form/indi
     CargoFormContainerComponent,
     IndicatorsSetupContainerComponent,
     IndicatorsSetupFormComponent,
+    IndicatorItemFormComponent,
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Cargo } from 'src/app/core/models/cargo';
 import { Request } from 'src/app/core/models/request';
+import { CargoAddModel } from './models/cargo-add-model';
 
 @Component({
   selector: 'app-cargo-requests',
@@ -8,6 +10,7 @@ import { Request } from 'src/app/core/models/request';
 })
 export class CargoRequestsComponent implements OnInit {
   public request: Request = {};
+  public cargo: CargoAddModel = {};
   constructor() {}
 
   public ngOnInit(): void {}

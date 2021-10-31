@@ -14,6 +14,7 @@ import {
 } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { RequestType } from 'src/app/core/enums/request-type';
 import { Request } from 'src/app/core/models/request';
 
 @Component({
@@ -43,6 +44,10 @@ export class RequestDetailsFormComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this._destroy$.next();
     this._destroy$.complete();
+  }
+
+  public isStoreRequest(): boolean {
+    return this._request?.requestType == RequestType.Store;
   }
 
   private initializeForm(): void {

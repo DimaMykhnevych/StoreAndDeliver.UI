@@ -22,14 +22,18 @@
       <mat-tab label="{{ 'cargoRequest.cargoDetails' | translate }}">
         <div class="mt-3">
           <ng-template matTabContent>
-            <app-cargo-form-container></app-cargo-form-container>
+            <app-cargo-form-container
+              [cargo]="cargo"
+            ></app-cargo-form-container>
           </ng-template>
         </div>
       </mat-tab>
       <mat-tab label="{{ 'cargoRequest.indicatorsSettings' | translate }}">
         <div class="mt-3">
           <ng-template matTabContent>
-            <app-indicators-setup-container></app-indicators-setup-container>
+            <app-indicators-setup-container
+              [cargo]="cargo"
+            ></app-indicators-setup-container>
           </ng-template>
         </div>
       </mat-tab>

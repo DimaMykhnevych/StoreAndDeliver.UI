@@ -1,1 +1,16 @@
-<p>indicators-setup-form works!</p>
+<div class="container">
+  <form>
+    <div class="container-fluid p-3 d-flex flex-row">
+      <div
+        *ngFor="let cargo of initialCargo.cargo; let i = index"
+        class="setting-wrapper p-2 mr-2 mb-2"
+      >
+        <app-indicator-item-form
+          [cargoSettings]="cargo.settings"
+          [environmentSettings]="environmentSettings"
+          [cargoNumber]="i"
+        ></app-indicator-item-form>
+      </div>
+    </div>
+  </form>
+</div>

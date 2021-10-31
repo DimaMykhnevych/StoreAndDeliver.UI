@@ -1,3 +1,7 @@
 <div class="main p-3">
-  <app-cargo-form></app-cargo-form>
+  <app-cargo-form
+    #cargoForm
+    [initialCargo]="cargo"
+    (valueChanges)="onValueChanges()"
+  ></app-cargo-form>
 </div>
