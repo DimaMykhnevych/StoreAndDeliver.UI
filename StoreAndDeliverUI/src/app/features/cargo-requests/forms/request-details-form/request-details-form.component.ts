@@ -52,19 +52,20 @@ export class RequestDetailsFormComponent implements OnInit, OnDestroy {
 
   private initializeForm(): void {
     this.form = this._builder.group({
-      carryOutBefore: new FormControl(this._request?.carryOutBefore, [
-        Validators.required,
-      ]),
-      storeFromDate: new FormControl(this._request?.storeFromDate, [
-        Validators.required,
-      ]),
-      storeUntilDate: new FormControl(this._request?.storeUntilDate, [
-        Validators.required,
-      ]),
+      carryOutBefore: new FormControl(this._request?.carryOutBefore),
+      storeFromDate: new FormControl(this._request?.storeFromDate),
+      storeUntilDate: new FormControl(this._request?.storeUntilDate),
       isSecurityModeEnabled: new FormControl(
         this._request?.isSecurityModeEnabled
       ),
     });
+
+    if (this.isStoreRequest()) {
+      this.storeFromDate?.setValidators([Validators.required]);
+      this.storeUntilDate?.setValidators([Validators.required]);
+    } else {
+      this.carryOutBefore?.setValidators([Validators.required]);
+    }
   }
 
   private subscribeOnFormValueChanges(): void {

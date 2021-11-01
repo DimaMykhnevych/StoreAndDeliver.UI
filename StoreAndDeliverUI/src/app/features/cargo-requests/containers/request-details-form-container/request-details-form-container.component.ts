@@ -10,7 +10,7 @@ import { RequestDetailsFormComponent } from '../../forms/request-details-form/re
 })
 export class RequestDetailsFormContainerComponent implements OnInit {
   @ViewChild('requestDetails')
-  public requestTypeForm: RequestDetailsFormComponent = null as any;
+  public requestDetialsForm: RequestDetailsFormComponent = null as any;
   @ViewChild('fromAddressForm')
   public fromAddressForm: AddressFormComponent = null as any;
   @ViewChild('toAddressForm')
@@ -26,15 +26,23 @@ export class RequestDetailsFormContainerComponent implements OnInit {
 
   public ngOnInit(): void {}
 
+  public isFormValid(): boolean {
+    return (
+      this.fromAddressForm?.form?.valid &&
+      this.toAddressForm?.form?.valid &&
+      this.requestDetialsForm?.form?.valid
+    );
+  }
+
   public onDetailsValueChanges(): void {
     this._request.carryOutBefore =
-      this.requestTypeForm?.form.value.carryOutBefore;
+      this.requestDetialsForm?.form.value.carryOutBefore;
     this._request.storeFromDate =
-      this.requestTypeForm?.form.value.storeFromDate;
+      this.requestDetialsForm?.form.value.storeFromDate;
     this._request.storeUntilDate =
-      this.requestTypeForm?.form.value.storeUntilDate;
+      this.requestDetialsForm?.form.value.storeUntilDate;
     this._request.isSecurityModeEnabled =
-      this.requestTypeForm?.form.value.isSecurityModeEnabled;
+      this.requestDetialsForm?.form.value.isSecurityModeEnabled;
   }
 
   public onFromAddressValueChanges(): void {

@@ -27,8 +27,8 @@ export class IndicatorsSetupContainerComponent implements OnInit {
     this.getEnvironmentSettings();
   }
 
-  public onValueChanges(): void {
-    // this._cargo[0].settings = this.indicatorsSetupForm.form.value?.settings;
+  public isFormValid(): boolean {
+    return this.indicatorsSetupForm.indicatorItemForm.form.valid;
   }
 
   private getEnvironmentSettings(): void {

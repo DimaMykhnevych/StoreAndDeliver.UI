@@ -47,7 +47,7 @@ export class RequestTypeFormComponent implements OnInit, OnDestroy {
 
   private initializeForm(): void {
     this.form = this._builder.group({
-      requestType: new FormControl(this._request?.requestType, [
+      requestType: new FormControl(this._request?.requestType || '0', [
         Validators.required,
       ]),
     });

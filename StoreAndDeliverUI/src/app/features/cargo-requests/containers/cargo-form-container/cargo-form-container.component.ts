@@ -28,4 +28,8 @@ export class CargoFormContainerComponent implements OnInit {
       this._cargo.cargo[i].settings = currentCargoCopy[i].settings;
     }
   }
+
+  public isFormValid(): boolean {
+    return this.cargoForm?.form?.valid;
+  }
 }
