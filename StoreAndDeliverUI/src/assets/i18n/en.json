@@ -67,7 +67,8 @@
         "length": "Length",
         "height": "Height",
         "description": "Description",
-        "width": "Width"
+        "width": "Width",
+        "addSetting": "Add Setting"
     },
     "common": {
         "signin": "Sign In",
@@ -80,6 +81,11 @@
         "confirmPassword": "Confirm Password",
         "close": "Close",
         "cargo": "Cargo",
-        "delete": "Delete"
+        "delete": "Delete",
+        "next": "Next", 
+        "back": "Back",
+        "setting": "Setting",
+        "minValue": "Min Value",
+        "maxValue": "Max Value"
     }
 }

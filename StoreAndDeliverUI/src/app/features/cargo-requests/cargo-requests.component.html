@@ -2,12 +2,20 @@
   <h2>{{ "cargoRequest.header" | translate }}</h2>
   <a href="#">{{ "cargoRequest.reviewRequests" | translate }}</a>
   <div class="container-fluid d-flex justify-content-center m-1 w-100">
-    <mat-tab-group class="w-100" dynamicHeight>
+    <mat-tab-group class="w-100" dynamicHeight #tabGroup>
       <mat-tab label="{{ 'cargoRequest.requestType' | translate }}">
         <div class="mt-3">
           <app-request-type-form-container
             [request]="request"
           ></app-request-type-form-container>
+          <button
+            class="m-2"
+            color="primary"
+            mat-raised-button
+            (click)="onNavigateTabButtonClick(tabGroup, true)"
+          >
+            {{ "common.next" | translate }}
+          </button>
         </div>
       </mat-tab>
       <mat-tab label="{{ 'cargoRequest.requestDetails' | translate }}">
@@ -16,6 +24,20 @@
             <app-request-details-form-container
               [request]="request"
             ></app-request-details-form-container>
+            <button
+              class="m-2"
+              mat-raised-button
+              (click)="onNavigateTabButtonClick(tabGroup, false)"
+            >
+              {{ "common.back" | translate }}
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onNavigateTabButtonClick(tabGroup, true)"
+            >
+              {{ "common.next" | translate }}
+            </button>
           </ng-template>
         </div>
       </mat-tab>
@@ -25,6 +47,20 @@
             <app-cargo-form-container
               [cargo]="cargo"
             ></app-cargo-form-container>
+            <button
+              class="m-2"
+              mat-raised-button
+              (click)="onNavigateTabButtonClick(tabGroup, false)"
+            >
+              {{ "common.back" | translate }}
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onNavigateTabButtonClick(tabGroup, true)"
+            >
+              {{ "common.next" | translate }}
+            </button>
           </ng-template>
         </div>
       </mat-tab>
@@ -34,6 +70,13 @@
             <app-indicators-setup-container
               [cargo]="cargo"
             ></app-indicators-setup-container>
+            <button
+              class="m-2"
+              mat-raised-button
+              (click)="onNavigateTabButtonClick(tabGroup, false)"
+            >
+              {{ "common.back" | translate }}
+            </button>
           </ng-template>
         </div>
       </mat-tab>
