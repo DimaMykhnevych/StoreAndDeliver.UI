@@ -1,7 +1,5 @@
-import { Cargo } from 'src/app/core/models/cargo';
-import { CargoSetting } from 'src/app/core/models/cargo-setting';
+import { AddCargoWithSettings } from './add-cargo-settings-model';
 
 export interface CargoAddModel {
-  cargo?: Cargo[];
-  // settings?: CargoSetting[];
+  cargo: AddCargoWithSettings[];
 }

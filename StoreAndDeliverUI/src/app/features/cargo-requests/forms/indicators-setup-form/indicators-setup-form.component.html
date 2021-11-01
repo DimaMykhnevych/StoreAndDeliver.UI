@@ -1,16 +1,28 @@
 <div class="container">
   <form>
-    <div class="container-fluid p-3 d-flex flex-row">
-      <div
-        *ngFor="let cargo of initialCargo.cargo; let i = index"
-        class="setting-wrapper p-2 mr-2 mb-2"
-      >
-        <app-indicator-item-form
-          [cargoSettings]="cargo.settings"
-          [environmentSettings]="environmentSettings"
-          [cargoNumber]="i"
-        ></app-indicator-item-form>
+    <div class="container-fluid p-3 d-flex flex-column">
+      <div class="cargo-wrapper mb-3">
+        <div
+          *ngFor="let cargo of initialCargo.cargo; let i = index"
+          class="p-2 mr-2 mb-2"
+        >
+          <div>
+            <span
+              class="cargo-item"
+              [class.selected]="selectedIndex == i"
+              (click)="onCargoItemClick(i)"
+              >{{ "common.cargo" | translate }} №{{ i + 1 }}</span
+            >
+          </div>
+        </div>
       </div>
+      <app-indicator-item-form
+        #indicatorItemForm
+        (valueChanges)="onIndicatorSettingValueChanges()"
+        class="setting-wrapper"
+        [cargoSettings]="initialCargo.cargo[selectedIndex]?.settings || []"
+        [environmentSettings]="environmentSettings"
+      ></app-indicator-item-form>
     </div>
   </form>
 </div>

@@ -5,6 +5,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  ViewChild,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -19,6 +20,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CargoSetting } from 'src/app/core/models/cargo-setting';
 import { EnvironmentSetting } from 'src/app/core/models/environment-setting';
 import { CargoAddModel } from '../../models/cargo-add-model';
+import { IndicatorItemFormComponent } from '../indicator-item-form/indicator-item-form.component';
 
 @Component({
   selector: 'app-indicators-setup-form',
@@ -26,11 +28,11 @@ import { CargoAddModel } from '../../models/cargo-add-model';
   styleUrls: ['./indicators-setup-form.component.scss'],
 })
 export class IndicatorsSetupFormComponent implements OnInit, OnDestroy {
+  @ViewChild('indicatorItemForm')
+  public indicatorItemForm: IndicatorItemFormComponent = null as any;
   @Output() public valueChanges: EventEmitter<void> = new EventEmitter<void>();
-  // public form: FormGroup = this._builder.group({});
   @Input() public set initialCargo(r: CargoAddModel) {
     this._cargo = r;
-    this.initializeForm(r);
     this.subscribeOnFormValueChanges();
   }
   public get initialCargo(): CargoAddModel {
@@ -46,14 +48,24 @@ export class IndicatorsSetupFormComponent implements OnInit, OnDestroy {
   private _cargo: CargoAddModel = null as any;
   private _destroy$: Subject<void> = new Subject<void>();
   public formArray = new FormArray([]);
+  public selectedIndex = 0;
 
-  constructor(private _builder: FormBuilder) {}
+  constructor() {}
 
   public ngOnInit(): void {}
 
   public ngOnDestroy(): void {
     this._destroy$.next();
     this._destroy$.complete();
+  }
+
+  public onIndicatorSettingValueChanges(): void {
+    this._cargo.cargo[this.selectedIndex].settings =
+      this.indicatorItemForm.form.value?.settings;
+  }
+
+  public onCargoItemClick(selectedCargoIndex: number): void {
+    this.selectedIndex = selectedCargoIndex;
   }
 
   private subscribeOnFormValueChanges(): void {
@@ -63,6 +75,4 @@ export class IndicatorsSetupFormComponent implements OnInit, OnDestroy {
         this.valueChanges.emit();
       });
   }
-
-  private initializeForm(addModel: CargoAddModel): void {}
 }

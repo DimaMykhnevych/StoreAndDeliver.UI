@@ -2,3 +2,21 @@
   border: 2px solid rgb(58, 68, 58);
   border-radius: 10px;
 }
+
+.cargo-wrapper {
+  height: 100px;
+  overflow-y: scroll;
+  overflow-x: initial;
+}
+
+.cargo-item {
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.selected {
+  background-color: seashell;
+}

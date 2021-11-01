@@ -10,7 +10,7 @@ import { CargoAddModel } from './models/cargo-add-model';
 })
 export class CargoRequestsComponent implements OnInit {
   public request: Request = {};
-  public cargo: CargoAddModel = {};
+  public cargo: CargoAddModel = { cargo: [] };
   constructor() {}
 
   public ngOnInit(): void {}

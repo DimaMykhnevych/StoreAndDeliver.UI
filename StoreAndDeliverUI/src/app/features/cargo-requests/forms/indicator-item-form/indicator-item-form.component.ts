@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -16,13 +16,12 @@ import { EnvironmentSetting } from 'src/app/core/models/environment-setting';
   styleUrls: ['./indicator-item-form.component.scss'],
 })
 export class IndicatorItemFormComponent implements OnInit {
+  @Output() public valueChanges: EventEmitter<void> = new EventEmitter<void>();
   public form: FormGroup = this._builder.group({});
   private _formArray = [this.getFormArrayElement()];
-  @Input() public cargoNumber: number = 0;
   @Input() public set cargoSettings(r: CargoSetting[]) {
     this._cargoSettings = r;
     this.initializeForm(r);
-    // this.subscribeOnFormValueChanges();
   }
   @Input() public set environmentSettings(settings: EnvironmentSetting[]) {
     this._environmentSettings = settings;
@@ -51,7 +50,25 @@ export class IndicatorItemFormComponent implements OnInit {
   }
 
   public onAddSettingClick(): void {
+    if (this._environmentSettings.length === this.settings.length) return;
     this.settings.push(this.getFormArrayElement());
+  }
+
+  public onFocusOut(): void {
+    if (this.form.valid) {
+      this.valueChanges.emit();
+    }
+  }
+
+  public onSelectionChange(): void {
+    if (this.form.valid) {
+      this.valueChanges.emit();
+    }
+  }
+
+  public onDeleteSettingClick(idx: number): void {
+    this.settings.removeAt(idx);
+    this.valueChanges.emit();
   }
 
   private initializeForm(settings: CargoSetting[]): void {
@@ -60,6 +77,8 @@ export class IndicatorItemFormComponent implements OnInit {
       settings.forEach((c) => {
         this._formArray.push(this.getFormArrayElement(c));
       });
+    } else {
+      this._formArray = [this.getFormArrayElement()];
     }
     this.form = this._builder.group({
       settings: this._builder.array(this._formArray),

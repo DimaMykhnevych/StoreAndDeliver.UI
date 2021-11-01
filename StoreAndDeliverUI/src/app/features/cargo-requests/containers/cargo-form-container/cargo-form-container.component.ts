@@ -9,7 +9,7 @@ import { CargoAddModel } from '../../models/cargo-add-model';
 })
 export class CargoFormContainerComponent implements OnInit {
   @ViewChild('cargoForm')
-  public requestTypeForm: CargoFormComponent = null as any;
+  public cargoForm: CargoFormComponent = null as any;
   @Input() public set cargo(r: CargoAddModel) {
     this._cargo = r;
   }
@@ -22,6 +22,10 @@ export class CargoFormContainerComponent implements OnInit {
   public ngOnInit(): void {}
 
   public onValueChanges(): void {
-    this._cargo.cargo = this.requestTypeForm.form.value?.cargo;
+    const currentCargoCopy = this._cargo.cargo;
+    this._cargo.cargo = this.cargoForm.form.value?.cargo;
+    for (let i = 0; i < currentCargoCopy.length; i++) {
+      this._cargo.cargo[i].settings = currentCargoCopy[i].settings;
+    }
   }
 }
