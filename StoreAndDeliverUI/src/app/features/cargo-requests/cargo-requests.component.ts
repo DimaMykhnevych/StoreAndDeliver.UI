@@ -34,6 +34,11 @@ export class CargoRequestsComponent implements OnInit {
     this.navigateToTab(tabGroup, forward);
   }
 
+  public onSubmitButtonClick(): void {
+    console.log(this.request);
+    console.log(this.cargo);
+  }
+
   private navigateToTab(tabGroup: MatTabGroup, forward: boolean): void {
     if (!tabGroup || !(tabGroup instanceof MatTabGroup)) return;
 

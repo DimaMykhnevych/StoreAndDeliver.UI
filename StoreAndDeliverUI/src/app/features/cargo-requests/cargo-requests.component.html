@@ -21,52 +21,48 @@
       </mat-tab>
       <mat-tab label="{{ 'cargoRequest.requestDetails' | translate }}" disabled>
         <div class="mt-3">
-          <ng-template matTabContent>
-            <app-request-details-form-container
-              #requestDetailsForm
-              [request]="request"
-            ></app-request-details-form-container>
-            <button
-              class="m-2"
-              mat-raised-button
-              (click)="onNavigateTabButtonClick(tabGroup, false)"
-            >
-              {{ "common.back" | translate }}
-            </button>
-            <button
-              mat-raised-button
-              color="primary"
-              (click)="onNavigateTabButtonClick(tabGroup, true)"
-              [disabled]="!requestDetailsFormComponent?.isFormValid()"
-            >
-              {{ "common.next" | translate }}
-            </button>
-          </ng-template>
+          <app-request-details-form-container
+            #requestDetailsForm
+            [request]="request"
+          ></app-request-details-form-container>
+          <button
+            class="m-2"
+            mat-raised-button
+            (click)="onNavigateTabButtonClick(tabGroup, false)"
+          >
+            {{ "common.back" | translate }}
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onNavigateTabButtonClick(tabGroup, true)"
+            [disabled]="!requestDetailsFormComponent?.isFormValid()"
+          >
+            {{ "common.next" | translate }}
+          </button>
         </div>
       </mat-tab>
       <mat-tab label="{{ 'cargoRequest.cargoDetails' | translate }}" disabled>
         <div class="mt-3">
-          <ng-template matTabContent>
-            <app-cargo-form-container
-              #cargoForm
-              [cargo]="cargo"
-            ></app-cargo-form-container>
-            <button
-              class="m-2"
-              mat-raised-button
-              (click)="onNavigateTabButtonClick(tabGroup, false)"
-            >
-              {{ "common.back" | translate }}
-            </button>
-            <button
-              mat-raised-button
-              color="primary"
-              (click)="onNavigateTabButtonClick(tabGroup, true)"
-              [disabled]="!cargoFormComponent?.isFormValid()"
-            >
-              {{ "common.next" | translate }}
-            </button>
-          </ng-template>
+          <app-cargo-form-container
+            #cargoForm
+            [cargo]="cargo"
+          ></app-cargo-form-container>
+          <button
+            class="m-2"
+            mat-raised-button
+            (click)="onNavigateTabButtonClick(tabGroup, false)"
+          >
+            {{ "common.back" | translate }}
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onNavigateTabButtonClick(tabGroup, true)"
+            [disabled]="!cargoFormComponent?.isFormValid()"
+          >
+            {{ "common.next" | translate }}
+          </button>
         </div>
       </mat-tab>
       <mat-tab
@@ -74,26 +70,25 @@
         disabled
       >
         <div class="mt-3">
-          <ng-template matTabContent>
-            <app-indicators-setup-container
-              #indicatorsSetupForm
-              [cargo]="cargo"
-            ></app-indicators-setup-container>
-            <button
-              class="m-2"
-              mat-raised-button
-              (click)="onNavigateTabButtonClick(tabGroup, false)"
-            >
-              {{ "common.back" | translate }}
-            </button>
-            <button
-              mat-raised-button
-              color="primary"
-              [disabled]="!indicatorsSetupFormComponent?.isFormValid()"
-            >
-              {{ "common.submit" | translate }}
-            </button>
-          </ng-template>
+          <app-indicators-setup-container
+            #indicatorsSetupForm
+            [cargo]="cargo"
+          ></app-indicators-setup-container>
+          <button
+            class="m-2"
+            mat-raised-button
+            (click)="onNavigateTabButtonClick(tabGroup, false)"
+          >
+            {{ "common.back" | translate }}
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onSubmitButtonClick()"
+            [disabled]="!indicatorsSetupFormComponent?.isFormValid()"
+          >
+            {{ "common.submit" | translate }}
+          </button>
         </div>
       </mat-tab>
     </mat-tab-group>

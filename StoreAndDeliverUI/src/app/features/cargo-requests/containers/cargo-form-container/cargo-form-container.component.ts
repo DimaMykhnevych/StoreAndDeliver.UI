@@ -25,7 +25,7 @@ export class CargoFormContainerComponent implements OnInit {
     const currentCargoCopy = this._cargo.cargo;
     this._cargo.cargo = this.cargoForm.form.value?.cargo;
     for (let i = 0; i < currentCargoCopy.length; i++) {
-      this._cargo.cargo[i].settings = currentCargoCopy[i].settings;
+      this._cargo.cargo[i].settings = currentCargoCopy[i]?.settings;
     }
   }
 
