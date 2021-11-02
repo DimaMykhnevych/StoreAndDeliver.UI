@@ -23,11 +23,6 @@ export class CargoRequestsComponent implements OnInit {
   public cargoFormComponent: CargoFormContainerComponent = null as any;
   @ViewChild('indicatorsSetupForm')
   public indicatorsSetupFormComponent: IndicatorsSetupContainerComponent = null as any;
-  private forms = [
-    this.requestTypeFormComponent,
-    this.cargoFormComponent,
-    this.indicatorsSetupFormComponent,
-  ] as any;
   constructor() {}
 
   public ngOnInit(): void {}
@@ -37,15 +32,6 @@ export class CargoRequestsComponent implements OnInit {
     forward: boolean
   ): void {
     this.navigateToTab(tabGroup, forward);
-  }
-
-  public isTabDisabled(formIndex: number): boolean {
-    for (let i = 0; i <= formIndex; i++) {
-      if (!this.forms[i]?.isFormValid()) {
-        return true;
-      }
-    }
-    return false;
   }
 
   private navigateToTab(tabGroup: MatTabGroup, forward: boolean): void {
