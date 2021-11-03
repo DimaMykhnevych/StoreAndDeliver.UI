@@ -5,7 +5,9 @@ import { CargoFormContainerComponent } from './containers/cargo-form-container/c
 import { IndicatorsSetupContainerComponent } from './containers/indicators-setup-container/indicators-setup-container.component';
 import { RequestDetailsFormContainerComponent } from './containers/request-details-form-container/request-details-form-container.component';
 import { RequestTypeFormContainerComponent } from './containers/request-type-form-container/request-type-form-container.component';
+import { AddRequest } from './models/add-request';
 import { CargoAddModel } from './models/cargo-add-model';
+import { RequestService } from './services/request.service';
 
 @Component({
   selector: 'app-cargo-requests',
@@ -23,7 +25,7 @@ export class CargoRequestsComponent implements OnInit {
   public cargoFormComponent: CargoFormContainerComponent = null as any;
   @ViewChild('indicatorsSetupForm')
   public indicatorsSetupFormComponent: IndicatorsSetupContainerComponent = null as any;
-  constructor() {}
+  constructor(private _requestService: RequestService) {}
 
   public ngOnInit(): void {}
 
@@ -35,8 +37,22 @@ export class CargoRequestsComponent implements OnInit {
   }
 
   public onSubmitButtonClick(): void {
-    console.log(this.request);
-    console.log(this.cargo);
+    const addRequestModel = this.buildRequestAddResult();
+    this._requestService
+      .getRequestTotalSum(addRequestModel)
+      .subscribe((resp) => {
+        console.log(resp);
+      });
+  }
+
+  private buildRequestAddResult(): AddRequest {
+    this.setDefaultRequestValues();
+    const addRequest: AddRequest = {
+      request: this.request,
+      cargo: this.cargo.cargo,
+      currentLanguage: localStorage.getItem('language') || 'en',
+    };
+    return addRequest;
   }
 
   private navigateToTab(tabGroup: MatTabGroup, forward: boolean): void {
@@ -48,5 +64,13 @@ export class CargoRequestsComponent implements OnInit {
     } else {
       tabGroup.selectedIndex = ((tabGroup?.selectedIndex || 0) - 1) % tabCount;
     }
+  }
+
+  private setDefaultRequestValues(): void {
+    this.request.isSecurityModeEnabled =
+      this.request.isSecurityModeEnabled ?? false;
+    this.request.storeFromDate = this.request.storeFromDate ?? new Date();
+    this.request.storeUntilDate = this.request.storeUntilDate ?? new Date();
+    this.request.carryOutBefore = this.request.carryOutBefore ?? new Date();
   }
 }
