@@ -15,6 +15,7 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Address } from 'src/app/core/models/address';
+import { City } from 'src/app/core/models/city';
 
 @Component({
   selector: 'app-address-form',
@@ -23,6 +24,10 @@ import { Address } from 'src/app/core/models/address';
 })
 export class AddressFormComponent implements OnInit, OnDestroy {
   @Output() public valueChanges: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public cityValueChanges: EventEmitter<string> =
+    new EventEmitter<string>();
+  @Output() public countryValueChanges: EventEmitter<string> =
+    new EventEmitter<string>();
   public form: FormGroup = this._builder.group({});
   private _destroy$: Subject<void> = new Subject<void>();
   @Input() public set address(r: Address) {
@@ -31,13 +36,32 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   public get address(): Address {
     return this._address;
   }
-  public _address: Address = null as any;
+  @Input() public set cities(r: City[]) {
+    this._cityNames = r
+      .map((v) => v.cityName)
+      .filter((v, i, a) => a.indexOf(v) === i);
+    this._countryNames = r
+      .map((v) => v.country)
+      .filter((v, i, a) => a.indexOf(v) === i);
+  }
+  public get cityNames(): string[] {
+    return this.city?.value?.length >= 2 ? this._cityNames : [];
+  }
+  public get countryNames(): string[] {
+    return this.country?.value?.length >= 2 ? this._countryNames : [];
+  }
+
+  private _address: Address = null as any;
+  private _cityNames: string[] = [];
+  private _countryNames: string[] = [];
 
   constructor(private _builder: FormBuilder) {}
 
   public ngOnInit(): void {
     this.initializeForm();
     this.subscribeOnFormValueChanges();
+    this.subscribeOnCityChanges();
+    this.subscribeOnCountryChanges();
   }
 
   public ngOnDestroy(): void {
@@ -48,6 +72,18 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   private subscribeOnFormValueChanges(): void {
     this.form.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(() => {
       this.valueChanges.emit();
+    });
+  }
+
+  private subscribeOnCityChanges(): void {
+    this.city?.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(() => {
+      this.cityValueChanges.emit(this.city?.value);
+    });
+  }
+
+  private subscribeOnCountryChanges(): void {
+    this.country?.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(() => {
+      this.countryValueChanges.emit(this.country?.value);
     });
   }
 

@@ -1,7 +1,16 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { City } from 'src/app/core/models/city';
 import { Request } from 'src/app/core/models/request';
 import { AddressFormComponent } from '../../forms/address-form/address-form.component';
 import { RequestDetailsFormComponent } from '../../forms/request-details-form/request-details-form.component';
+import { SearchCity } from '../../models/search-city';
+import { CityService } from '../../services/city.service';
+
+enum SearchItem {
+  City,
+  Country,
+  Other = 100,
+}
 
 @Component({
   selector: 'app-request-details-form-container',
@@ -21,8 +30,11 @@ export class RequestDetailsFormContainerComponent implements OnInit {
   public get request(): Request {
     return this._request;
   }
+  public citiesFromAddress: City[] = [];
+  public citiesToAddress: City[] = [];
+
   public _request: Request = null as any;
-  constructor() {}
+  constructor(private _cityService: CityService) {}
 
   public ngOnInit(): void {}
 
@@ -46,6 +58,58 @@ export class RequestDetailsFormContainerComponent implements OnInit {
   }
 
   public onFromAddressValueChanges(): void {
+    this.bindFromAddressValues();
+  }
+
+  public onToAddressValueChanges(): void {
+    this.bindToAddressValues();
+  }
+
+  public onToAddressCityValueChanges(newCityName: string): void {
+    this.searchLocations(
+      {
+        city: newCityName,
+        country: this.toAddressForm?.country?.value,
+      },
+      false,
+      SearchItem.City
+    );
+  }
+
+  public onToAddressCountryValueChanges(newCountryName: string): void {
+    this.searchLocations(
+      {
+        city: this.toAddressForm?.city?.value,
+        country: newCountryName,
+      },
+      false,
+      SearchItem.Country
+    );
+  }
+
+  public onFromAddressCityValueChanges(newCityName: string): void {
+    this.searchLocations(
+      {
+        city: newCityName,
+        country: this.fromAddressForm?.country?.value,
+      },
+      true,
+      SearchItem.City
+    );
+  }
+
+  public onFromAddressCountryValueChanges(newCountryName: string): void {
+    this.searchLocations(
+      {
+        city: this.fromAddressForm?.city?.value,
+        country: newCountryName,
+      },
+      true,
+      SearchItem.Country
+    );
+  }
+
+  private bindFromAddressValues(): void {
     this._request.fromAddress = {};
     this._request.fromAddress!.city = this.fromAddressForm?.form.value.city;
     this._request.fromAddress!.country =
@@ -53,10 +117,30 @@ export class RequestDetailsFormContainerComponent implements OnInit {
     this._request.fromAddress!.street = this.fromAddressForm?.form.value.street;
   }
 
-  public onToAddressValueChanges(): void {
+  private bindToAddressValues(): void {
     this._request.toAddress = {};
     this._request.toAddress!.city = this.toAddressForm?.form.value.city;
     this._request.toAddress!.country = this.toAddressForm?.form.value.country;
     this._request.toAddress!.street = this.toAddressForm?.form.value.street;
+  }
+
+  private searchLocations(
+    params: SearchCity,
+    isFromAddressCities: boolean,
+    searchItem: SearchItem
+  ): void {
+    if (
+      searchItem === SearchItem.City
+        ? params.city.length >= 2
+        : params.country.length >= 2
+    ) {
+      this._cityService.getCities(params).subscribe((cities) => {
+        if (isFromAddressCities) {
+          this.citiesFromAddress = cities;
+        } else {
+          this.citiesToAddress = cities.filter((v, i, a) => a.indexOf(v) === i);
+        }
+      });
+    }
   }
 }

@@ -3,12 +3,18 @@
   <app-address-form
     #fromAddressForm
     (valueChanges)="onFromAddressValueChanges()"
+    (cityValueChanges)="onFromAddressCityValueChanges($event)"
+    (countryValueChanges)="onFromAddressCountryValueChanges($event)"
+    [cities]="citiesFromAddress"
     [address]="request.fromAddress!"
   ></app-address-form>
   <h3 class="mb-0">{{ "cargoRequest.toAddress" | translate }}</h3>
   <app-address-form
     #toAddressForm
     (valueChanges)="onToAddressValueChanges()"
+    (cityValueChanges)="onToAddressCityValueChanges($event)"
+    (countryValueChanges)="onToAddressCountryValueChanges($event)"
+    [cities]="citiesToAddress"
     [address]="request.toAddress!"
   ></app-address-form>
   <h3 class="mb-1">{{ "cargoRequest.requiredDates" | translate }}</h3>
