@@ -18,5 +18,11 @@
   }
 }
 .selected {
-  background-color: seashell;
+  background-color: rgb(186, 228, 245);
+}
+
+.indicator-item {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
 }

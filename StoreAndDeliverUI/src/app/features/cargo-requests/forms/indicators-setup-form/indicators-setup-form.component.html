@@ -4,13 +4,12 @@
       <div class="cargo-wrapper mb-3">
         <div
           *ngFor="let cargo of initialCargo.cargo; let i = index"
-          class="p-2 mr-2 mb-2"
+          class="indicator-item p-2 mr-2 mb-2"
+          [class.selected]="selectedIndex == i"
+          (click)="onCargoItemClick(i)"
         >
           <div>
-            <span
-              class="cargo-item"
-              [class.selected]="selectedIndex == i"
-              (click)="onCargoItemClick(i)"
+            <span class="cargo-item"
               >{{ "common.cargo" | translate }} №{{ i + 1 }}</span
             >
           </div>
