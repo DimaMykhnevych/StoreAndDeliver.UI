@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
+import { LengthUnit } from 'src/app/core/enums/length-unit';
+import { WeightUnit } from 'src/app/core/enums/weight-unit';
 import { Request } from 'src/app/core/models/request';
 import { CargoFormContainerComponent } from './containers/cargo-form-container/cargo-form-container.component';
 import { IndicatorsSetupContainerComponent } from './containers/indicators-setup-container/indicators-setup-container.component';
@@ -51,6 +53,7 @@ export class CargoRequestsComponent implements OnInit {
       request: this.request,
       cargo: this.cargo.cargo,
       currentLanguage: localStorage.getItem('language') || 'en',
+      units: JSON.parse(localStorage.getItem('units') || JSON.stringify({})),
     };
     return addRequest;
   }
