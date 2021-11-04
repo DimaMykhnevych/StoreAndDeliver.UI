@@ -47,7 +47,7 @@ export class RequestDetailsFormComponent implements OnInit, OnDestroy {
   }
 
   public isStoreRequest(): boolean {
-    return this._request?.requestType == RequestType.Store;
+    return this._request?.type == RequestType.Store;
   }
 
   private initializeForm(): void {

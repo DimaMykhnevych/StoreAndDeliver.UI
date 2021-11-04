@@ -7,7 +7,7 @@ export interface Request {
   carryOutBefore?: Date;
   storeFromDate?: Date;
   storeUntilDate?: Date;
-  requestType?: RequestType;
+  type?: RequestType;
   isSecurityModeEnabled?: boolean;
   totalSum?: number;
   fromAddress?: Address;

@@ -24,8 +24,8 @@ export class RequestTypeFormContainerComponent implements OnInit {
   public ngOnInit(): void {}
 
   public onValueChanges(): void {
-    this._request.requestType =
-      this.requestTypeForm?.form.value.requestType == '0'
+    this._request.type =
+      this.requestTypeForm?.form.value.requestType == '1'
         ? RequestType.Deliver
         : RequestType.Store;
   }
