@@ -1,8 +1,24 @@
-<div class="row">
-  <div class="col-lg-12 d-flex">
+<div class="row d-flex align-items-center justify-content-center">
+  <div class="col-lg-3 col-md-12 col-12">
     <button mat-raised-button color="primary" (click)="onAddCargoClick()">
       {{ "cargoRequest.addCargo" | translate }}
     </button>
+  </div>
+  <div class="col-lg-3 col-md-12 col-12">
+    <app-unit-selection-form
+      [header]="weightHeader"
+      [options]="availableWeightUnits"
+      [unitType]="weightUnitType"
+      [selectedItem]="defaultWeightUnit"
+    ></app-unit-selection-form>
+  </div>
+  <div class="col-lg-3 col-md-12 col-12">
+    <app-unit-selection-form
+      [header]="lengthHeader"
+      [options]="availableLengthUnits"
+      [unitType]="lengthUnitType"
+      [selectedItem]="defaultLengthUnit"
+    ></app-unit-selection-form>
   </div>
 </div>
 <form [formGroup]="form">

@@ -87,6 +87,8 @@
         "setting": "Setting",
         "minValue": "Min Value",
         "maxValue": "Max Value",
-        "submit": "Submit"
+        "submit": "Submit",
+        "weightUnit": "Weight Unit",
+        "lengthUnit": "Length Unit"
     }
 }

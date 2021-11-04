@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>{{ header }}</mat-label>
+    <mat-select formControlName="unit">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ getOptionDisplayName(option) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

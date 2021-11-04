@@ -14,9 +14,13 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AvailableUnits } from 'src/app/core/constants/unit-constants';
+import { UnitType } from 'src/app/core/enums/unit-type';
 import { Cargo } from 'src/app/core/models/cargo';
+import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 import { CargoAddModel } from '../../models/cargo-add-model';
 
 @Component({
@@ -27,6 +31,16 @@ import { CargoAddModel } from '../../models/cargo-add-model';
 export class CargoFormComponent implements OnInit, OnDestroy {
   @Output() public valueChanges: EventEmitter<void> = new EventEmitter<void>();
   public form: FormGroup = this._builder.group({});
+
+  public availableWeightUnits = AvailableUnits.availableWeightUnits;
+  public availableLengthUnits = AvailableUnits.availableLengthUnits;
+  public weightUnitType = UnitType.Weight;
+  public lengthUnitType = UnitType.Length;
+  public weightHeader = '';
+  public lengthHeader = '';
+  public defaultWeightUnit: number = 0;
+  public defaultLengthUnit: number = 0;
+
   private _formArray = [this.getFormArrayElement()];
   private _destroy$: Subject<void> = new Subject<void>();
   @Input() public set initialCargo(r: CargoAddModel) {
@@ -37,11 +51,22 @@ export class CargoFormComponent implements OnInit, OnDestroy {
   public get initialCargo(): CargoAddModel {
     return this._cargo;
   }
-  public _cargo: CargoAddModel = null as any;
+  private _cargo: CargoAddModel = null as any;
 
-  constructor(private _builder: FormBuilder) {}
+  constructor(
+    private _builder: FormBuilder,
+    private _translateService: TranslateService,
+    private _customTranslateService: CustomTranslateService
+  ) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this._translateService.onLangChange
+      .pipe(takeUntil(this._destroy$))
+      .subscribe((resp) => {
+        this.getUnitTypeHeader();
+        this.getDefaultUnit(resp.lang);
+      });
+  }
 
   public ngOnDestroy(): void {
     this._destroy$.next();
@@ -61,6 +86,26 @@ export class CargoFormComponent implements OnInit, OnDestroy {
     controlName: string
   ): AbstractControl | null {
     return this.cargo.controls[index].get(controlName);
+  }
+
+  public getUnitTypeHeader(): void {
+    this._translateService.get('common.weightUnit').subscribe((resp) => {
+      this.weightHeader = resp;
+    });
+    this._translateService.get('common.lengthUnit').subscribe((resp) => {
+      this.lengthHeader = resp;
+    });
+  }
+
+  public getDefaultUnit(language: string): void {
+    this.defaultLengthUnit = this._customTranslateService.getDefaultUnit(
+      UnitType.Length,
+      language
+    );
+    this.defaultWeightUnit = this._customTranslateService.getDefaultUnit(
+      UnitType.Weight,
+      language
+    );
   }
 
   private subscribeOnFormValueChanges(): void {

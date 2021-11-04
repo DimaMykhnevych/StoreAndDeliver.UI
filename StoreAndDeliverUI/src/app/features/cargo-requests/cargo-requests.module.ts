@@ -16,6 +16,7 @@ import { CargoFormContainerComponent } from './containers/cargo-form-container/c
 import { IndicatorsSetupContainerComponent } from './containers/indicators-setup-container/indicators-setup-container.component';
 import { IndicatorsSetupFormComponent } from './forms/indicators-setup-form/indicators-setup-form.component';
 import { IndicatorItemFormComponent } from './forms/indicator-item-form/indicator-item-form.component';
+import { UnitSelectionFormComponent } from './forms/unit-selection-form/unit-selection-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { IndicatorItemFormComponent } from './forms/indicator-item-form/indicato
     IndicatorsSetupContainerComponent,
     IndicatorsSetupFormComponent,
     IndicatorItemFormComponent,
+    UnitSelectionFormComponent,
   ],
   imports: [
     CommonModule,
