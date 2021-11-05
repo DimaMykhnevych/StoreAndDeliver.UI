@@ -89,6 +89,9 @@
         "maxValue": "Max Value",
         "submit": "Submit",
         "weightUnit": "Weight Unit",
-        "lengthUnit": "Length Unit"
+        "lengthUnit": "Length Unit",
+        "temperatureUnit": "Temperature Unit",
+        "humidityUnit": "Humidity Unit",
+        "luminosityUnit": "Luminosity Unit"
     }
 }

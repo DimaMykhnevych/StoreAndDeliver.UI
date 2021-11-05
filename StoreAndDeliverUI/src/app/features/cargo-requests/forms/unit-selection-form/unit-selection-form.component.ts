@@ -13,7 +13,6 @@ import { CustomTranslateService } from 'src/app/core/services/custom-translate.s
 })
 export class UnitSelectionFormComponent implements OnInit {
   public form: FormGroup = this._builder.group({});
-  private selectedUnits: Units = null as any;
   @Input() public header: string = '';
   @Input() public options: any[] = [];
   @Input() public unitType: UnitType = UnitType.Weight;
@@ -53,6 +52,15 @@ export class UnitSelectionFormComponent implements OnInit {
         break;
       case UnitType.Weight:
         currentSelectedUnits.weight = this.unit?.value;
+        break;
+      case UnitType.Temperature:
+        currentSelectedUnits.temperature = this.unit?.value;
+        break;
+      case UnitType.Luminosity:
+        currentSelectedUnits.luminosity = this.unit?.value;
+        break;
+      case UnitType.Humidity:
+        currentSelectedUnits.humidity = this.unit?.value;
         break;
     }
     localStorage.setItem('units', JSON.stringify(currentSelectedUnits));

@@ -15,6 +15,32 @@
           </div>
         </div>
       </div>
+      <div class="row d-flex justify-content-around">
+        <div>
+          <app-unit-selection-form
+            [header]="temperatureHeader"
+            [options]="availableTemperatureUnits"
+            [unitType]="temperatureUnitType"
+            [selectedItem]="defaultTemperatureUnit"
+          ></app-unit-selection-form>
+        </div>
+        <div>
+          <app-unit-selection-form
+            [header]="humidityHeader"
+            [options]="availableHumidityUnitTypes"
+            [unitType]="humidityUnitType"
+            [selectedItem]="defaultHumidityUnit"
+          ></app-unit-selection-form>
+        </div>
+        <div>
+          <app-unit-selection-form
+            [header]="luminosityHeader"
+            [options]="availableLuminosityUnits"
+            [unitType]="luminosityUnitType"
+            [selectedItem]="defaultLuminosityUnit"
+          ></app-unit-selection-form>
+        </div>
+      </div>
       <app-indicator-item-form
         #indicatorItemForm
         (valueChanges)="onIndicatorSettingValueChanges()"
