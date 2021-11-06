@@ -70,6 +70,10 @@
         "width": "Width",
         "addSetting": "Add Setting"
     },
+    "payment": {
+        "header": "Payment",
+        "pay": "Pay"
+    },
     "common": {
         "signin": "Sign In",
         "login": "Log In",

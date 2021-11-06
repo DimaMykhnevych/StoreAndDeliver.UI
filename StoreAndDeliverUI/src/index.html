@@ -60,5 +60,13 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script type="text/javascript">
+      const stripe = Stripe(
+        "pk_test_51Irp6yF27ICkRRw9XrC5XUCd43fCvV4YGyhyg1nEnYjY3dr8Iegpjo0o0dviTYptZ4Unoaaek4X3vCnNFTmtZtGa00GmwLCiKT"
+      );
+      const elements = stripe.elements();
+    </script>
   </body>
 </html>

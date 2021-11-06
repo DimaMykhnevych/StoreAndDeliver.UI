@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
+import { TranslateService } from '@ngx-translate/core';
 import { LengthUnit } from 'src/app/core/enums/length-unit';
 import { WeightUnit } from 'src/app/core/enums/weight-unit';
 import { Request } from 'src/app/core/models/request';
+import { CurrentUserService } from 'src/app/core/permission/services';
+import { environment } from 'src/environments/environment';
 import { CargoFormContainerComponent } from './containers/cargo-form-container/cargo-form-container.component';
 import { IndicatorsSetupContainerComponent } from './containers/indicators-setup-container/indicators-setup-container.component';
 import { RequestDetailsFormContainerComponent } from './containers/request-details-form-container/request-details-form-container.component';
@@ -18,6 +21,7 @@ import { RequestService } from './services/request.service';
 })
 export class CargoRequestsComponent implements OnInit {
   public request: Request = {};
+  public isLoading: boolean = false;
   public cargo: CargoAddModel = { cargo: [] };
   @ViewChild('requestTypeForm')
   public requestTypeFormComponent: RequestTypeFormContainerComponent = null as any;
@@ -27,7 +31,12 @@ export class CargoRequestsComponent implements OnInit {
   public cargoFormComponent: CargoFormContainerComponent = null as any;
   @ViewChild('indicatorsSetupForm')
   public indicatorsSetupFormComponent: IndicatorsSetupContainerComponent = null as any;
-  constructor(private _requestService: RequestService) {}
+
+  constructor(
+    private _requestService: RequestService,
+    private _translateService: TranslateService,
+    private _currentUserService: CurrentUserService
+  ) {}
 
   public ngOnInit(): void {}
 
@@ -39,12 +48,49 @@ export class CargoRequestsComponent implements OnInit {
   }
 
   public onSubmitButtonClick(): void {
+    this.isLoading = true;
     const addRequestModel = this.buildRequestAddResult();
     this._requestService
       .getRequestTotalSum(addRequestModel)
-      .subscribe((resp) => {
-        console.log(resp);
+      .subscribe((totalSum) => {
+        console.log(totalSum);
+        this.openCheckout((token: any) => console.log(token), totalSum);
       });
+  }
+
+  private openCheckout(tokenCallback: any, totalSum: number) {
+    this.isLoading = false;
+    let handler = (<any>window).StripeCheckout?.configure({
+      key: environment.stripeKeys.publishableKey,
+      locale: 'auto',
+      token: tokenCallback,
+    });
+
+    let description = this._translateService.instant('payment.header');
+
+    handler?.open({
+      name: 'Store&Deliver',
+      description: description,
+      zipCode: false,
+      currency: this.getCurrencyUnit(),
+      amount: totalSum * 100,
+      panelLabel: `${this._translateService.instant('payment.pay')} {{amount}}`,
+      allowRememberMe: false,
+      email: this._currentUserService.userInfo.email,
+    });
+  }
+
+  private getCurrencyUnit(): string {
+    const currentLanguage = localStorage.getItem('language');
+    switch (currentLanguage) {
+      case 'ua':
+        return 'uah';
+      case 'ru':
+        return 'rub';
+      case 'en':
+      default:
+        return 'usd';
+    }
   }
 
   private buildRequestAddResult(): AddRequest {

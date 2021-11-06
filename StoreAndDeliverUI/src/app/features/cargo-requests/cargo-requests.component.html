@@ -85,9 +85,14 @@
             mat-raised-button
             color="primary"
             (click)="onSubmitButtonClick()"
-            [disabled]="!indicatorsSetupFormComponent?.isFormValid()"
+            [disabled]="
+              !indicatorsSetupFormComponent?.isFormValid() || isLoading
+            "
           >
-            {{ "common.submit" | translate }}
+            <div *ngIf="isLoading">
+              <app-spinner [diameter]="30"></app-spinner>
+            </div>
+            <div *ngIf="!isLoading">{{ "common.submit" | translate }}</div>
           </button>
         </div>
       </mat-tab>

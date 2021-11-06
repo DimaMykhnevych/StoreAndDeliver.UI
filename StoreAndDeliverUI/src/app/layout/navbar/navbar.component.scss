@@ -4,4 +4,9 @@
     font-size: 1.3em;
     line-height: 2.5em;
   }
+  .language {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
