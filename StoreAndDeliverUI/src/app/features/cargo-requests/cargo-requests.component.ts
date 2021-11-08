@@ -33,7 +33,6 @@ export class CargoRequestsComponent implements OnInit {
   public cargoFormComponent: CargoFormContainerComponent = null as any;
   @ViewChild('indicatorsSetupForm')
   public indicatorsSetupFormComponent: IndicatorsSetupContainerComponent = null as any;
-  private calculatedTotalPrice: number = 0;
 
   constructor(
     private _requestService: RequestService,

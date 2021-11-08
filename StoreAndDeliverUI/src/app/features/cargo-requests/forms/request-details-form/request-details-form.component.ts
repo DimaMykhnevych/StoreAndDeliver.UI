@@ -25,6 +25,7 @@ import { Request } from 'src/app/core/models/request';
 export class RequestDetailsFormComponent implements OnInit, OnDestroy {
   @Output() public valueChanges: EventEmitter<void> = new EventEmitter<void>();
   public form: FormGroup = this._builder.group({});
+  public todayDate: Date = new Date();
   private _destroy$: Subject<void> = new Subject<void>();
   @Input() public set request(r: Request) {
     this._request = r;
