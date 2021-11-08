@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { LengthUnit } from 'src/app/core/enums/length-unit';
 import { WeightUnit } from 'src/app/core/enums/weight-unit';
 import { Request } from 'src/app/core/models/request';
@@ -31,11 +33,13 @@ export class CargoRequestsComponent implements OnInit {
   public cargoFormComponent: CargoFormContainerComponent = null as any;
   @ViewChild('indicatorsSetupForm')
   public indicatorsSetupFormComponent: IndicatorsSetupContainerComponent = null as any;
+  private calculatedTotalPrice: number = 0;
 
   constructor(
     private _requestService: RequestService,
     private _translateService: TranslateService,
-    private _currentUserService: CurrentUserService
+    private _currentUserService: CurrentUserService,
+    private _toastrService: ToastrService
   ) {}
 
   public ngOnInit(): void {}
@@ -53,9 +57,19 @@ export class CargoRequestsComponent implements OnInit {
     this._requestService
       .getRequestTotalSum(addRequestModel)
       .subscribe((totalSum) => {
-        console.log(totalSum);
-        this.openCheckout((token: any) => console.log(token), totalSum);
+        addRequestModel.request.totalSum = totalSum;
+        this.openCheckout(() => this.addRequest(addRequestModel), totalSum);
       });
+  }
+
+  private addRequest(request: AddRequest): void {
+    this._requestService.addRequest(request).subscribe((resp) => {
+      if (resp) {
+        this._toastrService.success(
+          this._translateService.instant('cargoRequest.successRequestAdding')
+        );
+      }
+    });
   }
 
   private openCheckout(tokenCallback: any, totalSum: number) {

@@ -68,7 +68,8 @@
         "height": "Висота",
         "description": "Опис",
         "width": "Ширина",
-        "addSetting": "Додати налаштування"
+        "addSetting": "Додати налаштування",
+        "successRequestAdding": "Заява успішно відправлена!"
     },
     "payment": {
         "header": "Оплата",

@@ -68,7 +68,8 @@
         "height": "Height",
         "description": "Description",
         "width": "Width",
-        "addSetting": "Add Setting"
+        "addSetting": "Add Setting",
+        "successRequestAdding": "Request has been successfully send!"
     },
     "payment": {
         "header": "Payment",
