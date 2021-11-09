@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { RequestType } from 'src/app/core/enums/request-type';
 import { City } from 'src/app/core/models/city';
 import { Request } from 'src/app/core/models/request';
 import { AddressFormComponent } from '../../forms/address-form/address-form.component';
@@ -39,11 +40,21 @@ export class RequestDetailsFormContainerComponent implements OnInit {
   public ngOnInit(): void {}
 
   public isFormValid(): boolean {
+    if (this.isStoreRequest()) {
+      return (
+        this.fromAddressForm?.form?.valid &&
+        this.requestDetialsForm?.form?.valid
+      );
+    }
     return (
       this.fromAddressForm?.form?.valid &&
       this.toAddressForm?.form?.valid &&
       this.requestDetialsForm?.form?.valid
     );
+  }
+
+  public isStoreRequest(): boolean {
+    return this._request?.type == RequestType.Store;
   }
 
   public onDetailsValueChanges(): void {

@@ -29,6 +29,8 @@ export class RequestDetailsFormComponent implements OnInit, OnDestroy {
   private _destroy$: Subject<void> = new Subject<void>();
   @Input() public set request(r: Request) {
     this._request = r;
+    this.initializeForm();
+    this.subscribeOnFormValueChanges();
   }
   public get request(): Request {
     return this._request;
@@ -37,10 +39,7 @@ export class RequestDetailsFormComponent implements OnInit, OnDestroy {
 
   constructor(private _builder: FormBuilder) {}
 
-  public ngOnInit(): void {
-    this.initializeForm();
-    this.subscribeOnFormValueChanges();
-  }
+  public ngOnInit(): void {}
 
   public ngOnDestroy(): void {
     this._destroy$.next();

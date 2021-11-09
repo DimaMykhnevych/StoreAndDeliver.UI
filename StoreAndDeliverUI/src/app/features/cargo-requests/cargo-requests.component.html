@@ -20,27 +20,30 @@
         </div>
       </mat-tab>
       <mat-tab label="{{ 'cargoRequest.requestDetails' | translate }}" disabled>
-        <div class="mt-3">
-          <app-request-details-form-container
-            #requestDetailsForm
-            [request]="request"
-          ></app-request-details-form-container>
-          <button
-            class="m-2"
-            mat-raised-button
-            (click)="onNavigateTabButtonClick(tabGroup, false)"
-          >
-            {{ "common.back" | translate }}
-          </button>
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="onNavigateTabButtonClick(tabGroup, true)"
-            [disabled]="!requestDetailsFormComponent?.isFormValid()"
-          >
-            {{ "common.next" | translate }}
-          </button>
-        </div>
+        <ng-template matTabContent>
+          <div class="mt-3">
+            <app-request-details-form-container
+              #requestDetailsForm
+              [request]="request"
+            ></app-request-details-form-container>
+            <button
+              class="m-2"
+              mat-raised-button
+              (click)="onNavigateTabButtonClick(tabGroup, false)"
+            >
+              {{ "common.back" | translate }}
+            </button>
+
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onNavigateTabButtonClick(tabGroup, true)"
+              [disabled]="!requestDetailsFormComponent?.isFormValid()"
+            >
+              {{ "common.next" | translate }}
+            </button>
+          </div>
+        </ng-template>
       </mat-tab>
       <mat-tab label="{{ 'cargoRequest.cargoDetails' | translate }}" disabled>
         <div class="mt-3">

@@ -8,15 +8,17 @@
     [cities]="citiesFromAddress"
     [address]="request.fromAddress!"
   ></app-address-form>
-  <h3 class="mb-0">{{ "cargoRequest.toAddress" | translate }}</h3>
-  <app-address-form
-    #toAddressForm
-    (valueChanges)="onToAddressValueChanges()"
-    (cityValueChanges)="onToAddressCityValueChanges($event)"
-    (countryValueChanges)="onToAddressCountryValueChanges($event)"
-    [cities]="citiesToAddress"
-    [address]="request.toAddress!"
-  ></app-address-form>
+  <div *ngIf="!isStoreRequest()">
+    <h3 class="mb-0">{{ "cargoRequest.toAddress" | translate }}</h3>
+    <app-address-form
+      #toAddressForm
+      (valueChanges)="onToAddressValueChanges()"
+      (cityValueChanges)="onToAddressCityValueChanges($event)"
+      (countryValueChanges)="onToAddressCountryValueChanges($event)"
+      [cities]="citiesToAddress"
+      [address]="request.toAddress!"
+    ></app-address-form>
+  </div>
   <h3 class="mb-1">{{ "cargoRequest.requiredDates" | translate }}</h3>
   <app-request-details-form
     #requestDetails
