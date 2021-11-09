@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { LengthUnit } from 'src/app/core/enums/length-unit';
+import { RequestStatus } from 'src/app/core/enums/request-status';
 import { WeightUnit } from 'src/app/core/enums/weight-unit';
 import { Request } from 'src/app/core/models/request';
 import { CurrentUserService } from 'src/app/core/permission/services';
@@ -135,5 +136,6 @@ export class CargoRequestsComponent implements OnInit {
     this.request.storeUntilDate = this.request.storeUntilDate ?? new Date();
     this.request.carryOutBefore = this.request.carryOutBefore ?? new Date();
     this.request.toAddress = this.request.toAddress ?? {};
+    this.request.status = RequestStatus.Pending;
   }
 }

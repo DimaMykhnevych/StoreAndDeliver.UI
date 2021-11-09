@@ -1,3 +1,4 @@
+import { RequestStatus } from '../enums/request-status';
 import { RequestType } from '../enums/request-type';
 import { Address } from './address';
 
@@ -8,6 +9,7 @@ export interface Request {
   storeFromDate?: Date;
   storeUntilDate?: Date;
   type?: RequestType;
+  status?: RequestStatus;
   isSecurityModeEnabled?: boolean;
   totalSum?: number;
   fromAddress?: Address;
