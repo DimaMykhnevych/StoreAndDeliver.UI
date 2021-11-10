@@ -136,6 +136,5 @@ export class CargoRequestsComponent implements OnInit {
     this.request.storeUntilDate = this.request.storeUntilDate ?? new Date();
     this.request.carryOutBefore = this.request.carryOutBefore ?? new Date();
     this.request.toAddress = this.request.toAddress ?? {};
-    this.request.status = RequestStatus.Pending;
   }
 }

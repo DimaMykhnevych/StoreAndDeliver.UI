@@ -9,7 +9,6 @@ export interface Request {
   storeFromDate?: Date;
   storeUntilDate?: Date;
   type?: RequestType;
-  status?: RequestStatus;
   isSecurityModeEnabled?: boolean;
   totalSum?: number;
   fromAddress?: Address;
