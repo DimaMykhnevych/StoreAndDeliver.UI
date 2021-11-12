@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
 import { MaterialModule } from 'src/app/layout/material';
 import { CoreModule } from 'src/app/core/core.module';
@@ -21,6 +21,7 @@ import { OptimizedCargoRequestsReviewComponent } from './components/optimized-ca
 import { GroupedCargoItemComponent } from './components/grouped-cargo-item/grouped-cargo-item.component';
 import { CargoRequestItemComponent } from './components/cargo-request-item/cargo-request-item.component';
 import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
+import { UnitsPanelComponent } from './components/units-panel/units-panel.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
     OptimizedCargoRequestsReviewComponent,
     GroupedCargoItemComponent,
     CargoRequestItemComponent,
+    UnitsPanelComponent,
   ],
   imports: [
     CommonModule,
@@ -49,5 +51,6 @@ import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
     ReactiveFormsModule,
     AccordionModule,
   ],
+  providers: [DatePipe],
 })
 export class CargoRequestsModule {}

@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row d-flex justify-content-around">
+    <div
+      class="
+        col-lg-4 col-md-4 col-sm-6 col-12
+        d-flex
+        justify-content-around
+        mb-2
+      "
+    >
+      <app-unit-selection-form
+        (onSelectionCahnged)="onSelectionCahnged()"
+        [header]="lengthHeader"
+        [options]="availableLengthUnits"
+        [unitType]="lengthUnitType"
+        [selectedItem]="defaultLengthUnit"
+      ></app-unit-selection-form>
+    </div>
+    <div
+      class="
+        col-lg-4 col-md-4 col-sm-6 col-12
+        d-flex
+        justify-content-around
+        mb-2
+      "
+    >
+      <app-unit-selection-form
+        (onSelectionCahnged)="onSelectionCahnged()"
+        [header]="weightHeader"
+        [options]="availableWeightUnits"
+        [unitType]="weightUnitType"
+        [selectedItem]="defaultWeightUnit"
+      ></app-unit-selection-form>
+    </div>
+    <div
+      class="
+        col-lg-4 col-md-4 col-sm-6 col-12
+        d-flex
+        justify-content-around
+        mb-2
+      "
+    >
+      <app-unit-selection-form
+        (onSelectionCahnged)="onSelectionCahnged()"
+        [header]="temperatureHeader"
+        [options]="availableTemperatureUnits"
+        [unitType]="temperatureUnitType"
+        [selectedItem]="defaultTemperatureUnit"
+      ></app-unit-selection-form>
+    </div>
+    <div
+      class="
+        col-lg-6 col-md-4 col-sm-6 col-12
+        d-flex
+        justify-content-around
+        mb-2
+      "
+    >
+      <app-unit-selection-form
+        (onSelectionCahnged)="onSelectionCahnged()"
+        [header]="humidityHeader"
+        [options]="availableHumidityUnitTypes"
+        [unitType]="humidityUnitType"
+        [selectedItem]="defaultHumidityUnit"
+      ></app-unit-selection-form>
+    </div>
+    <div
+      class="
+        col-lg-6 col-md-4 col-sm-6 col-12
+        d-flex
+        justify-content-around
+        mb-2
+      "
+    >
+      <app-unit-selection-form
+        (onSelectionCahnged)="onSelectionCahnged()"
+        [header]="luminosityHeader"
+        [options]="availableLuminosityUnits"
+        [unitType]="luminosityUnitType"
+        [selectedItem]="defaultLuminosityUnit"
+      ></app-unit-selection-form>
+    </div>
+  </div>
+</div>

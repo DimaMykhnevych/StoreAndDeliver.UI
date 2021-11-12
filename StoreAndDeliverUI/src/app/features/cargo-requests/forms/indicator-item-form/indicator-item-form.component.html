@@ -34,7 +34,7 @@
                 *ngFor="let setting of environmentSettings"
                 [value]="setting.id"
               >
-                {{ setting.name }}
+                {{ translateSetting(setting.name) }}
               </mat-option>
             </mat-select>
             <mat-error

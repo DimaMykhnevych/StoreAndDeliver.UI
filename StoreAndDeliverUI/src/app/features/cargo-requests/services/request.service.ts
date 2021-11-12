@@ -1,12 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RequestType } from 'src/app/core/enums/request-type';
-import { convertToHttpParams } from 'src/app/core/http/request/http-params.util';
-import { CargoRequest } from 'src/app/core/models/cargo-request';
 import { Request } from 'src/app/core/models/request';
 import { AppSettings } from 'src/app/core/settings';
 import { AddRequest } from '../models/add-request';
+import { GetOptimizedRequestModel } from '../models/get-optimized-requests';
 import { OptimizedRequestsGroup } from '../models/optimized-requests';
 
 @Injectable({
@@ -27,15 +25,11 @@ export class RequestService {
   }
 
   public getOptimizedRequests(
-    requestType: RequestType
+    getModel: GetOptimizedRequestModel
   ): Observable<OptimizedRequestsGroup[]> {
-    const httpParams: HttpParams =
-      convertToHttpParams<RequestType>(requestType);
-    return this._http.get<OptimizedRequestsGroup[]>(
+    return this._http.post<OptimizedRequestsGroup[]>(
       `${AppSettings.apiHost}/request/optimizedRequests`,
-      {
-        params: httpParams,
-      }
+      getModel
     );
   }
 }

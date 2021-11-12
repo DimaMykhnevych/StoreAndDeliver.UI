@@ -1,6 +1,11 @@
 <div class="main container-fluid p-3">
-  <h1 class="text-center">Current active requests</h1>
+  <h1 class="text-center">{{ "cargoRequest.activeRequests" | translate }}</h1>
   <div class="main">
+    <div class="container-fluid">
+      <app-units-panel
+        (onUnitSelectionChanged)="onUnitSelectionChanged()"
+      ></app-units-panel>
+    </div>
     <div *ngFor="let group of cargoRequestsGroups">
       <app-grouped-cargo-item
         [cargoRequestsGroup]="group"

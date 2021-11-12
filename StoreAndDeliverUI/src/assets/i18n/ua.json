@@ -70,7 +70,10 @@
         "width": "Ширина",
         "addSetting": "Додати налаштування",
         "successRequestAdding": "Заява успішно відправлена!",
-        "reviewOptimizedRequests": "Переглянути заяви"
+        "reviewOptimizedRequests": "Переглянути заяви",
+        "activeRequests": "Поточні заяви",
+        "requestDate": "Заява від",
+        "totalPrice": "Загальна ціна"
     },
     "payment": {
         "header": "Оплата",
@@ -80,7 +83,8 @@
         "inProgress": "Оброблюється",
         "rejected": "Відхилено",
         "completed": "Виповнено",
-        "pending": "На розгляді"
+        "pending": "На розгляді",
+        "status": "Статус"
     },
     "common": {
         "signin": "Увійти",
@@ -93,6 +97,7 @@
         "confirmPassword": "Підтвердити пароль",
         "close": "Закрити",
         "cargo": "Вантаж",
+        "cargoSet": "Вантажі",
         "delete": "Видалити",
         "next": "Далі", 
         "back": "Назад",
@@ -104,6 +109,8 @@
         "lengthUnit": "Одиниця виміру дліни",
         "temperatureUnit": "Одиниця виміру температури",
         "humidityUnit": "Одиниця виміру вологості",
-        "luminosityUnit": "Одиниця виміру освітлення"
+        "luminosityUnit": "Одиниця виміру освітлення",
+        "open": "Відкрити",
+        "clickTo": "Натиснути, щоб"
     }
 }

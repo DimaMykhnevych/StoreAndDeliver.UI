@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { from, Observable } from 'rxjs';
 import { UnitType } from 'src/app/core/enums/unit-type';
@@ -13,6 +13,8 @@ import { CustomTranslateService } from 'src/app/core/services/custom-translate.s
 })
 export class UnitSelectionFormComponent implements OnInit {
   public form: FormGroup = this._builder.group({});
+  @Output() public onSelectionCahnged: EventEmitter<void> =
+    new EventEmitter<void>();
   @Input() public header: string = '';
   @Input() public options: any[] = [];
   @Input() public unitType: UnitType = UnitType.Weight;
@@ -40,6 +42,7 @@ export class UnitSelectionFormComponent implements OnInit {
 
   public onSelectionChange(): void {
     this.changeCurrentUnits();
+    this.onSelectionCahnged.emit();
   }
 
   private changeCurrentUnits(): void {

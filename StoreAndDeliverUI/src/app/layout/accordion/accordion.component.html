@@ -10,9 +10,14 @@
     [attr.aria-controls]="'accordion-body-' + index"
   >
     <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-      Cargo №{{ index + 1 }}
+      {{ "common.cargo" | translate }} №{{ index + 1 }}
       <span class="example-accordion-item-description">
-        Click to {{ accordionItem.expanded ? "close" : "open" }}
+        {{ "common.clickTo" | translate }}
+        {{
+          accordionItem.expanded
+            ? ("common.close" | translate)
+            : ("common.open" | translate)
+        }}
       </span>
     </div>
     <div
@@ -22,11 +27,58 @@
       [attr.id]="'accordion-body-' + index"
       [attr.aria-labelledby]="'accordion-header-' + index"
     >
-      <p>Description: {{ cargoRequest.cargo.description }}</p>
-      <p>
-        Status:
-        <span [class]="defineCardClass(index)">{{ getStatusName(index) }}</span>
-      </p>
+      <div class="row d-flex flex-row">
+        <div class="col-lg-6">
+          <p>
+            {{ "cargoRequest.description" | translate }}:
+            {{ cargoRequest.cargo.description }}
+          </p>
+          <p>
+            {{ "statuses.status" | translate }}:
+            <span [class]="defineCardClass(index)">{{
+              getStatusName(index)
+            }}</span>
+          </p>
+          <p>
+            {{ "cargoRequest.weight" | translate }}:
+            {{ cargoRequest.cargo.weight | number }}
+          </p>
+          <p>
+            {{ "cargoRequest.length" | translate }}:
+            {{ cargoRequest.cargo.length | number }}
+          </p>
+          <p>
+            {{ "cargoRequest.height" | translate }}:
+            {{ cargoRequest.cargo.height | number }}
+          </p>
+          <p>
+            {{ "cargoRequest.width" | translate }}:
+            {{ cargoRequest.cargo.width | number }}
+          </p>
+          <p>
+            {{ "cargoRequest.amount" | translate }}:
+            {{ cargoRequest.cargo.amount }}
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <p class="text-center font-weight-bold">
+            {{ "common.setting" | translate }}
+          </p>
+          <div *ngFor="let setting of cargoRequest.cargo.cargoSettings">
+            <p>
+              <span class="font-weight-bold">{{
+                translateSetting(setting.environmentSetting.name)
+              }}</span
+              >: {{ "common.minValue" | translate }}:{{
+                setting.minValue | number
+              }}
+              {{ "common.maxValue" | translate }}:{{
+                setting.maxValue | number
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </cdk-accordion-item>
 </cdk-accordion>

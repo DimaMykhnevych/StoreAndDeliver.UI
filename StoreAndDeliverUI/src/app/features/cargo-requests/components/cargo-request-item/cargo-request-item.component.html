@@ -2,8 +2,8 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title
-        >Request from
-        {{ currentRequest?.requestDate | date: "shortDate" }}</mat-card-title
+        >{{ "cargoRequest.requestDate" | translate }}
+        {{ getDateFormat(currentRequest?.requestDate) }}</mat-card-title
       >
     </mat-card-header>
     <mat-card-content>
@@ -12,8 +12,8 @@
           >calendar_today</mat-icon
         >
         <p>
-          Carry Out Before:
-          {{ currentRequest?.carryOutBefore | date: "shortDate" }}
+          {{ "cargoRequest.deliverCargoBy" | translate }}
+          {{ getDateFormat(currentRequest?.carryOutBefore) }}
         </p>
       </div>
       <div *ngIf="!isDeliveryRequest()">
@@ -24,8 +24,8 @@
             >calendar_today</mat-icon
           >
           <p>
-            Store from date:
-            {{ currentRequest?.storeFromDate | date: "shortDate" }}
+            {{ "cargoRequest.storeFromDate" | translate }}
+            {{ getDateFormat(currentRequest?.storeFromDate) }}
           </p>
         </div>
         <div class="d-flex">
@@ -35,29 +35,37 @@
             >calendar_today</mat-icon
           >
           <p>
-            Store until date:
-            {{ currentRequest?.storeUntilDate | date: "shortDate" }}
+            {{ "cargoRequest.storeByDate" | translate }}
+            {{ getDateFormat(currentRequest?.storeUntilDate) }}
           </p>
         </div>
       </div>
       <div>
-        <p class="heading text-center">From Address</p>
+        <p class="heading text-center">
+          {{ "cargoRequest.fromAddress" | translate }}
+        </p>
         <p>
           {{ currentRequest?.fromAddress?.country }},
           {{ currentRequest?.fromAddress?.city }},
           {{ currentRequest?.fromAddress?.street }}
         </p>
         <div *ngIf="isDeliveryRequest()">
-          <p class="heading text-center">To Address</p>
+          <p class="heading text-center">
+            {{ "cargoRequest.toAddress" | translate }}
+          </p>
           <p>
             {{ currentRequest?.toAddress?.country }},
             {{ currentRequest?.toAddress?.city }},
             {{ currentRequest?.toAddress?.street }}
           </p>
         </div>
+        <p class="text-center font-weight-bold">
+          {{ "cargoRequest.totalPrice" | translate }}:
+          {{ currentRequest.totalSum | number }}{{ getCurrencyUnit() }}
+        </p>
       </div>
       <div>
-        <p class="heading text-center">Cargo</p>
+        <p class="heading text-center">{{ "common.cargoSet" | translate }}</p>
         <app-accordion [cargoRequests]="cargoRequests"></app-accordion>
       </div>
     </mat-card-content>

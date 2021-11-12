@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { CargoSetting } from 'src/app/core/models/cargo-setting';
 import { EnvironmentSetting } from 'src/app/core/models/environment-setting';
+import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 
 @Component({
   selector: 'app-indicator-item-form',
@@ -38,7 +39,10 @@ export class IndicatorItemFormComponent implements OnInit {
   public _cargoSettings: CargoSetting[] = [];
   private _environmentSettings: EnvironmentSetting[] = [];
 
-  constructor(private _builder: FormBuilder) {}
+  constructor(
+    private _builder: FormBuilder,
+    private _customTranslateService: CustomTranslateService
+  ) {}
 
   public ngOnInit(): void {}
 
@@ -69,6 +73,10 @@ export class IndicatorItemFormComponent implements OnInit {
   public onDeleteSettingClick(idx: number): void {
     this.settings.removeAt(idx);
     this.valueChanges.emit();
+  }
+
+  public translateSetting(setting: string): string {
+    return this._customTranslateService.translateUnit(setting);
   }
 
   private initializeForm(settings: CargoSetting[]): void {
