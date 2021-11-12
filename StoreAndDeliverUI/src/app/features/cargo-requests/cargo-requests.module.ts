@@ -17,6 +17,10 @@ import { IndicatorsSetupContainerComponent } from './containers/indicators-setup
 import { IndicatorsSetupFormComponent } from './forms/indicators-setup-form/indicators-setup-form.component';
 import { IndicatorItemFormComponent } from './forms/indicator-item-form/indicator-item-form.component';
 import { UnitSelectionFormComponent } from './forms/unit-selection-form/unit-selection-form.component';
+import { OptimizedCargoRequestsReviewComponent } from './components/optimized-cargo-requests-review/optimized-cargo-requests-review.component';
+import { GroupedCargoItemComponent } from './components/grouped-cargo-item/grouped-cargo-item.component';
+import { CargoRequestItemComponent } from './components/cargo-request-item/cargo-request-item.component';
+import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,9 @@ import { UnitSelectionFormComponent } from './forms/unit-selection-form/unit-sel
     IndicatorsSetupFormComponent,
     IndicatorItemFormComponent,
     UnitSelectionFormComponent,
+    OptimizedCargoRequestsReviewComponent,
+    GroupedCargoItemComponent,
+    CargoRequestItemComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +47,7 @@ import { UnitSelectionFormComponent } from './forms/unit-selection-form/unit-sel
     CoreModule,
     TranslateModule,
     ReactiveFormsModule,
+    AccordionModule,
   ],
 })
 export class CargoRequestsModule {}

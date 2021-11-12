@@ -1,0 +1,10 @@
+<div class="main container-fluid p-3">
+  <h1 class="text-center">Current active requests</h1>
+  <div class="main">
+    <div *ngFor="let group of cargoRequestsGroups">
+      <app-grouped-cargo-item
+        [cargoRequestsGroup]="group"
+      ></app-grouped-cargo-item>
+    </div>
+  </div>
+</div>

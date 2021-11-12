@@ -69,7 +69,14 @@
         "description": "Description",
         "width": "Width",
         "addSetting": "Add Setting",
-        "successRequestAdding": "Request has been successfully send!"
+        "successRequestAdding": "Request has been successfully send!",
+        "reviewOptimizedRequests": "Review requests"
+    },
+    "statuses":{
+        "inProgress": "In Progress",
+        "rejected": "Rejected",
+        "completed": "Completed",
+        "pending": "Pending"
     },
     "payment": {
         "header": "Payment",

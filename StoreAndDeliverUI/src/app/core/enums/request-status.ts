@@ -1,7 +1,7 @@
 export enum RequestStatus {
-  InProgress,
-  Rejected,
-  Completed,
-  Pending,
-  Other = 100,
+  inProgress,
+  rejected,
+  completed,
+  pending,
+  other = 100,
 }

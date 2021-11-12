@@ -22,11 +22,29 @@
           </div>
         </mat-list-item>
 
-        <mat-list-item routerLink="/create-request" routerLinkActive="active">
+        <mat-list-item
+          *ngIf="showTab('createRequest')"
+          routerLink="/create-request"
+          routerLinkActive="active"
+        >
           <i class="fa fa-truck" aria-hidden="false"></i>
           <div fxFlex="10"></div>
           <div *ngIf="sidenavWidth > 6" class="sidenav-item">
             <h3 class="ml-2">{{ "navbar.createRequest" | translate }}</h3>
+          </div>
+        </mat-list-item>
+
+        <mat-list-item
+          *ngIf="showTab('reviewOptimized')"
+          routerLink="/optimized-requests"
+          routerLinkActive="active"
+        >
+          <i class="fa fa-truck" aria-hidden="false"></i>
+          <div fxFlex="10"></div>
+          <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+            <h3 class="ml-2">
+              {{ "cargoRequest.reviewOptimizedRequests" | translate }}
+            </h3>
           </div>
         </mat-list-item>
       </mat-nav-list>

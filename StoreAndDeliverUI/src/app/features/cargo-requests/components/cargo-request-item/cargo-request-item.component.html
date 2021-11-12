@@ -1,0 +1,66 @@
+<div class="main p-2">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title
+        >Request from
+        {{ currentRequest?.requestDate | date: "shortDate" }}</mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="isDeliveryRequest()" class="d-flex">
+        <mat-icon class="text-center" style="font-size: 15px; padding-top: 3px"
+          >calendar_today</mat-icon
+        >
+        <p>
+          Carry Out Before:
+          {{ currentRequest?.carryOutBefore | date: "shortDate" }}
+        </p>
+      </div>
+      <div *ngIf="!isDeliveryRequest()">
+        <div class="d-flex">
+          <mat-icon
+            class="text-center"
+            style="font-size: 15px; padding-top: 3px"
+            >calendar_today</mat-icon
+          >
+          <p>
+            Store from date:
+            {{ currentRequest?.storeFromDate | date: "shortDate" }}
+          </p>
+        </div>
+        <div class="d-flex">
+          <mat-icon
+            class="text-center"
+            style="font-size: 15px; padding-top: 3px"
+            >calendar_today</mat-icon
+          >
+          <p>
+            Store until date:
+            {{ currentRequest?.storeUntilDate | date: "shortDate" }}
+          </p>
+        </div>
+      </div>
+      <div>
+        <p class="heading text-center">From Address</p>
+        <p>
+          {{ currentRequest?.fromAddress?.country }},
+          {{ currentRequest?.fromAddress?.city }},
+          {{ currentRequest?.fromAddress?.street }}
+        </p>
+        <div *ngIf="isDeliveryRequest()">
+          <p class="heading text-center">To Address</p>
+          <p>
+            {{ currentRequest?.toAddress?.country }},
+            {{ currentRequest?.toAddress?.city }},
+            {{ currentRequest?.toAddress?.street }}
+          </p>
+        </div>
+      </div>
+      <div>
+        <p class="heading text-center">Cargo</p>
+        <app-accordion [cargoRequests]="cargoRequests"></app-accordion>
+      </div>
+    </mat-card-content>
+    <mat-card-actions></mat-card-actions>
+  </mat-card>
+</div>

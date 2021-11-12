@@ -69,11 +69,18 @@
         "description": "Опис",
         "width": "Ширина",
         "addSetting": "Додати налаштування",
-        "successRequestAdding": "Заява успішно відправлена!"
+        "successRequestAdding": "Заява успішно відправлена!",
+        "reviewOptimizedRequests": "Переглянути заяви"
     },
     "payment": {
         "header": "Оплата",
         "pay": "Оплатити"
+    },
+    "statuses":{
+        "inProgress": "Оброблюється",
+        "rejected": "Відхилено",
+        "completed": "Виповнено",
+        "pending": "На розгляді"
     },
     "common": {
         "signin": "Увійти",

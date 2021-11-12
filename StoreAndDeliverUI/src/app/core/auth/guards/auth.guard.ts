@@ -6,11 +6,16 @@ import {
   Router,
   CanActivateChild,
 } from '@angular/router';
+import { CurrentUserService } from '../../permission/services';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivateChild, CanActivate {
-  constructor(private _authService: AuthService, private _router: Router) {}
+  constructor(
+    private _authService: AuthService,
+    private _router: Router,
+    private _currentUserService: CurrentUserService
+  ) {}
 
   public canActivate(
     route: ActivatedRouteSnapshot,
@@ -36,7 +41,11 @@ export class AuthGuard implements CanActivateChild, CanActivate {
 
       return false;
     }
-
+    const currentUser = this._currentUserService.userInfo;
+    if (route.data.role && route.data.role !== currentUser.role) {
+      this._router.navigate(['/dashboard']);
+      return false;
+    }
     return true;
   }
 }

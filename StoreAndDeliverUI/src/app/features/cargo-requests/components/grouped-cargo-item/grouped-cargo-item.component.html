@@ -1,0 +1,9 @@
+<div class="main container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12" *ngFor="let key of keys">
+      <app-cargo-request-item
+        [cargoRequests]="cargoRequestsGroup[key]"
+      ></app-cargo-request-item>
+    </div>
+  </div>
+</div>

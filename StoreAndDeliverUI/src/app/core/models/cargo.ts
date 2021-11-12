@@ -1,3 +1,5 @@
+import { CargoSetting } from './cargo-setting';
+
 export interface Cargo {
   id: string;
   description: string;
@@ -6,4 +8,5 @@ export interface Cargo {
   length: number;
   width: number;
   height: number;
+  cargoSettings?: CargoSetting[];
 }

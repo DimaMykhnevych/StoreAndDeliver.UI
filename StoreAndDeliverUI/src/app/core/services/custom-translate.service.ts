@@ -21,7 +21,6 @@ export class CustomTranslateService {
     { en: 'Kelvin', ua: 'Кельвін', ru: 'Кельвин' },
     { en: 'Percentage', ua: 'Відсотки', ru: 'Проценты' },
     { en: 'Lux', ua: 'Люкс', ru: 'Люкс' },
-    { en: 'Humidity', ua: 'Вологість', ru: 'Влажность' },
   ];
 
   private defaultUnitDictionary = {

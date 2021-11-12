@@ -29,7 +29,7 @@ export class UnitMapper {
 
   private humidityDictionary = {
     [HumidityUnit.Percentage]:
-      this._customTranslateService.translateUnit('Humidity'),
+      this._customTranslateService.translateUnit('Percentage'),
   };
 
   private luminosityDictionary = {
