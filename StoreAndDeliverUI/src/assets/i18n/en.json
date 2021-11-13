@@ -41,6 +41,10 @@
     "toastrs": {
         "registration": "You are registered successfully. Confirmation email was send to "
     },
+    "dialogs": {
+        "cargoFullTitle": "Full truck",
+        "cargoFullContent": "Truck is full. Please, complete current requests."
+    },
     "cargoRequest":{
         "header": "Create a request for the transportaion or storage of cargo",
         "reviewRequests": "Review my requests",
@@ -77,7 +81,8 @@
         "storeAddress": "Store Address",
         "selectRequestType": "Select request type",
         "selectRequestStatus": "Select request status",
-        "emptyRequests": "There is no requests with such status"
+        "emptyRequests": "There is no requests with such status",
+        "noAvailableRequests": "There is no available requests"
     },
     "statuses":{
         "inProgress": "In Progress",

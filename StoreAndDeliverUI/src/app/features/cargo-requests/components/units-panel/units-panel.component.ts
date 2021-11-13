@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -7,6 +13,7 @@ import { HumidityUnit } from 'src/app/core/enums/humidity-unit';
 import { LuminosityUnit } from 'src/app/core/enums/luminosity-unit';
 import { TemperatureUnit } from 'src/app/core/enums/temperature-unit';
 import { UnitType } from 'src/app/core/enums/unit-type';
+import { Units } from 'src/app/core/models/units';
 import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
 
 @Component({
@@ -14,17 +21,23 @@ import { CustomTranslateService } from 'src/app/core/services/custom-translate.s
   templateUrl: './units-panel.component.html',
   styleUrls: ['./units-panel.component.scss'],
 })
-export class UnitsPanelComponent implements OnInit {
+export class UnitsPanelComponent implements OnInit, AfterContentInit {
   @Output() public onUnitSelectionChanged: EventEmitter<void> =
     new EventEmitter<void>();
+  @Output()
+  public onUnitSelectionChangedAfterLanguageSwitching: EventEmitter<void> = new EventEmitter<void>();
   public availableWeightUnits = AvailableUnits.availableWeightUnits;
   public availableLengthUnits = AvailableUnits.availableLengthUnits;
   public weightUnitType = UnitType.Weight;
   public lengthUnitType = UnitType.Length;
   public weightHeader = '';
   public lengthHeader = '';
-  public defaultWeightUnit: number = 0;
-  public defaultLengthUnit: number = 0;
+  public defaultWeightUnit: number = JSON.parse(
+    localStorage.getItem('units') || JSON.stringify({})
+  ).weight;
+  public defaultLengthUnit: number = JSON.parse(
+    localStorage.getItem('units') || JSON.stringify({})
+  ).length;
   public availableTemperatureUnits: TemperatureUnit[] =
     AvailableUnits.availableTemperatureUnits;
   public availableHumidityUnitTypes: HumidityUnit[] =
@@ -36,9 +49,15 @@ export class UnitsPanelComponent implements OnInit {
   public luminosityUnitType = UnitType.Luminosity;
   public humidityUnitType = UnitType.Humidity;
 
-  public defaultTemperatureUnit: number = 0;
-  public defaultHumidityUnit: number = 0;
-  public defaultLuminosityUnit: number = 0;
+  public defaultTemperatureUnit: number = JSON.parse(
+    localStorage.getItem('units') || JSON.stringify({})
+  ).temperature;
+  public defaultHumidityUnit: number = JSON.parse(
+    localStorage.getItem('units') || JSON.stringify({})
+  ).humidity;
+  public defaultLuminosityUnit: number = JSON.parse(
+    localStorage.getItem('units') || JSON.stringify({})
+  ).luminosity;
 
   public temperatureHeader: string = '';
   public luminosityHeader: string = '';
@@ -50,14 +69,18 @@ export class UnitsPanelComponent implements OnInit {
     private _customTranslateService: CustomTranslateService
   ) {}
 
-  public ngOnInit(): void {
+  public ngAfterContentInit(): void {
     this._translateService.onLangChange
       .pipe(takeUntil(this._destroy$))
       .subscribe((resp) => {
         this.getUnitTypeHeader();
         this.getDefaultUnit(resp.lang);
+        this.setUnits();
+        this.onUnitSelectionChangedAfterLanguageSwitching.emit();
       });
   }
+
+  public ngOnInit(): void {}
 
   public ngOnDestroy(): void {
     this._destroy$.next();
@@ -107,5 +130,17 @@ export class UnitsPanelComponent implements OnInit {
       UnitType.Luminosity,
       language
     );
+  }
+
+  private setUnits(): void {
+    const currentSelectedUnits: Units = JSON.parse(
+      localStorage.getItem('units') || JSON.stringify({})
+    );
+    currentSelectedUnits.humidity = this.defaultHumidityUnit;
+    currentSelectedUnits.length = this.defaultLengthUnit;
+    currentSelectedUnits.luminosity = this.defaultLuminosityUnit;
+    currentSelectedUnits.temperature = this.defaultTemperatureUnit;
+    currentSelectedUnits.weight = this.defaultWeightUnit;
+    localStorage.setItem('units', JSON.stringify(currentSelectedUnits));
   }
 }

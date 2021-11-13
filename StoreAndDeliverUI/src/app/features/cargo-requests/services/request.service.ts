@@ -6,6 +6,7 @@ import { AppSettings } from 'src/app/core/settings';
 import { AddRequest } from '../models/add-request';
 import { GetOptimizedRequestModel } from '../models/get-optimized-requests';
 import { OptimizedRequestsGroup } from '../models/optimized-requests';
+import { UpdateCargoRequests } from '../models/update-cargo-reauests';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +35,7 @@ export class RequestService {
   }
 
   public updateRequestStatuses(
-    requestGroup: OptimizedRequestsGroup
+    requestGroup: UpdateCargoRequests
   ): Observable<boolean> {
     return this._http.put<boolean>(
       `${AppSettings.apiHost}/request/updateRequestStautses`,

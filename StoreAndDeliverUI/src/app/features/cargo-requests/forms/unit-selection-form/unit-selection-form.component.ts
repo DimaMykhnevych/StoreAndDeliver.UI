@@ -66,7 +66,9 @@ export class UnitSelectionFormComponent implements OnInit {
         currentSelectedUnits.humidity = this.unit?.value;
         break;
     }
-    localStorage.setItem('units', JSON.stringify(currentSelectedUnits));
+    if (this.unit != null) {
+      localStorage.setItem('units', JSON.stringify(currentSelectedUnits));
+    }
   }
 
   private initializeForm(): void {

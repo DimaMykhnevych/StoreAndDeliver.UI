@@ -8,9 +8,10 @@ import { SpinnerModule } from '../spinner/spinner.module';
 import { LoginDialogComponent } from './login-dialog/login-dialog/login-dialog.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
 
 @NgModule({
-  declarations: [RegisterDialogComponent, LoginDialogComponent],
+  declarations: [RegisterDialogComponent, LoginDialogComponent, WarningDialogComponent],
   imports: [
     CommonModule,
     CoreModule,
