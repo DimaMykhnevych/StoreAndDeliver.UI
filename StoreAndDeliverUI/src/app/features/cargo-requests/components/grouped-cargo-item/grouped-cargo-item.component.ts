@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CargoRequest } from 'src/app/core/models/cargo-request';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RequestStatus } from 'src/app/core/enums/request-status';
 import { OptimizedRequestsGroup } from '../../models/optimized-requests';
 
 @Component({
@@ -8,6 +8,11 @@ import { OptimizedRequestsGroup } from '../../models/optimized-requests';
   styleUrls: ['./grouped-cargo-item.component.scss'],
 })
 export class GroupedCargoItemComponent implements OnInit {
+  @Output()
+  public onRequestGroupAccepted: EventEmitter<OptimizedRequestsGroup> = new EventEmitter<OptimizedRequestsGroup>();
+  @Output()
+  public onRequestGroupCompleted: EventEmitter<OptimizedRequestsGroup> = new EventEmitter<OptimizedRequestsGroup>();
+  @Input() public requestStatus: RequestStatus = RequestStatus.pending;
   @Input() set cargoRequestsGroup(crg: OptimizedRequestsGroup) {
     this._cargoRequestsGroup = crg;
     for (let key in crg) {
@@ -22,5 +27,23 @@ export class GroupedCargoItemComponent implements OnInit {
   public keys: string[] = [];
   constructor() {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {}
+
+  public onAcceptButtonClick(): void {
+    this.onRequestGroupAccepted.emit(this.cargoRequestsGroup);
+  }
+
+  public onCompleteButtonClick(): void {
+    this.onRequestGroupCompleted.emit(this.cargoRequestsGroup);
+  }
+
+  public isRequestInPendingStatus(): boolean {
+    return this.requestStatus === RequestStatus.pending;
+  }
+  public isRequestInCompletedStatus(): boolean {
+    return this.requestStatus === RequestStatus.completed;
+  }
+  public isRequestInProgressStatus(): boolean {
+    return this.requestStatus === RequestStatus.inProgress;
+  }
 }

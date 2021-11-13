@@ -22,6 +22,7 @@ import { GroupedCargoItemComponent } from './components/grouped-cargo-item/group
 import { CargoRequestItemComponent } from './components/cargo-request-item/cargo-request-item.component';
 import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
 import { UnitsPanelComponent } from './components/units-panel/units-panel.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { UnitsPanelComponent } from './components/units-panel/units-panel.compon
     TranslateModule,
     ReactiveFormsModule,
     AccordionModule,
+    FormsModule,
   ],
   providers: [DatePipe],
 })

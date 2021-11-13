@@ -1,9 +1,31 @@
 <div class="main container-fluid m-3">
   <div class="row d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12" *ngIf="keys.length === 0">
+      <h1 class="text-center">
+        {{ "cargoRequest.emptyRequests" | translate }}
+      </h1>
+    </div>
     <div class="col-lg-4 col-md-6 col-sm-12 col-12" *ngFor="let key of keys">
       <app-cargo-request-item
         [cargoRequests]="cargoRequestsGroup[key]"
       ></app-cargo-request-item>
     </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button
+      *ngIf="isRequestInPendingStatus() && keys.length > 0"
+      mat-raised-button
+      color="primary"
+      (click)="onAcceptButtonClick()"
+    >
+      {{ "common.accept" | translate }}
+    </button>
+    <button
+      *ngIf="isRequestInProgressStatus() && keys.length > 0"
+      mat-raised-button
+      (click)="onCompleteButtonClick()"
+    >
+      {{ "common.complete" | translate }}
+    </button>
   </div>
 </div>

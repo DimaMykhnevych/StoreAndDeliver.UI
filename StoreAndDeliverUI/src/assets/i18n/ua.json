@@ -74,11 +74,18 @@
         "activeRequests": "Поточні заяви",
         "requestDate": "Заява від",
         "totalPrice": "Загальна ціна",
-        "storeAddress": "Адреса складського приміщення"
+        "storeAddress": "Адреса складського приміщення",
+        "selectRequestType": "Обирите тип заяви",
+        "selectRequestStatus": "Обирите статус заяви",
+        "emptyRequests": "Заяв з таким статусом не знайдено"
     },
     "payment": {
         "header": "Оплата",
         "pay": "Оплатити"
+    },
+    "requestTypes": {
+        "store": "Зберігання",
+        "deliver": "Доставка"
     },
     "statuses":{
         "inProgress": "Оброблюється",
@@ -114,6 +121,8 @@
         "open": "Відкрити",
         "clickTo": "Натиснути, щоб",
         "enabled": "Включено",
-        "disabled": "Не включено"
+        "disabled": "Не включено",
+        "accept": "Взяти в роботу",
+        "complete": "Завершити"
     }
 }

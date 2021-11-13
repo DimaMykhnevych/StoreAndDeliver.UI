@@ -32,4 +32,13 @@ export class RequestService {
       getModel
     );
   }
+
+  public updateRequestStatuses(
+    requestGroup: OptimizedRequestsGroup
+  ): Observable<boolean> {
+    return this._http.put<boolean>(
+      `${AppSettings.apiHost}/request/updateRequestStautses`,
+      requestGroup
+    );
+  }
 }

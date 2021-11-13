@@ -2,13 +2,53 @@
   <h1 class="text-center">{{ "cargoRequest.activeRequests" | translate }}</h1>
   <div class="main">
     <div class="container-fluid">
-      <app-units-panel
-        (onUnitSelectionChanged)="onUnitSelectionChanged()"
-      ></app-units-panel>
+      <div>
+        <app-units-panel
+          (onUnitSelectionChanged)="onUnitSelectionChanged()"
+        ></app-units-panel>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="mr-4">
+          <mat-form-field appearance="fill">
+            <mat-label>{{
+              "cargoRequest.selectRequestType" | translate
+            }}</mat-label>
+            <mat-select
+              [(value)]="selectedRequestType"
+              (selectionChange)="onRequestTypeSelectionChange()"
+            >
+              <mat-option value="1">{{
+                "requestTypes.deliver" | translate
+              }}</mat-option>
+              <mat-option value="0">{{
+                "requestTypes.store" | translate
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>{{
+              "cargoRequest.selectRequestStatus" | translate
+            }}</mat-label>
+            <mat-select
+              [(value)]="selectedRequestStatus"
+              (selectionChange)="onRequestStatusSelectionChange()"
+            >
+              <mat-option *ngFor="let status of statuses" [value]="status">
+                {{ getStatusName(status) }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
     </div>
     <div *ngFor="let group of cargoRequestsGroups">
       <app-grouped-cargo-item
+        (onRequestGroupAccepted)="onRequestGroupAction($event)"
+        (onRequestGroupCompleted)="onRequestGroupAction($event)"
         [cargoRequestsGroup]="group"
+        [requestStatus]="selectedRequestStatus"
       ></app-grouped-cargo-item>
     </div>
   </div>

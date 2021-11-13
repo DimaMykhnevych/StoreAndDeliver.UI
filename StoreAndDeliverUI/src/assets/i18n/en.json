@@ -74,7 +74,10 @@
         "activeRequests": "Current active requests",
         "requestDate": "Request from",
         "totalPrice": "Total price",
-        "storeAddress": "Store Address"
+        "storeAddress": "Store Address",
+        "selectRequestType": "Select request type",
+        "selectRequestStatus": "Select request status",
+        "emptyRequests": "There is no requests with such status"
     },
     "statuses":{
         "inProgress": "In Progress",
@@ -86,6 +89,10 @@
     "payment": {
         "header": "Payment",
         "pay": "Pay"
+    },
+    "requestTypes": {
+        "store": "Store",
+        "deliver": "Deliver"
     },
     "common": {
         "signin": "Sign In",
@@ -114,6 +121,8 @@
         "open": "Open",
         "clickTo": "Click to",
         "enabled": "Enabled",
-        "disabled": "Disabled"
+        "disabled": "Disabled",
+        "accept": "Accept",
+        "complete": "Complete"
     }
 }
