@@ -73,7 +73,8 @@
         "reviewOptimizedRequests": "Review requests",
         "activeRequests": "Current active requests",
         "requestDate": "Request from",
-        "totalPrice": "Total price"
+        "totalPrice": "Total price",
+        "storeAddress": "Store Address"
     },
     "statuses":{
         "inProgress": "In Progress",
@@ -111,6 +112,8 @@
         "humidityUnit": "Humidity Unit",
         "luminosityUnit": "Luminosity Unit",
         "open": "Open",
-        "clickTo": "Click to"
+        "clickTo": "Click to",
+        "enabled": "Enabled",
+        "disabled": "Disabled"
     }
 }

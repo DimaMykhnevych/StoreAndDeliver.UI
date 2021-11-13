@@ -30,52 +30,89 @@
       <div class="row d-flex flex-row">
         <div class="col-lg-6">
           <p>
-            {{ "cargoRequest.description" | translate }}:
+            <span class="font-weight-bold"
+              >{{ "cargoRequest.description" | translate }}:
+            </span>
             {{ cargoRequest.cargo.description }}
           </p>
           <p>
-            {{ "statuses.status" | translate }}:
+            <span class="font-weight-bold"
+              >{{ "statuses.status" | translate }}:
+            </span>
             <span [class]="defineCardClass(index)">{{
               getStatusName(index)
             }}</span>
           </p>
           <p>
-            {{ "cargoRequest.weight" | translate }}:
+            <span class="font-weight-bold"
+              >{{ "cargoRequest.weight" | translate }}:
+            </span>
             {{ cargoRequest.cargo.weight | number }}
           </p>
           <p>
-            {{ "cargoRequest.length" | translate }}:
+            <span class="font-weight-bold"
+              >{{ "cargoRequest.length" | translate }}:
+            </span>
             {{ cargoRequest.cargo.length | number }}
           </p>
           <p>
+            <span class="font-weight-bold"
+              >{{ "cargoRequest.height" | translate }}:
+            </span>
             {{ "cargoRequest.height" | translate }}:
             {{ cargoRequest.cargo.height | number }}
           </p>
           <p>
+            <span class="font-weight-bold"
+              >{{ "cargoRequest.width" | translate }}:
+            </span>
             {{ "cargoRequest.width" | translate }}:
             {{ cargoRequest.cargo.width | number }}
           </p>
           <p>
+            <span class="font-weight-bold"
+              >{{ "cargoRequest.amount" | translate }}:
+            </span>
             {{ "cargoRequest.amount" | translate }}:
             {{ cargoRequest.cargo.amount }}
           </p>
         </div>
         <div class="col-lg-6">
-          <p class="text-center font-weight-bold">
-            {{ "common.setting" | translate }}
-          </p>
-          <div *ngFor="let setting of cargoRequest.cargo.cargoSettings">
-            <p>
-              <span class="font-weight-bold">{{
-                translateSetting(setting.environmentSetting.name)
-              }}</span
-              >: {{ "common.minValue" | translate }}:{{
-                setting.minValue | number
-              }}
-              {{ "common.maxValue" | translate }}:{{
-                setting.maxValue | number
-              }}
+          <div>
+            <p class="text-center font-weight-bold">
+              {{ "common.setting" | translate }}
             </p>
+            <div *ngFor="let setting of cargoRequest.cargo.cargoSettings">
+              <p>
+                <span class="font-weight-bold">{{
+                  translateSetting(setting.environmentSetting.name)
+                }}</span
+                >: {{ "common.minValue" | translate }}:{{
+                  setting.minValue | number
+                }}
+                {{ "common.maxValue" | translate }}:{{
+                  setting.maxValue | number
+                }}
+              </p>
+            </div>
+          </div>
+          <div *ngIf="!isDeliveryRequest(index)" class="mb-2">
+            <p class="text-center font-weight-bold">
+              {{ "cargoRequest.storeAddress" | translate }}
+            </p>
+            {{ cargoRequest.store?.address?.country }},
+            {{ cargoRequest.store?.address?.city }},
+            {{ cargoRequest.store?.address?.street }}
+          </div>
+          <div *ngIf="!isDeliveryRequest(index)">
+            <p class="text-center font-weight-bold">
+              {{ "cargoRequest.securityMode" | translate }}
+            </p>
+            {{
+              cargoRequest.request.isSecurityModeEnabled
+                ? ("common.enabled" | translate)
+                : ("common.disabled" | translate)
+            }}
           </div>
         </div>
       </div>

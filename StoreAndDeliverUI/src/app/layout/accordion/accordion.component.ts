@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RequestStatus } from 'src/app/core/enums/request-status';
+import { RequestType } from 'src/app/core/enums/request-type';
 import { RequestStatusMapper } from 'src/app/core/mappers/request-status.mapper';
 import { CargoRequest } from 'src/app/core/models/cargo-request';
 import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
@@ -22,6 +23,10 @@ export class AccordionComponent implements OnInit {
   public getStatusName(index: number): string {
     const mapper = new RequestStatusMapper(this._translateService);
     return mapper.getRequestStatusString(this.cargoRequests[index].status);
+  }
+
+  public isDeliveryRequest(index: number): boolean {
+    return this.cargoRequests[index]?.request.type === RequestType.Deliver;
   }
 
   public translateSetting(setting: string): string {

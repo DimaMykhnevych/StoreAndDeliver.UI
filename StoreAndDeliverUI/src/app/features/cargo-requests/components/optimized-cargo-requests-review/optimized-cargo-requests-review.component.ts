@@ -40,7 +40,7 @@ export class OptimizedCargoRequestsReviewComponent implements OnInit {
 
   private getOptimizedRequests(): void {
     const requestModel: GetOptimizedRequestModel = {
-      requestType: RequestType.Deliver,
+      requestType: RequestType.Store,
       units: JSON.parse(localStorage.getItem('units') || JSON.stringify({})),
       currentLanguage: localStorage.getItem('language') || 'en',
     };

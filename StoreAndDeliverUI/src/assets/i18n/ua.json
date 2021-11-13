@@ -73,7 +73,8 @@
         "reviewOptimizedRequests": "Переглянути заяви",
         "activeRequests": "Поточні заяви",
         "requestDate": "Заява від",
-        "totalPrice": "Загальна ціна"
+        "totalPrice": "Загальна ціна",
+        "storeAddress": "Адреса складського приміщення"
     },
     "payment": {
         "header": "Оплата",
@@ -111,6 +112,8 @@
         "humidityUnit": "Одиниця виміру вологості",
         "luminosityUnit": "Одиниця виміру освітлення",
         "open": "Відкрити",
-        "clickTo": "Натиснути, щоб"
+        "clickTo": "Натиснути, щоб",
+        "enabled": "Включено",
+        "disabled": "Не включено"
     }
 }
