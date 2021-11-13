@@ -24,6 +24,7 @@ import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
 import { UnitsPanelComponent } from './components/units-panel/units-panel.component';
 import { FormsModule } from '@angular/forms';
 import { DialogsModule } from 'src/app/layout/dialogs/dialogs.module';
+import { UserRequestsComponent } from './components/user-requests/user-requests.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { DialogsModule } from 'src/app/layout/dialogs/dialogs.module';
     GroupedCargoItemComponent,
     CargoRequestItemComponent,
     UnitsPanelComponent,
+    UserRequestsComponent,
   ],
   imports: [
     CommonModule,

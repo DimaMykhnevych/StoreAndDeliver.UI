@@ -48,11 +48,8 @@
     </div>
     <div *ngFor="let group of cargoRequestsGroups">
       <app-grouped-cargo-item
-        (onRequestGroupAccepted)="onRequestGroupAction($event)"
-        (onRequestGroupCompleted)="onRequestGroupAction($event)"
         [cargoRequestsGroup]="group"
         [requestStatus]="selectedRequestStatus"
-        [isRequestActionsEnabled]="true"
       ></app-grouped-cargo-item>
     </div>
     <div *ngIf="cargoRequestsGroups.length === 0">

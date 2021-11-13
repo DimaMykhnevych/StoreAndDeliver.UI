@@ -82,7 +82,8 @@
         "selectRequestType": "Обирите тип заяви",
         "selectRequestStatus": "Обирите статус заяви",
         "emptyRequests": "Заяв з таким статусом не знайдено",
-        "noAvailableRequests": "Доступні заіви відсутні"
+        "noAvailableRequests": "Доступні заіви відсутні",
+        "myRequests": "Мої Заяви"
     },
     "payment": {
         "header": "Оплата",

@@ -82,7 +82,8 @@
         "selectRequestType": "Select request type",
         "selectRequestStatus": "Select request status",
         "emptyRequests": "There is no requests with such status",
-        "noAvailableRequests": "There is no available requests"
+        "noAvailableRequests": "There is no available requests",
+        "myRequests": "My Requests"
     },
     "statuses":{
         "inProgress": "In Progress",

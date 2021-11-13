@@ -4,6 +4,7 @@ import { AuthGuard } from './core/auth';
 import { Roles } from './core/models/roles';
 import { CargoRequestsComponent } from './features/cargo-requests/cargo-requests.component';
 import { OptimizedCargoRequestsReviewComponent } from './features/cargo-requests/components/optimized-cargo-requests-review/optimized-cargo-requests-review.component';
+import { UserRequestsComponent } from './features/cargo-requests/components/user-requests/user-requests.component';
 import { DashboardComponent } from './features/dashboard/dashboard/dashboard.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 
@@ -24,14 +25,21 @@ const routes: Routes = [
         path: 'create-request',
         component: CargoRequestsComponent,
         data: {
-          role: Roles.User,
+          roles: [Roles.User],
         },
       },
       {
         path: 'optimized-requests',
         component: OptimizedCargoRequestsReviewComponent,
         data: {
-          role: Roles.Carrier,
+          roles: [Roles.Carrier],
+        },
+      },
+      {
+        path: 'my-requests',
+        component: UserRequestsComponent,
+        data: {
+          roles: [Roles.User],
         },
       },
     ],

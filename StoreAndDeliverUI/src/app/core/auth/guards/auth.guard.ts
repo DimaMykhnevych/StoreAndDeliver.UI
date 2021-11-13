@@ -42,7 +42,7 @@ export class AuthGuard implements CanActivateChild, CanActivate {
       return false;
     }
     const currentUser = this._currentUserService.userInfo;
-    if (route.data.role && route.data.role !== currentUser.role) {
+    if (route.data.roles && route.data.roles.indexOf(currentUser.role) === -1) {
       this._router.navigate(['/dashboard']);
       return false;
     }

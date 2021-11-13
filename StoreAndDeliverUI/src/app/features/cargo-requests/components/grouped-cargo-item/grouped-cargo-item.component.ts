@@ -13,6 +13,7 @@ export class GroupedCargoItemComponent implements OnInit {
   @Output()
   public onRequestGroupCompleted: EventEmitter<OptimizedRequestsGroup> = new EventEmitter<OptimizedRequestsGroup>();
   @Input() public requestStatus: RequestStatus = RequestStatus.pending;
+  @Input() public isRequestActionsEnabled: boolean = false;
   @Input() set cargoRequestsGroup(crg: OptimizedRequestsGroup) {
     this._cargoRequestsGroup = crg;
     for (let key in crg) {

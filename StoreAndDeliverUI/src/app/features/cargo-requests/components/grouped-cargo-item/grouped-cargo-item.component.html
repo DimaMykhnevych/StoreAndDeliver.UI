@@ -11,7 +11,7 @@
       ></app-cargo-request-item>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center" *ngIf="isRequestActionsEnabled">
     <button
       *ngIf="isRequestInPendingStatus() && keys.length > 0"
       mat-raised-button

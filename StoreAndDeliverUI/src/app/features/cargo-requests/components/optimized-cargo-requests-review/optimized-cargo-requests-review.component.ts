@@ -153,7 +153,6 @@ export class OptimizedCargoRequestsReviewComponent implements OnInit {
       currentLanguage: localStorage.getItem('language') || 'en',
       status: this.selectedRequestStatus,
     };
-    console.log(requestModel);
     return this._requestService.getOptimizedRequests(requestModel);
   }
 }

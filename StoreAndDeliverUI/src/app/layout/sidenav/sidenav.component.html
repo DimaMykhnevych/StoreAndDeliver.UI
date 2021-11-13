@@ -47,6 +47,19 @@
             </h3>
           </div>
         </mat-list-item>
+        <mat-list-item
+          *ngIf="showTab('reviewUserRequests')"
+          routerLink="/my-requests"
+          routerLinkActive="active"
+        >
+          <i class="fas fa-receipt" style="font-size: 20px"></i>
+          <div fxFlex="10"></div>
+          <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+            <h3 class="ml-2">
+              {{ "cargoRequest.myRequests" | translate }}
+            </h3>
+          </div>
+        </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
 
