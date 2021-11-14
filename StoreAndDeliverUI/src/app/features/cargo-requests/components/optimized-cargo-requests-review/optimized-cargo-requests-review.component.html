@@ -46,19 +46,24 @@
         </div>
       </div>
     </div>
-    <div *ngFor="let group of cargoRequestsGroups">
-      <app-grouped-cargo-item
-        (onRequestGroupAccepted)="onRequestGroupAction($event)"
-        (onRequestGroupCompleted)="onRequestGroupAction($event)"
-        [cargoRequestsGroup]="group"
-        [requestStatus]="selectedRequestStatus"
-        [isRequestActionsEnabled]="true"
-      ></app-grouped-cargo-item>
+    <div *ngIf="!isLoading">
+      <div *ngFor="let group of cargoRequestsGroups">
+        <app-grouped-cargo-item
+          (onRequestGroupAccepted)="onRequestGroupAction($event)"
+          (onRequestGroupCompleted)="onRequestGroupAction($event)"
+          [cargoRequestsGroup]="group"
+          [requestStatus]="selectedRequestStatus"
+          [isRequestActionsEnabled]="true"
+        ></app-grouped-cargo-item>
+      </div>
+      <div *ngIf="cargoRequestsGroups.length === 0">
+        <h1 class="text-center">
+          {{ "cargoRequest.noAvailableRequests" | translate }}
+        </h1>
+      </div>
     </div>
-    <div *ngIf="cargoRequestsGroups.length === 0">
-      <h1 class="text-center">
-        {{ "cargoRequest.noAvailableRequests" | translate }}
-      </h1>
+    <div *ngIf="isLoading">
+      <app-spinner></app-spinner>
     </div>
   </div>
 </div>

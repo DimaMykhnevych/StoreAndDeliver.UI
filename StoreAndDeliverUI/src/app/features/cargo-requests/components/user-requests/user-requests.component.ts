@@ -15,6 +15,7 @@ import { CargoRequestService } from '../../services/cargo-request.service';
 export class UserRequestsComponent implements OnInit {
   public cargoRequestsGroups: OptimizedRequestsGroup[] = [];
   public selectedRequestType: string = RequestType.Deliver.toString();
+  public isLoading: boolean = false;
   public selectedRequestStatus: RequestStatus = RequestStatus.pending;
   public statuses: RequestStatus[] = [
     RequestStatus.pending,
@@ -55,9 +56,11 @@ export class UserRequestsComponent implements OnInit {
       currentLanguage: localStorage.getItem('language') || 'en',
       status: this.selectedRequestStatus,
     };
+    this.isLoading = true;
     this._cargoRequestService
       .getUserRequests(requestModel)
       .subscribe((resp) => {
+        this.isLoading = false;
         this.cargoRequestsGroups = [];
         this.cargoRequestsGroups.push(resp);
       });

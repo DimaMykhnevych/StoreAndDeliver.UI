@@ -20,6 +20,7 @@ import { RequestService } from '../../services/request.service';
 export class OptimizedCargoRequestsReviewComponent implements OnInit {
   public cargoRequestsGroups: OptimizedRequestsGroup[] = [];
   public selectedRequestType: string = RequestType.Deliver.toString();
+  public isLoading: boolean = false;
   public selectedRequestStatus: RequestStatus = RequestStatus.pending;
   public statuses: RequestStatus[] = [
     RequestStatus.pending,
@@ -83,6 +84,7 @@ export class OptimizedCargoRequestsReviewComponent implements OnInit {
   }
 
   private updateRequestStatuses(requestGroup: UpdateCargoRequests): void {
+    this.isLoading = true;
     this._requestService
       .updateRequestStatuses(requestGroup)
       .pipe(
@@ -98,6 +100,7 @@ export class OptimizedCargoRequestsReviewComponent implements OnInit {
         })
       )
       .subscribe((resp) => {
+        this.isLoading = false;
         if (this.objectIsEmpty(resp) && !this.isRequestSuccessfull) {
           this.openWarningDialog();
         } else if (Array.isArray(resp)) {
@@ -125,13 +128,16 @@ export class OptimizedCargoRequestsReviewComponent implements OnInit {
   }
 
   private getRequestedCargoRequests(): void {
+    this.isLoading = true;
     if (this.selectedRequestStatus != RequestStatus.pending) {
       this.getCarrierRequests().subscribe((resp) => {
+        this.isLoading = false;
         this.cargoRequestsGroups = [];
         this.cargoRequestsGroups.push(resp);
       });
     } else {
       this.getOptimizedRequests().subscribe((resp) => {
+        this.isLoading = false;
         this.cargoRequestsGroups = resp;
       });
     }
