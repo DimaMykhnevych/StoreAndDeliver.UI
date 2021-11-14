@@ -54,7 +54,8 @@
               required
               matInput
               type="number"
-              min="0"
+              [min]="getMinSettingValue(setting)"
+              [max]="getMaxSettingValue(setting)"
               (focusout)="onFocusOut()"
             />
             <mat-error
@@ -74,7 +75,8 @@
               required
               matInput
               type="number"
-              min="0"
+              [min]="getMinSettingValue(setting)"
+              [max]="getMaxSettingValue(setting)"
               (focusout)="onFocusOut()"
             />
             <mat-error

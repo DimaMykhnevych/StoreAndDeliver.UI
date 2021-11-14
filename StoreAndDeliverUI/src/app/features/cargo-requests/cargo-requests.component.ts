@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
@@ -39,7 +40,8 @@ export class CargoRequestsComponent implements OnInit {
     private _requestService: RequestService,
     private _translateService: TranslateService,
     private _currentUserService: CurrentUserService,
-    private _toastrService: ToastrService
+    private _toastrService: ToastrService,
+    private _router: Router
   ) {}
 
   public ngOnInit(): void {}
@@ -68,6 +70,7 @@ export class CargoRequestsComponent implements OnInit {
         this._toastrService.success(
           this._translateService.instant('cargoRequest.successRequestAdding')
         );
+        this._router.navigate(['/my-requests']);
       }
     });
   }

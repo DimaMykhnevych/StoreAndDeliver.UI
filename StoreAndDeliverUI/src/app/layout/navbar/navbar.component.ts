@@ -28,8 +28,8 @@ export class NavbarComponent implements OnInit {
   }
 
   public onLanguageClick(language: string): void {
+    localStorage.setItem('language', language);
     this._translate.setDefaultLang(language);
     this._translate.use(language);
-    localStorage.setItem('language', language);
   }
 }

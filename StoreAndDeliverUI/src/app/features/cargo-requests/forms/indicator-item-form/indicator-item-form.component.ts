@@ -79,6 +79,30 @@ export class IndicatorItemFormComponent implements OnInit {
     return this._customTranslateService.translateUnit(setting);
   }
 
+  public getMinSettingValue(setting: AbstractControl): number {
+    if (this.isTemperatureSetting(setting)) {
+      return -30;
+    }
+    return 0;
+  }
+
+  public getMaxSettingValue(setting: AbstractControl): number {
+    if (this.isTemperatureSetting(setting)) {
+      return 70;
+    }
+    return 100;
+  }
+
+  private isTemperatureSetting(setting: AbstractControl): boolean {
+    const temperatureId = this.environmentSettings.find(
+      (s) => s.name === 'Temperature'
+    )?.id;
+    if (setting.value?.environmentSettingId == temperatureId) {
+      return true;
+    }
+    return false;
+  }
+
   private initializeForm(settings: CargoSetting[]): void {
     if (settings && settings.length) {
       this._formArray = [];
