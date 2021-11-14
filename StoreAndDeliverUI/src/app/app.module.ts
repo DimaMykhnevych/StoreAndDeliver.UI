@@ -18,6 +18,7 @@ import { NavbarModule } from './layout/navbar/navbar.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { CargoRequestsModule } from './features/cargo-requests/cargo-requests.module';
 import { SidenavModule } from './layout/sidenav/sidenav.module';
+import { AdminFeaturesModule } from './features/admin-features/admin-features.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,6 +46,7 @@ import { SidenavModule } from './layout/sidenav/sidenav.module';
     CargoRequestsModule,
     EmailConfirmationModule,
     SidenavModule,
+    AdminFeaturesModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

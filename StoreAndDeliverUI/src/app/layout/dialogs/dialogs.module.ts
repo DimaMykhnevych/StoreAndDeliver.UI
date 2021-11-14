@@ -9,9 +9,10 @@ import { LoginDialogComponent } from './login-dialog/login-dialog/login-dialog.c
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
+import { AddEditCarrierDialogComponent } from './add-edit-carrier-dialog/add-edit-carrier-dialog.component';
 
 @NgModule({
-  declarations: [RegisterDialogComponent, LoginDialogComponent, WarningDialogComponent],
+  declarations: [RegisterDialogComponent, LoginDialogComponent, WarningDialogComponent, AddEditCarrierDialogComponent],
   imports: [
     CommonModule,
     CoreModule,

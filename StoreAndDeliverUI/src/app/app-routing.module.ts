@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth';
 import { Roles } from './core/models/roles';
+import { CarrierManagementComponent } from './features/admin-features/components/carrier-management/carrier-management.component';
 import { CargoRequestsComponent } from './features/cargo-requests/cargo-requests.component';
 import { OptimizedCargoRequestsReviewComponent } from './features/cargo-requests/components/optimized-cargo-requests-review/optimized-cargo-requests-review.component';
 import { UserRequestsComponent } from './features/cargo-requests/components/user-requests/user-requests.component';
@@ -40,6 +41,13 @@ const routes: Routes = [
         component: UserRequestsComponent,
         data: {
           roles: [Roles.User],
+        },
+      },
+      {
+        path: 'carrier-management',
+        component: CarrierManagementComponent,
+        data: {
+          roles: [Roles.CompanyAdmin],
         },
       },
     ],

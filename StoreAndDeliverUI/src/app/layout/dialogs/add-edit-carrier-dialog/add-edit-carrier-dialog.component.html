@@ -1,0 +1,120 @@
+<h1 mat-dialog-title>
+  <div *ngIf="data.isAdding">
+    {{ "adminFeatures.addingNewCarrier" | translate }}
+  </div>
+  <div *ngIf="!data.isAdding">
+    {{ "adminFeatures.updatingCarrier" | translate }}
+  </div>
+</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-lg-5 col-12">
+        <mat-form-field>
+          <mat-label>{{ "common.userName" | translate }} </mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="userName"
+            placeholder="{{ 'common.userName' | translate }}"
+            required
+          />
+          <mat-error *ngIf="userName?.invalid && userName?.touched">
+            {{ "validation.userNameRequired" | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-5">
+        <mat-form-field>
+          <mat-label>{{ "common.email" | translate }}</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="email"
+            placeholder="{{ 'common.email' | translate }}"
+            required
+          />
+          <mat-error *ngIf="email?.touched && email?.errors?.required">{{
+            "validation.emailRequired" | translate
+          }}</mat-error>
+          <mat-error *ngIf="email?.touched && email?.errors?.email">{{
+            "validation.invalidEmail" | translate
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-5" *ngIf="data.isAdding">
+        <mat-form-field>
+          <mat-label>{{ "common.password" | translate }}</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="{{ 'common.password' | translate }}"
+            required
+          />
+          <mat-error *ngIf="password?.invalid && password?.touched">
+            {{ "validation.passwordRequired" | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-5">
+        <mat-form-field>
+          <mat-label>{{ "adminFeatures.companyName" | translate }}</mat-label>
+          <input
+            matInput
+            formControlName="companyName"
+            placeholder="{{ 'adminFeatures.companyName' | translate }}"
+            required
+          />
+          <mat-error *ngIf="companyName?.invalid && companyName?.touched">
+            {{ "validation.requiredField" | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-5">
+        <mat-form-field>
+          <mat-label> {{ "adminFeatures.truckVolume" | translate }}</mat-label>
+          <input
+            matInput
+            formControlName="maxCargoVolume"
+            type="number"
+            placeholder=" {{ 'adminFeatures.truckVolume' | translate }}"
+            min="0"
+            required
+          />
+          <mat-error *ngIf="maxCargoVolume?.invalid && maxCargoVolume?.touched">
+            {{ "validation.requiredField" | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="isUserNameAlreadyTaken" class="alert alert-danger">
+    {{ "registration.nameAlreadyTaken" | translate }}
+  </div>
+  <div *ngIf="isPasswordsMismatched" class="alert alert-danger">
+    {{ "registration.passwordsNotEqual" | translate }}
+  </div>
+  <div *ngIf="isPasswordWeak" class="alert alert-danger">
+    {{ "registration.weakPassword" | translate }}
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close="false">
+    {{ "common.close" | translate }}
+  </button>
+  <button
+    type="submit"
+    mat-button
+    [disabled]="this.form.invalid"
+    (click)="onActionClick()"
+  >
+    <app-spinner *ngIf="isAddingUser" [diameter]="25"></app-spinner>
+    <span *ngIf="!isAddingUser && data.isAdding">{{
+      "adminFeatures.addCarrier" | translate
+    }}</span>
+    <span *ngIf="!isAddingUser && !data.isAdding">{{
+      "adminFeatures.updateCarrier" | translate
+    }}</span>
+  </button>
+</div>

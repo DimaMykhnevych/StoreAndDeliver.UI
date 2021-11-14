@@ -39,7 +39,9 @@
         "aboutUs": "About Us"
     },
     "toastrs": {
-        "registration": "You are registered successfully. Confirmation email was send to "
+        "registration": "You are registered successfully. Confirmation email was send to ",
+        "carrierAdded": "Carrier was added successfully!",
+        "carrierUpdated": "Carrier was updated successfully!"
     },
     "dialogs": {
         "cargoFullTitle": "Full truck",
@@ -85,6 +87,16 @@
         "noAvailableRequests": "There is no available requests",
         "myRequests": "My Requests"
     },
+    "adminFeatures": {
+        "header": "Carrier management",
+        "addNewCarrier": "Add new carrier",
+        "companyName": "Company name",
+        "truckVolume": "Truck volume (in м^3)",
+        "addingNewCarrier":"Adding carrier",
+        "updatingCarrier": "Updating carrier",
+        "addCarrier": "Add carrier",
+        "updateCarrier": "Update carrier"
+    },
     "statuses":{
         "inProgress": "In Progress",
         "rejected": "Rejected",
@@ -100,6 +112,9 @@
         "store": "Store",
         "deliver": "Deliver"
     },
+    "sidenav": {
+        "carrierManagement": "Carrier management"
+    },
     "common": {
         "signin": "Sign In",
         "login": "Log In",
@@ -113,6 +128,7 @@
         "cargo": "Cargo",
         "cargoSet": "Cargo",
         "delete": "Delete",
+        "update": "Update",
         "next": "Next", 
         "back": "Back",
         "setting": "Setting",
