@@ -4,4 +4,5 @@ import { OptimizedRequestsGroup } from './optimized-requests';
 export interface UpdateCargoRequests {
   requestGroup: OptimizedRequestsGroup;
   units: Units;
+  language: string;
 }

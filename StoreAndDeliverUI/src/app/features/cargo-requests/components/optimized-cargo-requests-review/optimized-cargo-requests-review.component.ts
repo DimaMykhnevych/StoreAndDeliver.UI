@@ -72,6 +72,7 @@ export class OptimizedCargoRequestsReviewComponent implements OnInit {
     const updateRequestBody: UpdateCargoRequests = {
       requestGroup: requestGroup,
       units: JSON.parse(localStorage.getItem('units') || JSON.stringify({})),
+      language: localStorage.getItem('language') || 'en',
     };
     this.updateRequestStatuses(updateRequestBody);
   }
