@@ -91,11 +91,20 @@
         "header": "Carrier management",
         "addNewCarrier": "Add new carrier",
         "companyName": "Company name",
-        "truckVolume": "Truck volume (in м^3)",
+        "truckVolume": "Truck volume (in m^3)",
         "addingNewCarrier":"Adding carrier",
         "updatingCarrier": "Updating carrier",
         "addCarrier": "Add carrier",
-        "updateCarrier": "Update carrier"
+        "updateCarrier": "Update carrier",
+        "storeName": "Store Name",
+        "storeManagement": "Store management",
+        "addNewStore": "Add new store",
+        "storeVolume": "Store volume (in m^3)",
+        "storeAddress":"Store Address",
+        "addingNewStore": "Adding store",
+        "updatingStore": "Updating store",
+        "addStore": "Add store",
+        "updateStore": "Update store"
     },
     "statuses":{
         "inProgress": "In Progress",
@@ -113,7 +122,8 @@
         "deliver": "Deliver"
     },
     "sidenav": {
-        "carrierManagement": "Carrier management"
+        "carrierManagement": "Carrier management",
+        "storeManagement": "Store management"
     },
     "common": {
         "signin": "Sign In",

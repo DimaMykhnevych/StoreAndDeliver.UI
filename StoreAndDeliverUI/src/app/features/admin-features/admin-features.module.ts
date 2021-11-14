@@ -7,9 +7,10 @@ import { CoreModule } from 'src/app/core/core.module';
 import { DialogsModule } from 'src/app/layout/dialogs/dialogs.module';
 import { CarrierManagementComponent } from './components/carrier-management/carrier-management.component';
 import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
+import { StoreManagementComponent } from './components/store-management/store-management.component';
 
 @NgModule({
-  declarations: [CarrierManagementComponent],
+  declarations: [CarrierManagementComponent, StoreManagementComponent],
   imports: [
     CommonModule,
     MaterialModule,

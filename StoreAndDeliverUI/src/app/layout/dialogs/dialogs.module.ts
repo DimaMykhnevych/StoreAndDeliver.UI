@@ -10,10 +10,19 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
 import { AddEditCarrierDialogComponent } from './add-edit-carrier-dialog/add-edit-carrier-dialog.component';
+import { AddEditStoreDialogComponent } from './add-edit-store-dialog/add-edit-store-dialog.component';
+import { CargoRequestsModule } from 'src/app/features/cargo-requests/cargo-requests.module';
 
 @NgModule({
-  declarations: [RegisterDialogComponent, LoginDialogComponent, WarningDialogComponent, AddEditCarrierDialogComponent],
+  declarations: [
+    RegisterDialogComponent,
+    LoginDialogComponent,
+    WarningDialogComponent,
+    AddEditCarrierDialogComponent,
+    AddEditStoreDialogComponent,
+  ],
   imports: [
+    CargoRequestsModule,
     CommonModule,
     CoreModule,
     MaterialModule,

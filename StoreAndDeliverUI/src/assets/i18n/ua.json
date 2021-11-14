@@ -95,7 +95,16 @@
         "addingNewCarrier":"Додавання перевізника",
         "updatingCarrier": "Оновлення інформації про перевізника",
         "addCarrier": "Додати перевізника",
-        "updateCarrier": "Оновити перевізника"
+        "updateCarrier": "Оновити перевізника",
+        "storeName": "Назва складу",
+        "storeManagement": "Управління складськими приміщеннями",
+        "addNewStore": "Додати новий склад",
+        "storeVolume": "Об'єм складу (м^3)",
+        "storeAddress":"Адреса складського приміщення",
+        "addingNewStore": "Додавання складу",
+        "updatingStore": "Оновлення інформації про склад",
+        "addStore": "Додати склад",
+        "updateStore": "Оновити склад"
     },
     "payment": {
         "header": "Оплата",
@@ -113,7 +122,8 @@
         "status": "Статус"
     },
     "sidenav": {
-        "carrierManagement": "Управління перевізниками"
+        "carrierManagement": "Управління перевізниками",
+        "storeManagement": "Управління складами"
     },
     "common": {
         "signin": "Увійти",
