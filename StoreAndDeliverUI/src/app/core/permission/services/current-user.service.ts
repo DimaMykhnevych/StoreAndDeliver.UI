@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserInfo } from '../../auth';
 import { Subject } from 'rxjs';
+import { Roles } from '../../models/roles';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,6 @@ export class CurrentUserService {
   }
 
   public get isAdmin(): boolean {
-    return this._userInfo.role === 'Admin';
+    return this._userInfo.role == Roles.Admin;
   }
 }

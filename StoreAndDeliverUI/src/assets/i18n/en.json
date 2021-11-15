@@ -40,8 +40,9 @@
     },
     "toastrs": {
         "registration": "You are registered successfully. Confirmation email was send to ",
-        "carrierAdded": "Carrier was added successfully!",
-        "carrierUpdated": "Carrier was updated successfully!"
+        "carrierAdded": "Carrier was added successfully",
+        "carrierUpdated": "Carrier was updated successfully",
+        "backupCreated": "Backup was created successfully"
     },
     "dialogs": {
         "cargoFullTitle": "Full truck",
@@ -104,7 +105,15 @@
         "addingNewStore": "Adding store",
         "updatingStore": "Updating store",
         "addStore": "Add store",
-        "updateStore": "Update store"
+        "updateStore": "Update store",
+        "logsDate": "Logs date",
+        "getLogs": "Get logs",
+        "logsNotExists": "There are no logs for this date",
+        "clearLogs": "Clear logs",
+        "logsSection": "Logs section",
+        "backupSection": "Database Backup Section",
+        "backupInfo": "Backup file will be stored in %AppData%\\Local\\StoreAndDeliver\\Backup",
+        "createBackup": "Create Backup"
     },
     "statuses":{
         "inProgress": "In Progress",
@@ -155,6 +164,10 @@
         "enabled": "Enabled",
         "disabled": "Disabled",
         "accept": "Accept",
-        "complete": "Complete"
+        "complete": "Complete",
+        "goodMorning": "Good morning",
+        "goodAfternoon": "Good afternoon",
+        "goodEvening": "Good evening",
+        "copyToClipBoard": "Copy to clipboard"
     }
 }

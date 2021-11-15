@@ -40,8 +40,9 @@
     },
     "toastrs": {
         "registration": "Ви успішно зареєстровані. Лист-підтвердження надіслано на адресу ",
-        "carrierAdded": "Перевізника було успішно додано!",
-        "carrierUpdated": "Перевізника було успішно оновлено!"
+        "carrierAdded": "Перевізника було успішно додано",
+        "carrierUpdated": "Перевізника було успішно оновлено",
+        "backupCreated": "Бекап було успішно створено"
     },
     "dialogs": {
         "cargoFullTitle": "Заповнена вантажівка",
@@ -104,7 +105,15 @@
         "addingNewStore": "Додавання складу",
         "updatingStore": "Оновлення інформації про склад",
         "addStore": "Додати склад",
-        "updateStore": "Оновити склад"
+        "updateStore": "Оновити склад",
+        "logsDate": "Дата логів",
+        "getLogs": "Отримати логи",
+        "logsNotExists": "Для вказаної дати логи відсутні",
+        "clearLogs": "Відчистити логи",
+        "logsSection": "Секція логів",
+        "backupSection": "Секція бекапу бази даних",
+        "backupInfo": "Файл бекапу буде зберігатися в %AppData%\\Local\\StoreAndDeliver\\Backup",
+        "createBackup": "Створити бекап"
     },
     "payment": {
         "header": "Оплата",
@@ -155,6 +164,10 @@
         "enabled": "Включено",
         "disabled": "Не включено",
         "accept": "Взяти в роботу",
-        "complete": "Завершити"
+        "complete": "Завершити",
+        "goodMorning": "Доброго ранку,",
+        "goodAfternoon": "Доброго дня,",
+        "goodEvening": "Доброго вечора,",
+        "copyToClipBoard": "Скопіювати"
     }
 }
