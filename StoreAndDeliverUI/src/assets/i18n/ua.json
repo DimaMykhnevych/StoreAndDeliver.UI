@@ -86,7 +86,9 @@
         "selectRequestStatus": "Обирите статус заяви",
         "emptyRequests": "Заяв з таким статусом не знайдено",
         "noAvailableRequests": "Доступні заіви відсутні",
-        "myRequests": "Мої Заяви"
+        "myRequests": "Мої Заяви",
+        "showCurrentSettings": "Показати поточні показники",
+        "cargoSnapshots": "Поточні значення показників"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",

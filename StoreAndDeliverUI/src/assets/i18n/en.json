@@ -86,7 +86,9 @@
         "selectRequestStatus": "Select request status",
         "emptyRequests": "There is no requests with such status",
         "noAvailableRequests": "There is no available requests",
-        "myRequests": "My Requests"
+        "myRequests": "My Requests",
+        "showCurrentSettings": "Show Current Indicator Values",
+        "cargoSnapshots": "Current indicator values"
     },
     "adminFeatures": {
         "header": "Carrier management",

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CargoSnapshot } from 'src/app/core/models/cargo-snapshot';
 import { Carrier } from 'src/app/core/models/carrier';
 import { AddEditCarrierDialogComponent } from '../add-edit-carrier-dialog/add-edit-carrier-dialog.component';
 import { AddEditStoreDialogComponent } from '../add-edit-store-dialog/add-edit-store-dialog.component';
+import { CargoSnapshotsDialogComponent } from '../cargo-snapshots-dialog/cargo-snapshots-dialog.component';
 import { LoginDialogComponent } from '../login-dialog/login-dialog/login-dialog.component';
 import { AddEditCarrierDialogData } from '../models/add-edit-dialog-data';
 import { AddEditStoreDialogData } from '../models/add-edit-store-data';
@@ -36,6 +38,16 @@ export class DialogService {
     return this.dialog.open(AddEditCarrierDialogComponent, {
       width: '550px',
       disableClose: true,
+      data: data,
+    });
+  }
+
+  public openCargoSnapshotsDialog(
+    data: CargoSnapshot[]
+  ): MatDialogRef<CargoSnapshotsDialogComponent> {
+    return this.dialog.open(CargoSnapshotsDialogComponent, {
+      width: '400px',
+      disableClose: false,
       data: data,
     });
   }

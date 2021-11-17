@@ -12,6 +12,7 @@ import { WarningDialogComponent } from './warning-dialog/warning-dialog.componen
 import { AddEditCarrierDialogComponent } from './add-edit-carrier-dialog/add-edit-carrier-dialog.component';
 import { AddEditStoreDialogComponent } from './add-edit-store-dialog/add-edit-store-dialog.component';
 import { CargoRequestsModule } from 'src/app/features/cargo-requests/cargo-requests.module';
+import { CargoSnapshotsDialogComponent } from './cargo-snapshots-dialog/cargo-snapshots-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CargoRequestsModule } from 'src/app/features/cargo-requests/cargo-reque
     WarningDialogComponent,
     AddEditCarrierDialogComponent,
     AddEditStoreDialogComponent,
+    CargoSnapshotsDialogComponent,
   ],
   imports: [
     CargoRequestsModule,

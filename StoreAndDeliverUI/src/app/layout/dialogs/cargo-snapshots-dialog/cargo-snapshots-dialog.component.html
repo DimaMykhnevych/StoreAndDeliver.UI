@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{ "cargoRequest.cargoSnapshots" | translate }}</h1>
+<div class="mat-typography mb-2" mat-dialog-content>
+  <div *ngFor="let snapshot of averageCargoSnapshots">
+    <p>
+      {{ snapshot.settingName }}: {{ snapshot.averageValue }}
+      {{ snapshot.displayedUnitSymbol }}
+    </p>
+  </div>
+</div>
+<button mat-raised-button mat-dialog-close="yes">
+  {{ "common.close" | translate }}
+</button>

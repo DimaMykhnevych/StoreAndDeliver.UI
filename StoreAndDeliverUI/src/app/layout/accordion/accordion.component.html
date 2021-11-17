@@ -27,6 +27,23 @@
       [attr.id]="'accordion-body-' + index"
       [attr.aria-labelledby]="'accordion-header-' + index"
     >
+      <div
+        *ngIf="isStatusInProgress(index)"
+        class="row d-flex flex-row justify-content-center"
+      >
+        <button
+          (click)="onShowCurrentSettingsClick(index)"
+          class="btn btn-sm btn-primary mt-0 pt-0 mb-2"
+        >
+          <app-spinner
+            *ngIf="isCargoSnapshotsLoading"
+            [diameter]="25"
+          ></app-spinner>
+          <span *ngIf="!isCargoSnapshotsLoading">{{
+            "cargoRequest.showCurrentSettings" | translate
+          }}</span>
+        </button>
+      </div>
       <div class="row d-flex flex-row">
         <div class="col-lg-6">
           <p>
