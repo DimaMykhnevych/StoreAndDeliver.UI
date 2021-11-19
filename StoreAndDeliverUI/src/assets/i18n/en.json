@@ -88,7 +88,11 @@
         "noAvailableRequests": "There is no available requests",
         "myRequests": "My Requests",
         "showCurrentSettings": "Show Current Indicator Values",
-        "cargoSnapshots": "Current indicator values"
+        "cargoSnapshots": "Current indicator values",
+        "createRequestNow": "Create request now",
+        "myActiveRequests": "My active requests",
+        "myPendingRequests": "My pending requests",
+        "myCompletedRequests": "My completed requests"
     },
     "adminFeatures": {
         "header": "Carrier management",

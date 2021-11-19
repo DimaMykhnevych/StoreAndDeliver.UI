@@ -56,7 +56,7 @@ import { UserRequestsComponent } from './components/user-requests/user-requests.
     AccordionModule,
     FormsModule,
   ],
-  exports: [AddressFormComponent],
+  exports: [AddressFormComponent, CargoRequestItemComponent],
   providers: [DatePipe],
 })
 export class CargoRequestsModule {}

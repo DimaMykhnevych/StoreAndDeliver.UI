@@ -88,7 +88,11 @@
         "noAvailableRequests": "Доступні заіви відсутні",
         "myRequests": "Мої Заяви",
         "showCurrentSettings": "Показати поточні показники",
-        "cargoSnapshots": "Поточні значення показників"
+        "cargoSnapshots": "Поточні значення показників",
+        "createRequestNow": "Зробити заяву зараз",
+        "myActiveRequests": "Мої активні заяви",
+        "myPendingRequests": "Заяви, що очікують підтвердження",
+        "myCompletedRequests": "Завершені заяви"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",

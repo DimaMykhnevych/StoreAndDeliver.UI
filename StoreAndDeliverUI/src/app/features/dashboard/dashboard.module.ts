@@ -7,9 +7,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { CargoRequestsModule } from '../cargo-requests/cargo-requests.module';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminDashboardComponent],
+  declarations: [
+    DashboardComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent,
+  ],
   imports: [
     CommonModule,
     CoreModule,
@@ -17,6 +23,7 @@ import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
     TranslateModule,
     ReactiveFormsModule,
     SpinnerModule,
+    CargoRequestsModule,
   ],
 })
 export class DashboardModule {}
