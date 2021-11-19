@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../../../../core/settings';
 import { RegistrationForm } from '../../../../core/auth';
-// import { IConfirmEmailModel } from 'src/app/core/models/confirm-email';
+import { AppUser } from 'src/app/core/models/app-user';
+import { ChangeUserPassword } from '../../models/change-user-password';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,15 @@ export class UserService {
       `${AppSettings.apiHost}/user`,
       user,
       requestOptions
+    );
+  }
+
+  public updatePassword(
+    updatePasswordModel: ChangeUserPassword
+  ): Observable<AppUser> {
+    return this._http.put<AppUser>(
+      `${AppSettings.apiHost}/user`,
+      updatePasswordModel
     );
   }
 }

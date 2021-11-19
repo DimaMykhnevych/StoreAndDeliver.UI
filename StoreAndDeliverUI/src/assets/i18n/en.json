@@ -140,6 +140,15 @@
         "carrierManagement": "Carrier management",
         "storeManagement": "Store management"
     },
+    "changePassword": {
+        "changePassword": "Cahnge password",
+        "passwordChanging": "Password changing",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password",
+        "successfulPasswordChangeToastr": "Password was changed successfully",
+        "wrongPassword": "Password is wrong",
+        "validation": "Password is invalid or mismatched"
+    },
     "common": {
         "signin": "Sign In",
         "login": "Log In",

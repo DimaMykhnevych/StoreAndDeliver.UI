@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/auth';
 import { CurrentUserService } from 'src/app/core/permission/services';
+import { DialogService } from '../dialogs/services/dialog.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,11 +16,16 @@ export class NavbarComponent implements OnInit {
     private _authService: AuthService,
     private router: Router,
     private _userService: CurrentUserService,
-    private _translate: TranslateService
+    private _translate: TranslateService,
+    private _dialogService: DialogService
   ) {}
 
   public ngOnInit(): void {
     this.userName = this._userService.userInfo.userName;
+  }
+
+  public onChangePasswordButtonClick(): void {
+    this._dialogService.openChangePasswordDialog();
   }
 
   public OnLogOutButtonCLick(): void {

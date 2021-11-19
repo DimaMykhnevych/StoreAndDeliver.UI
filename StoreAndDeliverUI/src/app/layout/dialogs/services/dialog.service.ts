@@ -5,6 +5,7 @@ import { Carrier } from 'src/app/core/models/carrier';
 import { AddEditCarrierDialogComponent } from '../add-edit-carrier-dialog/add-edit-carrier-dialog.component';
 import { AddEditStoreDialogComponent } from '../add-edit-store-dialog/add-edit-store-dialog.component';
 import { CargoSnapshotsDialogComponent } from '../cargo-snapshots-dialog/cargo-snapshots-dialog.component';
+import { ChangePasswordDialogComponent } from '../change-password-dialog/change-password-dialog.component';
 import { LoginDialogComponent } from '../login-dialog/login-dialog/login-dialog.component';
 import { AddEditCarrierDialogData } from '../models/add-edit-dialog-data';
 import { AddEditStoreDialogData } from '../models/add-edit-store-data';
@@ -27,6 +28,13 @@ export class DialogService {
 
   public openLoginDialog(): MatDialogRef<LoginDialogComponent> {
     return this.dialog.open(LoginDialogComponent, {
+      width: '300px',
+      disableClose: true,
+    });
+  }
+
+  public openChangePasswordDialog(): MatDialogRef<ChangePasswordDialogComponent> {
+    return this.dialog.open(ChangePasswordDialogComponent, {
       width: '300px',
       disableClose: true,
     });

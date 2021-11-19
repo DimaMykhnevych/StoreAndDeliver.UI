@@ -140,6 +140,15 @@
         "carrierManagement": "Управління перевізниками",
         "storeManagement": "Управління складами"
     },
+    "changePassword": {
+        "changePassword": "Змінити пароль",
+        "passwordChanging": "Зміна паролю",
+        "newPassword": "Новий пароль",
+        "confirmPassword": "Підтвердити пароль",
+        "successfulPasswordChangeToastr": "Пароль було успішно змінено",
+        "wrongPassword": "Невірний пароль",
+        "validation": "Пароль є невірним або він не співпадає"
+    },
     "common": {
         "signin": "Увійти",
         "login": "Вхід",
