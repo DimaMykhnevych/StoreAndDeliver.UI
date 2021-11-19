@@ -50,6 +50,12 @@ export class LandingPageComponent implements OnInit {
     localStorage.setItem('language', 'en');
   }
 
+  public onRussiaLangClick(): void {
+    this._translate.setDefaultLang('ru');
+    this._translate.use('ru');
+    localStorage.setItem('language', 'ru');
+  }
+
   public onScrollDownClick($event: Event) {
     $event.preventDefault();
     window.scroll({
