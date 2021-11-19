@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from 'src/app/core/auth';
+import { AuthService, UserInfo } from 'src/app/core/auth';
+import { Roles } from 'src/app/core/models/roles';
+import { CurrentUserService } from 'src/app/core/permission/services';
 import { DialogService } from 'src/app/layout/dialogs/services/dialog.service';
 
 @Component({
@@ -14,14 +16,15 @@ export class LandingPageComponent implements OnInit {
     private _translate: TranslateService,
     private _dialogService: DialogService,
     private _auth: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _currentUserService: CurrentUserService
   ) {}
 
   public ngOnInit(): void {}
 
   public openRegisterDialog(): void {
     if (this._auth.isAuthenticated()) {
-      this._router.navigate(['/dashboard']);
+      this.defineRedirectRoute();
       return;
     }
     this._dialogService.openRegisterDialog();
@@ -29,7 +32,7 @@ export class LandingPageComponent implements OnInit {
 
   public openLoginDialog(): void {
     if (this._auth.isAuthenticated()) {
-      this._router.navigate(['/dashboard']);
+      this.defineRedirectRoute();
       return;
     }
     this._dialogService.openLoginDialog();
@@ -47,12 +50,26 @@ export class LandingPageComponent implements OnInit {
     localStorage.setItem('language', 'en');
   }
 
-  onScrollDownClick($event: Event) {
+  public onScrollDownClick($event: Event) {
     $event.preventDefault();
     window.scroll({
       top: 600,
       left: 0,
       behavior: 'smooth',
     });
+  }
+
+  private defineRedirectRoute(): void {
+    const userInfo: UserInfo = this._currentUserService.userInfo;
+    switch (userInfo.role) {
+      case Roles.Carrier:
+        this._router.navigate(['/optimized-requests']);
+        break;
+      case Roles.CompanyAdmin:
+        this._router.navigate(['/carrier-management']);
+        break;
+      default:
+        this._router.navigate(['/dashboard']);
+    }
   }
 }

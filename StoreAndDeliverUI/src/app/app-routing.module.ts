@@ -22,7 +22,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: {
+          roles: [Roles.User, Roles.Admin],
+        },
+      },
       {
         path: 'create-request',
         component: CargoRequestsComponent,

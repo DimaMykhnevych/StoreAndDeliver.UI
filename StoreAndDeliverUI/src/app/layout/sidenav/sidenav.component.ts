@@ -17,6 +17,7 @@ export class SidenavComponent implements OnInit {
   public reviewUserRequests: string[] = [Roles.User];
   public carrierManagement: string[] = [Roles.CompanyAdmin];
   public storeManagement: string[] = [Roles.CompanyAdmin];
+  public dashboard: string[] = [Roles.Admin, Roles.User];
   constructor(private _currentUserService: CurrentUserService) {}
 
   public ngOnInit(): void {
@@ -35,6 +36,9 @@ export class SidenavComponent implements OnInit {
         return this.carrierManagement.includes(this.userInfo.role || '');
       case 'storeManagement':
         return this.storeManagement.includes(this.userInfo.role || '');
+      case 'dashboard':
+        return this.dashboard.includes(this.userInfo.role || '');
+
       default:
         return false;
     }

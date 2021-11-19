@@ -7,8 +7,14 @@ import {
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AuthForm, AuthResponse, AuthService } from 'src/app/core/auth';
+import {
+  AuthForm,
+  AuthResponse,
+  AuthService,
+  UserInfo,
+} from 'src/app/core/auth';
 import { LoginErrorCodes } from 'src/app/core/auth/enums/login-errors-code.enum';
+import { Roles } from 'src/app/core/models/roles';
 
 @Component({
   selector: 'app-login-dialog',
@@ -55,11 +61,24 @@ export class LoginDialogComponent implements OnInit {
       this.isLoggingIn = false;
       if (authResponse.isAuthorized) {
         this._dialogRef.close();
-        this._router.navigate(['/dashboard']);
+        this.defineRedirectRoute(authResponse.userInfo);
       } else {
         this.authResponse = authResponse;
       }
     });
+  }
+
+  private defineRedirectRoute(userInfo: UserInfo): void {
+    switch (userInfo.role) {
+      case Roles.Carrier:
+        this._router.navigate(['/optimized-requests']);
+        break;
+      case Roles.CompanyAdmin:
+        this._router.navigate(['/carrier-management']);
+        break;
+      default:
+        this._router.navigate(['/dashboard']);
+    }
   }
 
   private initializeForm(): void {

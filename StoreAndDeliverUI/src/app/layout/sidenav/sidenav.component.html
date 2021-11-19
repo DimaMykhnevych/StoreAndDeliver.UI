@@ -12,7 +12,11 @@
       fixedInViewport
     >
       <mat-nav-list>
-        <mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <mat-list-item
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          *ngIf="showTab('dashboard')"
+        >
           <mat-icon class="mr-2" aria-hidden="false" aria-label="Home icon"
             >dashboard</mat-icon
           >
