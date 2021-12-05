@@ -118,7 +118,7 @@
         "clearLogs": "Clear logs",
         "logsSection": "Logs section",
         "backupSection": "Database Backup Section",
-        "backupInfo": "Backup file will be stored in %AppData%\\Local\\StoreAndDeliver\\Backup",
+        "backupInfo": "Backup file will be stored in Downloads folder",
         "createBackup": "Create Backup"
     },
     "statuses":{

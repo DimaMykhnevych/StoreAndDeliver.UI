@@ -118,7 +118,7 @@
         "clearLogs": "Відчистити логи",
         "logsSection": "Секція логів",
         "backupSection": "Секція бекапу бази даних",
-        "backupInfo": "Файл бекапу буде зберігатися в %AppData%\\Local\\StoreAndDeliver\\Backup",
+        "backupInfo": "Файл бекапу буде зберігатися в папці Download",
         "createBackup": "Створити бекап"
     },
     "payment": {

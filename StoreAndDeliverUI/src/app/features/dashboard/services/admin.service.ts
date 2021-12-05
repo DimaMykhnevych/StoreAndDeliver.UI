@@ -15,11 +15,10 @@ interface GetLogs {
 export class AdminService {
   constructor(private _http: HttpClient) {}
 
-  public backupDatabase(): Observable<void> {
-    return this._http.post<void>(
-      `${AppSettings.apiHost}/admin/backupDatabase`,
-      {}
-    );
+  public backupDatabase(): Observable<Blob> {
+    return this._http.get(`${AppSettings.apiHost}/admin/backupDatabase`, {
+      responseType: 'blob',
+    });
   }
 
   public getLogs(date: Date): Observable<Logs> {

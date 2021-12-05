@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +21,8 @@ export class AdminDashboardComponent implements OnInit {
     private _adminService: AdminService,
     private _builder: FormBuilder,
     private _translateService: TranslateService,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private datePipe: DatePipe
   ) {}
 
   public ngOnInit(): void {
@@ -62,7 +64,16 @@ export class AdminDashboardComponent implements OnInit {
 
   private createDbBackup(): void {
     this.backupLoading = true;
-    this._adminService.backupDatabase().subscribe(() => {
+    this._adminService.backupDatabase().subscribe((resp) => {
+      const a = document.createElement('a');
+      const objectUrl = URL.createObjectURL(resp);
+      a.href = objectUrl;
+      let date = new Date();
+      let dateString = this.datePipe.transform(date, 'yyyy-MM-dd');
+      let dbName = 'StoreAndDeliver';
+      a.download = `${dbName}-${dateString}.sql`;
+      a.click();
+      URL.revokeObjectURL(objectUrl);
       this.backupLoading = false;
       this.showSuccess(this._translateService.instant('toastrs.backupCreated'));
     });
