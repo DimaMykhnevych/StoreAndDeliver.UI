@@ -8,6 +8,7 @@ import { DialogsModule } from 'src/app/layout/dialogs/dialogs.module';
 import { CarrierManagementComponent } from './components/carrier-management/carrier-management.component';
 import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
 import { StoreManagementComponent } from './components/store-management/store-management.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [CarrierManagementComponent, StoreManagementComponent],
@@ -19,6 +20,9 @@ import { StoreManagementComponent } from './components/store-management/store-ma
     ReactiveFormsModule,
     DialogsModule,
     SpinnerModule,
+    AgmCoreModule.forRoot({
+      apiKey: '',
+    }),
   ],
 })
 export class AdminFeaturesModule {}

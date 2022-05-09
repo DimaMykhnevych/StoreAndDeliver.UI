@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Store } from 'src/app/core/models/store';
 import { AddEditStoreDialogData } from 'src/app/layout/dialogs/models/add-edit-store-data';
 import { DialogService } from 'src/app/layout/dialogs/services/dialog.service';
+import { MapMarker } from '../../models/map-marker';
 import { StoreService } from '../../services/store.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class StoreManagementComponent implements OnInit {
     'address',
     'delete',
   ];
+  public markers: MapMarker[] = [];
 
   public stores: Store[] = [];
   public isStoresLoading: boolean = false;
@@ -60,6 +62,23 @@ export class StoreManagementComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Store>(this.stores);
       this.dataSource.paginator = this.paginator;
       this.isStoresLoading = false;
+      this.initMapMarkers();
     });
+  }
+
+  private initMapMarkers(): void {
+    this.stores.forEach((s) =>
+      this.markers.push({
+        latitude: s.address?.latitude || 0,
+        longtitude: s.address?.longtitude || 0,
+        labelOptions: {
+          color: 'brown',
+          fontFamily: '',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          text: s.name,
+        },
+      })
+    );
   }
 }

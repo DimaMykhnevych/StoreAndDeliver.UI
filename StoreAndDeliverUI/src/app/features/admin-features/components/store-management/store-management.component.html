@@ -58,4 +58,17 @@
       </mat-paginator>
     </div>
   </div>
+  <div>
+    <agm-map
+      [latitude]="markers[0].latitude"
+      [longitude]="markers[0].longtitude"
+    >
+      <agm-marker
+        *ngFor="let marker of markers"
+        [latitude]="marker.latitude"
+        [longitude]="marker.longtitude"
+        [label]="marker.labelOptions"
+      ></agm-marker>
+    </agm-map>
+  </div>
 </div>
