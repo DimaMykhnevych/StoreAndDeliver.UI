@@ -60,8 +60,8 @@
   </div>
   <div>
     <agm-map
-      [latitude]="markers[0].latitude"
-      [longitude]="markers[0].longtitude"
+      [latitude]="markers[0]?.latitude || 0"
+      [longitude]="markers[0]?.longtitude || 0"
     >
       <agm-marker
         *ngFor="let marker of markers"

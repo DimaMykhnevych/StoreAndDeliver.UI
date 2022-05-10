@@ -9,6 +9,7 @@ import { CarrierManagementComponent } from './components/carrier-management/carr
 import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
 import { StoreManagementComponent } from './components/store-management/store-management.component';
 import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [CarrierManagementComponent, StoreManagementComponent],
@@ -21,7 +22,7 @@ import { AgmCoreModule } from '@agm/core';
     DialogsModule,
     SpinnerModule,
     AgmCoreModule.forRoot({
-      apiKey: '',
+      apiKey: environment.googleMapsKey,
     }),
   ],
 })
