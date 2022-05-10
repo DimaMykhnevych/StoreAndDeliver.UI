@@ -67,6 +67,7 @@ export class StoreManagementComponent implements OnInit {
   }
 
   private initMapMarkers(): void {
+    this.markers = [];
     this.stores.forEach((s) =>
       this.markers.push({
         latitude: s.address?.latitude || 0,
