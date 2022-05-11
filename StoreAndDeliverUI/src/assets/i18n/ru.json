@@ -92,7 +92,10 @@
         "createRequestNow": "Оставить заявку сейчас",
         "myActiveRequests": "Мои активные заявки",
         "myPendingRequests": "Заявки, ожидающие подтверждения",
-        "myCompletedRequests": "Выполненные заявки"
+        "myCompletedRequests": "Выполненные заявки",
+        "showPhotos": "Показать фотографии",
+        "cargoPhotos": "Фото груза",
+        "emptyPhotos": "Фото для данного груза отсутсвуют"
     },
     "adminFeatures": {
         "header": "Управление перевозчиками",
@@ -183,6 +186,7 @@
         "goodMorning": "Доброе утро,",
         "goodAfternoon": "Добрый день,",
         "goodEvening": "Добрый вечер,",
-        "copyToClipBoard": "Скопировать"
+        "copyToClipBoard": "Скопировать",
+        "previous": "Предыдущее"
     }
 }

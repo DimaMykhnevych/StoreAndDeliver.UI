@@ -92,7 +92,10 @@
         "createRequestNow": "Зробити заяву зараз",
         "myActiveRequests": "Мої активні заяви",
         "myPendingRequests": "Заяви, що очікують підтвердження",
-        "myCompletedRequests": "Завершені заяви"
+        "myCompletedRequests": "Завершені заяви",
+        "showPhotos": "Показати фото",
+        "cargoPhotos": "Фото вантажу",
+        "emptyPhotos": "Фото для цього вантажу відсутні"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",
@@ -183,6 +186,7 @@
         "goodMorning": "Доброго ранку,",
         "goodAfternoon": "Доброго дня,",
         "goodEvening": "Доброго вечора,",
-        "copyToClipBoard": "Скопіювати"
+        "copyToClipBoard": "Скопіювати",
+        "previous": "Попереднє"
     }
 }

@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    .image-wrapper{
+        width: 500px;
+        height: 500px;
+    }
+    
+    .cargo-photo {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+    }
+    .secondary-text{
+        color: grey;
+    }
+}

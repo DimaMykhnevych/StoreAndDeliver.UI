@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>
+  {{ "cargoRequest.cargoPhotos" | translate }} ({{ currentIndex + 1 }}/{{
+    photosAmount
+  }})
+</h1>
+<div class="mat-typography mb-2" mat-dialog-content>
+  <div *ngIf="cargoPhotos.length > 0" class="main">
+    <p class="secondary-text">
+      Created at: {{ getDateFormat(currentPhoto.date) }}
+    </p>
+    <div class="image-wrapper">
+      <img class="cargo-photo" [src]="currentPhoto.photoUrl" />
+    </div>
+
+    <div class="controls">
+      <button class="m-2" mat-raised-button (click)="onPreviousButtonClick()">
+        {{ "common.previous" | translate }}
+      </button>
+      <button
+        class="m-2"
+        mat-raised-button
+        color="primary"
+        (click)="onNextButtonClick()"
+      >
+        {{ "common.next" | translate }}
+      </button>
+    </div>
+  </div>
+  <div *ngIf="cargoPhotos.length === 0">
+    <p>{{ "cargoRequest.emptyPhotos" | translate }}</p>
+  </div>
+</div>
+<button mat-raised-button color="warn" mat-dialog-close="yes">
+  {{ "common.close" | translate }}
+</button>

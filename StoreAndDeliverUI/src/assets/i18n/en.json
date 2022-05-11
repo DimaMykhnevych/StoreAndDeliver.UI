@@ -92,7 +92,10 @@
         "createRequestNow": "Create request now",
         "myActiveRequests": "My active requests",
         "myPendingRequests": "My pending requests",
-        "myCompletedRequests": "My completed requests"
+        "myCompletedRequests": "My completed requests",
+        "showPhotos": "Show photos",
+        "cargoPhotos": "Cargo photos",
+        "emptyPhotos": "There aren't photos for this cargo"
     },
     "adminFeatures": {
         "header": "Carrier management",
@@ -183,6 +186,7 @@
         "goodMorning": "Good morning",
         "goodAfternoon": "Good afternoon",
         "goodEvening": "Good evening",
-        "copyToClipBoard": "Copy to clipboard"
+        "copyToClipBoard": "Copy to clipboard",
+        "previous": "Previous"
     }
 }

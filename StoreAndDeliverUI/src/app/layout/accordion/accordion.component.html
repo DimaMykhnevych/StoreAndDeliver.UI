@@ -44,6 +44,23 @@
           }}</span>
         </button>
       </div>
+      <div
+        *ngIf="showPhotosButtonVisible(index)"
+        class="row d-flex flex-row justify-content-center"
+      >
+        <button
+          (click)="onShowPhotosClick(index)"
+          class="btn btn-info btn-sm btn-primary mt-0 mb-2"
+        >
+          <app-spinner
+            *ngIf="isCargoPhotosLoading"
+            [diameter]="25"
+          ></app-spinner>
+          <span *ngIf="!isCargoPhotosLoading">{{
+            "cargoRequest.showPhotos" | translate
+          }}</span>
+        </button>
+      </div>
       <div class="row d-flex flex-row">
         <div class="col-lg-6">
           <p>

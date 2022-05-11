@@ -14,6 +14,7 @@ import { AddEditStoreDialogComponent } from './add-edit-store-dialog/add-edit-st
 import { CargoRequestsModule } from 'src/app/features/cargo-requests/cargo-requests.module';
 import { CargoSnapshotsDialogComponent } from './cargo-snapshots-dialog/cargo-snapshots-dialog.component';
 import { ChangePasswordDialogComponent } from './change-password-dialog/change-password-dialog.component';
+import { ShowPhotosDialogComponent } from './show-photos-dialog/show-photos-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ChangePasswordDialogComponent } from './change-password-dialog/change-p
     AddEditStoreDialogComponent,
     CargoSnapshotsDialogComponent,
     ChangePasswordDialogComponent,
+    ShowPhotosDialogComponent,
   ],
   imports: [
     CargoRequestsModule,

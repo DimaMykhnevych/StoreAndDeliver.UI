@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CargoPhoto } from 'src/app/core/models/cargo-photo';
 import { CargoSnapshot } from 'src/app/core/models/cargo-snapshot';
 import { Carrier } from 'src/app/core/models/carrier';
 import { AddEditCarrierDialogComponent } from '../add-edit-carrier-dialog/add-edit-carrier-dialog.component';
@@ -11,6 +12,7 @@ import { AddEditCarrierDialogData } from '../models/add-edit-dialog-data';
 import { AddEditStoreDialogData } from '../models/add-edit-store-data';
 import { WarningDialogInfo } from '../models/warning-dialog';
 import { RegisterDialogComponent } from '../register-dialog/register-dialog/register-dialog.component';
+import { ShowPhotosDialogComponent } from '../show-photos-dialog/show-photos-dialog.component';
 import { WarningDialogComponent } from '../warning-dialog/warning-dialog.component';
 
 @Injectable({
@@ -75,6 +77,14 @@ export class DialogService {
   ): MatDialogRef<WarningDialogComponent> {
     return this.dialog.open(WarningDialogComponent, {
       width: '390px',
+      disableClose: false,
+      data: data,
+    });
+  }
+
+  public openShowPhotosDialog(data: CargoPhoto[]) {
+    return this.dialog.open(ShowPhotosDialogComponent, {
+      width: '600px',
       disableClose: false,
       data: data,
     });
