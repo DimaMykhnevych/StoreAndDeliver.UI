@@ -61,6 +61,14 @@
           }}</span>
         </button>
       </div>
+      <div
+        *ngIf="uploadPhotosButtonVisible(index)"
+        class="row d-flex flex-row justify-content-center"
+      >
+        <app-upload-cargo-photo-form
+          [cargoRequestId]="cargoRequest.id"
+        ></app-upload-cargo-photo-form>
+      </div>
       <div class="row d-flex flex-row">
         <div class="col-lg-6">
           <p>

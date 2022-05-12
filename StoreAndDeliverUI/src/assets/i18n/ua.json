@@ -95,7 +95,10 @@
         "myCompletedRequests": "Завершені заяви",
         "showPhotos": "Показати фото",
         "cargoPhotos": "Фото вантажу",
-        "emptyPhotos": "Фото для цього вантажу відсутні"
+        "emptyPhotos": "Фото для цього вантажу відсутні",
+        "uploadPhoto": "Завантажити фото",
+        "uploadSuccess": "Успішно завантажено",
+        "wrongFileType": "Ви можете завантажити лише фото"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",
@@ -187,6 +190,7 @@
         "goodAfternoon": "Доброго дня,",
         "goodEvening": "Доброго вечора,",
         "copyToClipBoard": "Скопіювати",
-        "previous": "Попереднє"
+        "previous": "Попереднє",
+        "unexpectedError": "Помилка. Спробуйте ще."
     }
 }

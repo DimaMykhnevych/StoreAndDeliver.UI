@@ -5,6 +5,7 @@ import { MaterialModule } from '../material';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerModule } from '../spinner/spinner.module';
+import { UploadPhotosModule } from 'src/app/features/upload-photos/upload-photos.module';
 
 @NgModule({
   declarations: [AccordionComponent],
@@ -14,6 +15,7 @@ import { SpinnerModule } from '../spinner/spinner.module';
     CdkAccordionModule,
     TranslateModule,
     SpinnerModule,
+    UploadPhotosModule,
   ],
   exports: [AccordionComponent],
 })

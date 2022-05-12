@@ -49,6 +49,13 @@ export class AccordionComponent implements OnInit {
     );
   }
 
+  public uploadPhotosButtonVisible(index: number): boolean {
+    return (
+      this.isStatusInProgressOrCompleted(index) &&
+      this._currentUserService.userInfo.role === Roles.Carrier
+    );
+  }
+
   public isStatusInProgressOrCompleted(index: number): boolean {
     return (
       this.cargoRequests[index]?.status === RequestStatus.inProgress ||

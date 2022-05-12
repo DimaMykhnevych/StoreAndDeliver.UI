@@ -95,7 +95,10 @@
         "myCompletedRequests": "My completed requests",
         "showPhotos": "Show photos",
         "cargoPhotos": "Cargo photos",
-        "emptyPhotos": "There aren't photos for this cargo"
+        "emptyPhotos": "There aren't photos for this cargo",
+        "uploadPhoto": "Upload Photo",
+        "uploadSuccess": "Upload success",
+        "wrongFileType": "You can upload only images"
     },
     "adminFeatures": {
         "header": "Carrier management",
@@ -187,6 +190,7 @@
         "goodAfternoon": "Good afternoon",
         "goodEvening": "Good evening",
         "copyToClipBoard": "Copy to clipboard",
-        "previous": "Previous"
+        "previous": "Previous",
+        "unexpectedError": "Something went wrong"
     }
 }

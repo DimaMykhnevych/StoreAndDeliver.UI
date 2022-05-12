@@ -95,7 +95,10 @@
         "myCompletedRequests": "Выполненные заявки",
         "showPhotos": "Показать фотографии",
         "cargoPhotos": "Фото груза",
-        "emptyPhotos": "Фото для данного груза отсутсвуют"
+        "emptyPhotos": "Фото для данного груза отсутсвуют",
+        "uploadPhoto": "Загрузить фото",
+        "uploadSuccess": "Успешно загружено",
+        "wrongFileType": "Вы можете загрузить только фото"
     },
     "adminFeatures": {
         "header": "Управление перевозчиками",
@@ -187,6 +190,7 @@
         "goodAfternoon": "Добрый день,",
         "goodEvening": "Добрый вечер,",
         "copyToClipBoard": "Скопировать",
-        "previous": "Предыдущее"
+        "previous": "Предыдущее",
+        "unexpectedError": "Что-то пошло не так"
     }
 }

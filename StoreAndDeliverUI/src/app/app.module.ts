@@ -19,6 +19,7 @@ import { DashboardModule } from './features/dashboard/dashboard.module';
 import { CargoRequestsModule } from './features/cargo-requests/cargo-requests.module';
 import { SidenavModule } from './layout/sidenav/sidenav.module';
 import { AdminFeaturesModule } from './features/admin-features/admin-features.module';
+import { UploadPhotosModule } from './features/upload-photos/upload-photos.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -47,6 +48,7 @@ import { AdminFeaturesModule } from './features/admin-features/admin-features.mo
     EmailConfirmationModule,
     SidenavModule,
     AdminFeaturesModule,
+    UploadPhotosModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
