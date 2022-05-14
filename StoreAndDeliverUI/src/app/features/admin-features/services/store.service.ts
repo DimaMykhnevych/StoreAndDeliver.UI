@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { OptimalStoreLocation } from 'src/app/core/models/optimal-store-location';
 import { Store } from 'src/app/core/models/store';
 import { AppSettings } from 'src/app/core/settings';
 
@@ -20,5 +21,11 @@ export class StoreService {
 
   public deleteStore(id: string): Observable<boolean> {
     return this._http.delete<boolean>(`${AppSettings.apiHost}/store/${id}`);
+  }
+
+  public getOptimalStoreLocation(): Observable<OptimalStoreLocation[]> {
+    return this._http.get<OptimalStoreLocation[]>(
+      `${AppSettings.apiHost}/store/getOptimalStoreLocation`
+    );
   }
 }

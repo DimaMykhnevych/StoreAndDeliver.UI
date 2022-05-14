@@ -125,7 +125,10 @@
         "logsSection": "Секція логів",
         "backupSection": "Секція бекапу бази даних",
         "backupInfo": "Файл бекапу буде зберігатися в папці Download",
-        "createBackup": "Створити бекап"
+        "createBackup": "Створити бекап",
+        "mapLegend": "Легенда карти",
+        "optimalStores": "Потенційні міста для створення нових складів",
+        "currentStores": "Поточні відкриті склади"
     },
     "payment": {
         "header": "Оплата",

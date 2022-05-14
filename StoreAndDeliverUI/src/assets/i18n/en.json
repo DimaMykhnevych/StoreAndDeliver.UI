@@ -125,7 +125,10 @@
         "logsSection": "Logs section",
         "backupSection": "Database Backup Section",
         "backupInfo": "Backup file will be stored in Downloads folder",
-        "createBackup": "Create Backup"
+        "createBackup": "Create Backup",
+        "mapLegend": "Map Legend",
+        "optimalStores": "Potential cities to open new stores",
+        "currentStores": "Current opened stores"
     },
     "statuses":{
         "inProgress": "In Progress",

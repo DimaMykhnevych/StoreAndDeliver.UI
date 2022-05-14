@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { OptimalStoreLocation } from 'src/app/core/models/optimal-store-location';
 import { Store } from 'src/app/core/models/store';
 import { AddEditStoreDialogData } from 'src/app/layout/dialogs/models/add-edit-store-data';
 import { DialogService } from 'src/app/layout/dialogs/services/dialog.service';
@@ -20,7 +21,8 @@ export class StoreManagementComponent implements OnInit {
     'delete',
   ];
   public markers: MapMarker[] = [];
-
+  public optimalStoresMarkers: MapMarker[] = [];
+  public newStoresOptimalLocations: OptimalStoreLocation[] = [];
   public stores: Store[] = [];
   public isStoresLoading: boolean = false;
   public dataSource: MatTableDataSource<Store> =
@@ -36,6 +38,7 @@ export class StoreManagementComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getStores();
+    this.getNewStoresOptimalLocations();
   }
 
   public onAddStoreCLick(): void {
@@ -47,12 +50,16 @@ export class StoreManagementComponent implements OnInit {
     dialogRef.afterClosed().subscribe((success: boolean) => {
       if (success === true) {
         this.getStores();
+        this.getNewStoresOptimalLocations();
       }
     });
   }
 
   public onDeleteCLick(store: Store): void {
-    this._storeService.deleteStore(store.id).subscribe(() => this.getStores());
+    this._storeService.deleteStore(store.id).subscribe(() => {
+      this.getStores();
+      this.getNewStoresOptimalLocations();
+    });
   }
 
   private getStores(): void {
@@ -64,6 +71,33 @@ export class StoreManagementComponent implements OnInit {
       this.isStoresLoading = false;
       this.initMapMarkers();
     });
+  }
+
+  private getNewStoresOptimalLocations(): void {
+    this._storeService.getOptimalStoreLocation().subscribe((resp) => {
+      this.newStoresOptimalLocations = resp;
+      this.initOptimalStoresMarkers();
+    });
+  }
+
+  private initOptimalStoresMarkers(): void {
+    this.optimalStoresMarkers = [];
+    const allLocations = this.newStoresOptimalLocations
+      .map((s) => s.cities)
+      .reduce((a, b) => a.concat(b), []);
+    allLocations.forEach((s) =>
+      this.optimalStoresMarkers.push({
+        latitude: s?.latitude || 0,
+        longtitude: s?.longtitude || 0,
+        labelOptions: {
+          color: 'black',
+          fontFamily: '',
+          fontSize: '10px',
+          fontWeight: 'normal',
+          text: '.',
+        },
+      })
+    );
   }
 
   private initMapMarkers(): void {

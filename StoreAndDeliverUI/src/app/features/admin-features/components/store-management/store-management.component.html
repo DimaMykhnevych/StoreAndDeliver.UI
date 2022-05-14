@@ -1,6 +1,6 @@
 <div class="main container-fluid p-3">
   <h1 class="text-center">{{ "adminFeatures.storeManagement" | translate }}</h1>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-3">
     <div class="col-lg-12 m-3">
       <button class="w-100" mat-raised-button (click)="onAddStoreCLick()">
         {{ "adminFeatures.addNewStore" | translate }}
@@ -59,6 +59,31 @@
     </div>
   </div>
   <div>
+    <mat-card class="mat-elevation-z8">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <h3 class="badge badge-primary">
+            {{ "adminFeatures.mapLegend" | translate }}
+          </h3>
+        </div>
+        <div class="col-lg-5">
+          <img
+            src="https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|4286f4"
+          /><span class="ml-2 font-weight-bold">{{
+            "adminFeatures.optimalStores" | translate
+          }}</span>
+        </div>
+        <div class="col-lg-5">
+          <img
+            src="https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FF0000"
+          /><span class="ml-2 font-weight-bold">{{
+            "adminFeatures.currentStores" | translate
+          }}</span>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div>
     <agm-map
       [latitude]="markers[0]?.latitude || 0"
       [longitude]="markers[0]?.longtitude || 0"
@@ -68,6 +93,15 @@
         [latitude]="marker.latitude"
         [longitude]="marker.longtitude"
         [label]="marker.labelOptions"
+      ></agm-marker>
+      <agm-marker
+        *ngFor="let optimalMarker of optimalStoresMarkers"
+        [latitude]="optimalMarker.latitude"
+        [longitude]="optimalMarker.longtitude"
+        [label]="optimalMarker.labelOptions"
+        [iconUrl]="
+          'https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|4286f4'
+        "
       ></agm-marker>
     </agm-map>
   </div>
