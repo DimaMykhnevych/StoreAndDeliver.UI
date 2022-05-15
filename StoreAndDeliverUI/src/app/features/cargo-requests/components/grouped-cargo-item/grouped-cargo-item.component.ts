@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RequestStatus } from 'src/app/core/enums/request-status';
+import { DialogService } from 'src/app/layout/dialogs/services/dialog.service';
 import { OptimizedRequestsGroup } from '../../models/optimized-requests';
 
 @Component({
@@ -26,7 +27,7 @@ export class GroupedCargoItemComponent implements OnInit {
 
   private _cargoRequestsGroup: OptimizedRequestsGroup = null as any;
   public keys: string[] = [];
-  constructor() {}
+  constructor(private _dialogService: DialogService) {}
 
   public ngOnInit(): void {}
 
@@ -36,6 +37,10 @@ export class GroupedCargoItemComponent implements OnInit {
 
   public onCompleteButtonClick(): void {
     this.onRequestGroupCompleted.emit(this.cargoRequestsGroup);
+  }
+
+  public onShowRouteClick(): void {
+    this._dialogService.openRouteMapDialog(this.cargoRequestsGroup);
   }
 
   public isRequestInPendingStatus(): boolean {

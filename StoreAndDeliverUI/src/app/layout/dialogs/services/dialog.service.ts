@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CargoPhoto } from 'src/app/core/models/cargo-photo';
 import { CargoSnapshot } from 'src/app/core/models/cargo-snapshot';
-import { Carrier } from 'src/app/core/models/carrier';
+import { OptimizedRequestsGroup } from 'src/app/features/cargo-requests/models/optimized-requests';
 import { AddEditCarrierDialogComponent } from '../add-edit-carrier-dialog/add-edit-carrier-dialog.component';
 import { AddEditStoreDialogComponent } from '../add-edit-store-dialog/add-edit-store-dialog.component';
 import { CargoSnapshotsDialogComponent } from '../cargo-snapshots-dialog/cargo-snapshots-dialog.component';
@@ -12,6 +12,7 @@ import { AddEditCarrierDialogData } from '../models/add-edit-dialog-data';
 import { AddEditStoreDialogData } from '../models/add-edit-store-data';
 import { WarningDialogInfo } from '../models/warning-dialog';
 import { RegisterDialogComponent } from '../register-dialog/register-dialog/register-dialog.component';
+import { RouteMapDialogComponent } from '../route-map-dialog/route-map-dialog.component';
 import { ShowPhotosDialogComponent } from '../show-photos-dialog/show-photos-dialog.component';
 import { WarningDialogComponent } from '../warning-dialog/warning-dialog.component';
 
@@ -87,6 +88,14 @@ export class DialogService {
       width: '600px',
       disableClose: false,
       data: data,
+    });
+  }
+
+  public openRouteMapDialog(requestGroup: OptimizedRequestsGroup) {
+    return this.dialog.open(RouteMapDialogComponent, {
+      width: '80vw',
+      disableClose: false,
+      data: requestGroup,
     });
   }
 }

@@ -25,6 +25,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "@swimlane/ngx-charts": "^20.1.0",
     "@types/googlemaps": "^3.43.3",
+    "agm-direction": "^0.8.10",
     "guid-typescript": "^1.0.9",
     "lodash": "^4.17.21",
     "ngx-toastr": "^14.1.3",

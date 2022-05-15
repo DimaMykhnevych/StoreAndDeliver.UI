@@ -27,5 +27,15 @@
     >
       {{ "common.complete" | translate }}
     </button>
+    <button
+      *ngIf="keys.length > 0 && !isRequestInCompletedStatus()"
+      mat-stroked-button
+      color="primary"
+      class="ml-2"
+      (click)="onShowRouteClick()"
+    >
+      <i class="fa fa-map" aria-hidden="true"></i>
+      <span class="ml-2">{{ "adminFeatures.showRoute" | translate }}</span>
+    </button>
   </div>
 </div>

@@ -100,7 +100,8 @@
         "uploadSuccess": "Upload success",
         "wrongFileType": "You can upload only images",
         "requestsCount": "Requests count",
-        "cargoRequestsCount": "Cargo requests count"
+        "cargoRequestsCount": "Cargo requests count",
+        "route": "Route"
     },
     "adminFeatures": {
         "header": "Carrier management",
@@ -134,7 +135,8 @@
         "statisticsHeader": "Company statistics",
         "legend": "Legend",
         "requestStatistics": "Requests statistics",
-        "carrierStatistics": "Carriers statistics"
+        "carrierStatistics": "Carriers statistics",
+        "showRoute": "Show route"
     },
     "statuses":{
         "inProgress": "In Progress",

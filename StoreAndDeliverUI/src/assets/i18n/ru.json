@@ -100,7 +100,8 @@
         "uploadSuccess": "Успешно загружено",
         "wrongFileType": "Вы можете загрузить только фото",
         "requestsCount": "Количество заявок",
-        "cargoRequestsCount": "Количество грузоперевозок"
+        "cargoRequestsCount": "Количество грузоперевозок",
+        "route": "Маршрут"
     },
     "adminFeatures": {
         "header": "Управление перевозчиками",
@@ -134,7 +135,8 @@
         "statisticsHeader": "Статистика компании",
         "legend": "Легенда",
         "requestStatistics": "Статистика по заявкам",
-        "carrierStatistics": "Статистика по перевозчикам"
+        "carrierStatistics": "Статистика по перевозчикам",
+        "showRoute": "Показать маршрут"
     },
     "payment": {
         "header": "Оплата",

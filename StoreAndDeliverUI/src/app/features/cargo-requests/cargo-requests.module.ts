@@ -23,7 +23,6 @@ import { CargoRequestItemComponent } from './components/cargo-request-item/cargo
 import { AccordionModule } from 'src/app/layout/accordion/accordion.module';
 import { UnitsPanelComponent } from './components/units-panel/units-panel.component';
 import { FormsModule } from '@angular/forms';
-import { DialogsModule } from 'src/app/layout/dialogs/dialogs.module';
 import { UserRequestsComponent } from './components/user-requests/user-requests.component';
 
 @NgModule({

@@ -15,6 +15,10 @@ import { CargoRequestsModule } from 'src/app/features/cargo-requests/cargo-reque
 import { CargoSnapshotsDialogComponent } from './cargo-snapshots-dialog/cargo-snapshots-dialog.component';
 import { ChangePasswordDialogComponent } from './change-password-dialog/change-password-dialog.component';
 import { ShowPhotosDialogComponent } from './show-photos-dialog/show-photos-dialog.component';
+import { RouteMapDialogComponent } from './route-map-dialog/route-map-dialog.component';
+import { AgmDirectionModule } from 'agm-direction';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { ShowPhotosDialogComponent } from './show-photos-dialog/show-photos-dial
     CargoSnapshotsDialogComponent,
     ChangePasswordDialogComponent,
     ShowPhotosDialogComponent,
+    RouteMapDialogComponent,
   ],
   imports: [
     CargoRequestsModule,
@@ -36,6 +41,10 @@ import { ShowPhotosDialogComponent } from './show-photos-dialog/show-photos-dial
     SpinnerModule,
     AppRoutingModule,
     TranslateModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsKey,
+    }),
+    AgmDirectionModule,
   ],
 })
 export class DialogsModule {}

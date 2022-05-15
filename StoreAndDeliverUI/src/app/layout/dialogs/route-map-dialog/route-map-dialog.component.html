@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>
+  {{ "cargoRequest.route" | translate }}
+</h1>
+<div class="mat-typography mb-2" mat-dialog-content>
+  <div>
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-direction
+        [origin]="origin"
+        [destination]="destination"
+        [waypoints]="wayPoints"
+        [optimizeWaypoints]="true"
+      >
+      </agm-direction>
+    </agm-map>
+  </div>
+</div>
+<button mat-raised-button color="warn" mat-dialog-close="yes">
+  {{ "common.close" | translate }}
+</button>
