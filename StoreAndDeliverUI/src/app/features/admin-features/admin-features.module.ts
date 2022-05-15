@@ -10,9 +10,15 @@ import { SpinnerModule } from 'src/app/layout/spinner/spinner.module';
 import { StoreManagementComponent } from './components/store-management/store-management.component';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
+import { ChartsComponent } from './components/charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-  declarations: [CarrierManagementComponent, StoreManagementComponent],
+  declarations: [
+    CarrierManagementComponent,
+    StoreManagementComponent,
+    ChartsComponent,
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -21,6 +27,7 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     DialogsModule,
     SpinnerModule,
+    NgxChartsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey,
     }),

@@ -98,7 +98,9 @@
         "emptyPhotos": "There aren't photos for this cargo",
         "uploadPhoto": "Upload Photo",
         "uploadSuccess": "Upload success",
-        "wrongFileType": "You can upload only images"
+        "wrongFileType": "You can upload only images",
+        "requestsCount": "Requests count",
+        "cargoRequestsCount": "Cargo requests count"
     },
     "adminFeatures": {
         "header": "Carrier management",
@@ -128,7 +130,11 @@
         "createBackup": "Create Backup",
         "mapLegend": "Map Legend",
         "optimalStores": "Potential cities to open new stores",
-        "currentStores": "Current opened stores"
+        "currentStores": "Current opened stores",
+        "statisticsHeader": "Company statistics",
+        "legend": "Legend",
+        "requestStatistics": "Requests statistics",
+        "carrierStatistics": "Carriers statistics"
     },
     "statuses":{
         "inProgress": "In Progress",
@@ -147,7 +153,8 @@
     },
     "sidenav": {
         "carrierManagement": "Carrier management",
-        "storeManagement": "Store management"
+        "storeManagement": "Store management",
+        "statistics": "Statistics"
     },
     "changePassword": {
         "changePassword": "Change password",
@@ -194,6 +201,7 @@
         "goodEvening": "Good evening",
         "copyToClipBoard": "Copy to clipboard",
         "previous": "Previous",
-        "unexpectedError": "Something went wrong"
+        "unexpectedError": "Something went wrong",
+        "carrierUsername": "Carrier name"
     }
 }

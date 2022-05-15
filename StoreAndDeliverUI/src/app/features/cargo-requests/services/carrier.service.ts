@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Carrier } from 'src/app/core/models/carrier';
+import { CarrierStatistics } from 'src/app/core/models/carrier-statistics';
 import { AppSettings } from 'src/app/core/settings';
 import { AddCarrier } from '../../admin-features/models/add-carrier';
 import { UpdateCarrier } from '../../admin-features/models/update-carrier';
@@ -15,6 +16,12 @@ export class CarrierService {
   public getCurrentLoggedInCarrier(): Observable<Carrier> {
     return this._http.get<Carrier>(
       `${AppSettings.apiHost}/carrier/getCurrentLoggedInCarrier`
+    );
+  }
+
+  public getCarriersStatistics(): Observable<CarrierStatistics[]> {
+    return this._http.get<CarrierStatistics[]>(
+      `${AppSettings.apiHost}/carrier/getCarrierStatistics`
     );
   }
 

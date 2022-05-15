@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Request } from 'src/app/core/models/request';
+import { RequestStatistics } from 'src/app/core/models/request-statitics';
 import { AppSettings } from 'src/app/core/settings';
 import { AddRequest } from '../models/add-request';
 import { GetOptimizedRequestModel } from '../models/get-optimized-requests';
@@ -16,6 +17,18 @@ export class RequestService {
 
   public addRequest(request: AddRequest): Observable<Request> {
     return this._http.post<Request>(`${AppSettings.apiHost}/request/`, request);
+  }
+
+  public getRequestsByCountriesStatistics(): Observable<RequestStatistics[]> {
+    return this._http.get<RequestStatistics[]>(
+      `${AppSettings.apiHost}/request/countriesStatistics`
+    );
+  }
+
+  public getRequestsByCitiesStatistics(): Observable<RequestStatistics[]> {
+    return this._http.get<RequestStatistics[]>(
+      `${AppSettings.apiHost}/request/citiesStatistics`
+    );
   }
 
   public getRequestTotalSum(request: AddRequest): Observable<number> {

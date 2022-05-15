@@ -98,7 +98,9 @@
         "emptyPhotos": "Фото для данного груза отсутсвуют",
         "uploadPhoto": "Загрузить фото",
         "uploadSuccess": "Успешно загружено",
-        "wrongFileType": "Вы можете загрузить только фото"
+        "wrongFileType": "Вы можете загрузить только фото",
+        "requestsCount": "Количество заявок",
+        "cargoRequestsCount": "Количество грузоперевозок"
     },
     "adminFeatures": {
         "header": "Управление перевозчиками",
@@ -128,7 +130,11 @@
         "createBackup": "Создать бекап",
         "mapLegend": "Легенда карты",
         "optimalStores": "Потенциальные города для открытия новых складов",
-        "currentStores": "Текущие открытые склады"
+        "currentStores": "Текущие открытые склады",
+        "statisticsHeader": "Статистика компании",
+        "legend": "Легенда",
+        "requestStatistics": "Статистика по заявкам",
+        "carrierStatistics": "Статистика по перевозчикам"
     },
     "payment": {
         "header": "Оплата",
@@ -147,7 +153,8 @@
     },
     "sidenav": {
         "carrierManagement": "Управление перевозчиками",
-        "storeManagement": "Управление складами"
+        "storeManagement": "Управление складами",
+        "statistics": "Статистика"
     },
     "changePassword": {
         "changePassword": "Изменить пароль",
@@ -194,6 +201,7 @@
         "goodEvening": "Добрый вечер,",
         "copyToClipBoard": "Скопировать",
         "previous": "Предыдущее",
-        "unexpectedError": "Что-то пошло не так"
+        "unexpectedError": "Что-то пошло не так",
+        "carrierUsername": "Имя перевозчика"
     }
 }

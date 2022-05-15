@@ -98,7 +98,9 @@
         "emptyPhotos": "Фото для цього вантажу відсутні",
         "uploadPhoto": "Завантажити фото",
         "uploadSuccess": "Успішно завантажено",
-        "wrongFileType": "Ви можете завантажити лише фото"
+        "wrongFileType": "Ви можете завантажити лише фото",
+        "requestsCount": "Кількість заяв",
+        "cargoRequestsCount": "Кількість вантажоперевезень"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",
@@ -128,7 +130,11 @@
         "createBackup": "Створити бекап",
         "mapLegend": "Легенда карти",
         "optimalStores": "Потенційні міста для створення нових складів",
-        "currentStores": "Поточні відкриті склади"
+        "currentStores": "Поточні відкриті склади",
+        "statisticsHeader": "Статистика компанії",
+        "legend": "Легенда",
+        "requestStatistics": "Статистика по заявам",
+        "carrierStatistics": "Статистика по перевізникам"
     },
     "payment": {
         "header": "Оплата",
@@ -147,7 +153,8 @@
     },
     "sidenav": {
         "carrierManagement": "Управління перевізниками",
-        "storeManagement": "Управління складами"
+        "storeManagement": "Управління складами",
+        "statistics": "Статистика"
     },
     "changePassword": {
         "changePassword": "Змінити пароль",
@@ -194,6 +201,7 @@
         "goodEvening": "Доброго вечора,",
         "copyToClipBoard": "Скопіювати",
         "previous": "Попереднє",
-        "unexpectedError": "Помилка. Спробуйте ще."
+        "unexpectedError": "Помилка. Спробуйте ще.",
+        "carrierUsername": "Ім'я перевізника"
     }
 }
