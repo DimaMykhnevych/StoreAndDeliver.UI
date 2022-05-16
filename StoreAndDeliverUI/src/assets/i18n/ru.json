@@ -101,7 +101,10 @@
         "wrongFileType": "Вы можете загрузить только фото",
         "requestsCount": "Количество заявок",
         "cargoRequestsCount": "Количество грузоперевозок",
-        "route": "Маршрут"
+        "route": "Маршрут",
+        "showRecommendation": "Показать рекомендацию",
+        "recommendedSettings": "Рекомендуемые показатели окружающей среды",
+        "emptyRecommendations": "Рекоммендации для этого типа груза не были найдены"
     },
     "adminFeatures": {
         "header": "Управление перевозчиками",

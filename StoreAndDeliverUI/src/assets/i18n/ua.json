@@ -101,7 +101,10 @@
         "wrongFileType": "Ви можете завантажити лише фото",
         "requestsCount": "Кількість заяв",
         "cargoRequestsCount": "Кількість вантажоперевезень",
-        "route": "Маршрут"
+        "route": "Маршрут",
+        "showRecommendation": "Показати рекомендацію",
+        "recommendedSettings": "Рекомендовані показники оточуючого середовища",
+        "emptyRecommendations": "Рекомендації для цього типу вантажу не були знайдені"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",

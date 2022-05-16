@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CargoPhoto } from 'src/app/core/models/cargo-photo';
 import { CargoSnapshot } from 'src/app/core/models/cargo-snapshot';
+import { CargoRecommendedSetting } from 'src/app/features/cargo-requests/models/cargo-recommended-setting';
 import { OptimizedRequestsGroup } from 'src/app/features/cargo-requests/models/optimized-requests';
 import { AddEditCarrierDialogComponent } from '../add-edit-carrier-dialog/add-edit-carrier-dialog.component';
 import { AddEditStoreDialogComponent } from '../add-edit-store-dialog/add-edit-store-dialog.component';
@@ -11,6 +12,7 @@ import { LoginDialogComponent } from '../login-dialog/login-dialog/login-dialog.
 import { AddEditCarrierDialogData } from '../models/add-edit-dialog-data';
 import { AddEditStoreDialogData } from '../models/add-edit-store-data';
 import { WarningDialogInfo } from '../models/warning-dialog';
+import { RecommendationSettingsDialogComponent } from '../recommendation-settings-dialog/recommendation-settings-dialog.component';
 import { RegisterDialogComponent } from '../register-dialog/register-dialog/register-dialog.component';
 import { RouteMapDialogComponent } from '../route-map-dialog/route-map-dialog.component';
 import { ShowPhotosDialogComponent } from '../show-photos-dialog/show-photos-dialog.component';
@@ -96,6 +98,14 @@ export class DialogService {
       width: '80vw',
       disableClose: false,
       data: requestGroup,
+    });
+  }
+
+  public openRecommendationDialog(settings: CargoRecommendedSetting[]) {
+    return this.dialog.open(RecommendationSettingsDialogComponent, {
+      width: '400px',
+      disableClose: false,
+      data: settings,
     });
   }
 }

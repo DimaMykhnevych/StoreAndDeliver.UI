@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>
+  {{ "cargoRequest.recommendedSettings" | translate }}
+</h1>
+<div class="mat-typography mb-2" mat-dialog-content>
+  <div *ngIf="settings.length === 0">
+    <p>{{ "cargoRequest.emptyRecommendations" | translate }}</p>
+  </div>
+  <div *ngIf="settings.length !== 0">
+    <div *ngFor="let setting of settings">
+      <h4 class="font-weight-bold">
+        {{ getTranslatedSetting(setting.environmentSetting.name) }}
+      </h4>
+      <p>
+        {{ "common.minValue" | translate }}: {{ setting.minValue
+        }}{{ getDisplayedUnitSymbol(setting) }}
+      </p>
+      <p>
+        {{ "common.maxValue" | translate }}: {{ setting.maxValue
+        }}{{ getDisplayedUnitSymbol(setting) }}
+      </p>
+    </div>
+  </div>
+</div>
+<button mat-raised-button color="warn" mat-dialog-close="yes">
+  {{ "common.close" | translate }}
+</button>

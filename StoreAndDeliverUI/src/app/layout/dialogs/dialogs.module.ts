@@ -19,6 +19,7 @@ import { RouteMapDialogComponent } from './route-map-dialog/route-map-dialog.com
 import { AgmDirectionModule } from 'agm-direction';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
+import { RecommendationSettingsDialogComponent } from './recommendation-settings-dialog/recommendation-settings-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment';
     ChangePasswordDialogComponent,
     ShowPhotosDialogComponent,
     RouteMapDialogComponent,
+    RecommendationSettingsDialogComponent,
   ],
   imports: [
     CargoRequestsModule,

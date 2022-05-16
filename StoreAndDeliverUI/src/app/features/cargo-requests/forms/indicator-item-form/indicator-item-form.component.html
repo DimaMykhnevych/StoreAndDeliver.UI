@@ -6,6 +6,21 @@
           {{ "cargoRequest.addSetting" | translate }}
         </button>
       </div>
+      <div class="col-lg-3 mb-3">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="onShowRecommendedSettingClick()"
+        >
+          <app-spinner
+            *ngIf="isRecommendationsLoading"
+            [diameter]="25"
+          ></app-spinner>
+          <span *ngIf="!isRecommendationsLoading">
+            {{ "cargoRequest.showRecommendation" | translate }}</span
+          >
+        </button>
+      </div>
     </div>
     <div
       *ngFor="let setting of settings.controls; let i = index"

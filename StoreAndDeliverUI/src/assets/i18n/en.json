@@ -101,7 +101,10 @@
         "wrongFileType": "You can upload only images",
         "requestsCount": "Requests count",
         "cargoRequestsCount": "Cargo requests count",
-        "route": "Route"
+        "route": "Route",
+        "showRecommendation": "Show recommendation",
+        "recommendedSettings": "Recommended environment settings",
+        "emptyRecommendations": "Unfortunatelly recommendations for this cargo type weren't found"
     },
     "adminFeatures": {
         "header": "Carrier management",

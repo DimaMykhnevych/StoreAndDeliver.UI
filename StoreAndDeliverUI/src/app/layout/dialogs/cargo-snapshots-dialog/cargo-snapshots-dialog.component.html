@@ -2,7 +2,7 @@
 <div class="mat-typography mb-2" mat-dialog-content>
   <div *ngFor="let snapshot of averageCargoSnapshots">
     <p>
-      {{ snapshot.settingName }}: {{ snapshot.averageValue }}
+      {{ translateSetting(snapshot.settingName) }}: {{ snapshot.averageValue }}
       {{ snapshot.displayedUnitSymbol }}
     </p>
   </div>

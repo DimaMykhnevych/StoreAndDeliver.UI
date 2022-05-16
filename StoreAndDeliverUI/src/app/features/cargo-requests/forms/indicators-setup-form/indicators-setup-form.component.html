@@ -47,6 +47,7 @@
         class="setting-wrapper"
         [cargoSettings]="initialCargo.cargo[selectedIndex]?.settings || []"
         [environmentSettings]="environmentSettings"
+        [addCargoModel]="initialCargo.cargo[selectedIndex]"
       ></app-indicator-item-form>
     </div>
   </form>

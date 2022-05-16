@@ -10,6 +10,10 @@ import {
 import { CargoSetting } from 'src/app/core/models/cargo-setting';
 import { EnvironmentSetting } from 'src/app/core/models/environment-setting';
 import { CustomTranslateService } from 'src/app/core/services/custom-translate.service';
+import { DialogService } from 'src/app/layout/dialogs/services/dialog.service';
+import { AddCargoWithSettings } from '../../models/add-cargo-settings-model';
+import { GetRecommendedSettings } from '../../models/get-recommended-settings';
+import { CargoService } from '../../services/cargo.service';
 
 @Component({
   selector: 'app-indicator-item-form',
@@ -27,6 +31,13 @@ export class IndicatorItemFormComponent implements OnInit {
   @Input() public set environmentSettings(settings: EnvironmentSetting[]) {
     this._environmentSettings = settings;
   }
+  @Input() public set addCargoModel(r: AddCargoWithSettings) {
+    this._initialCargo = r;
+  }
+
+  public get addCargoModel(): AddCargoWithSettings {
+    return this._initialCargo;
+  }
 
   public get environmentSettings(): EnvironmentSetting[] {
     return this._environmentSettings;
@@ -36,12 +47,17 @@ export class IndicatorItemFormComponent implements OnInit {
     return this._cargoSettings;
   }
 
+  public isRecommendationsLoading: boolean = false;
+
   public _cargoSettings: CargoSetting[] = [];
   private _environmentSettings: EnvironmentSetting[] = [];
+  private _initialCargo: AddCargoWithSettings = null as any;
 
   constructor(
     private _builder: FormBuilder,
-    private _customTranslateService: CustomTranslateService
+    private _customTranslateService: CustomTranslateService,
+    private _cargoService: CargoService,
+    private _dialogService: DialogService
   ) {}
 
   public ngOnInit(): void {}
@@ -91,6 +107,24 @@ export class IndicatorItemFormComponent implements OnInit {
       return 70;
     }
     return 100;
+  }
+
+  public onShowRecommendedSettingClick(): void {
+    this.getCargoSettingRecommendations();
+  }
+
+  private getCargoSettingRecommendations(): void {
+    const getSettingsParams: GetRecommendedSettings = {
+      cargoDescription: this.addCargoModel.description,
+      units: JSON.parse(localStorage.getItem('units') || JSON.stringify({})),
+    };
+    this.isRecommendationsLoading = true;
+    this._cargoService
+      .getCargoSettingRecommendations(getSettingsParams)
+      .subscribe((resp) => {
+        this.isRecommendationsLoading = false;
+        this._dialogService.openRecommendationDialog(resp);
+      });
   }
 
   private isTemperatureSetting(setting: AbstractControl): boolean {
