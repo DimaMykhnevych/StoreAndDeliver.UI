@@ -9,7 +9,10 @@
     [attr.aria-expanded]="accordionItem.expanded"
     [attr.aria-controls]="'accordion-body-' + index"
   >
-    <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+    <div
+      class="example-accordion-item-header"
+      (click)="onToggleClick(accordionItem, cargoRequest.cargo)"
+    >
       {{ "common.cargo" | translate }} №{{ index + 1 }}
       <span class="example-accordion-item-description">
         {{ "common.clickTo" | translate }}
@@ -75,7 +78,16 @@
             <span class="font-weight-bold"
               >{{ "cargoRequest.description" | translate }}:
             </span>
-            {{ cargoRequest.cargo.description }}
+            <span [id]="cargoRequest.cargo.id">{{
+              cargoRequest.cargo.description
+            }}</span>
+            <button
+              class="ml-2"
+              mat-raised-button
+              (click)="onTranslateButtonClick(cargoRequest.cargo)"
+            >
+              <i class="fas fa-globe"></i>
+            </button>
           </p>
           <p>
             <span class="font-weight-bold"

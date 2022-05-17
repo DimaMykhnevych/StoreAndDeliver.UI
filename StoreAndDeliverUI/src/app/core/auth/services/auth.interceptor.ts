@@ -25,12 +25,16 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const request = req.clone({
-      headers: req.headers.set(
-        'Authorization',
-        `Bearer ${this._tokenService.token}`
-      ),
-    });
+    let request = req;
+
+    if (!req.headers.has('Ocp-Apim-Subscription-Key')) {
+      request = req.clone({
+        headers: req.headers.set(
+          'Authorization',
+          `Bearer ${this._tokenService.token}`
+        ),
+      });
+    }
 
     return next.handle(request).pipe(
       catchError((error) => {

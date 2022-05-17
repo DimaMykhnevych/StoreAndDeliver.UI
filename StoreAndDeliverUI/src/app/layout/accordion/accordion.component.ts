@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RequestStatus } from 'src/app/core/enums/request-status';
 import { RequestType } from 'src/app/core/enums/request-type';
 import { RequestStatusMapper } from 'src/app/core/mappers/request-status.mapper';
+import { Cargo } from 'src/app/core/models/cargo';
 import { CargoRequest } from 'src/app/core/models/cargo-request';
 import { Roles } from 'src/app/core/models/roles';
 import { Units } from 'src/app/core/models/units';
@@ -12,6 +13,8 @@ import { GetCargoSnapshots } from 'src/app/features/cargo-requests/models/get-ca
 import { CargoRequestService } from 'src/app/features/cargo-requests/services/cargo-request.service';
 import { CargoSnapshotService } from 'src/app/features/cargo-requests/services/cargo-snapshot.service';
 import { DialogService } from '../dialogs/services/dialog.service';
+import { CustomTextTranslateService } from 'src/app/core/services/custom-text-translate.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-accordion',
@@ -24,15 +27,34 @@ export class AccordionComponent implements OnInit {
   public isCargoPhotosLoading: boolean = false;
   expandedIndex = 0;
   constructor(
+    @Inject(DOCUMENT) document: Document,
     private _translateService: TranslateService,
     private _customTranslateService: CustomTranslateService,
     private _cargoSnapshotService: CargoSnapshotService,
     private _dialofService: DialogService,
     private _currentUserService: CurrentUserService,
-    private _cargoRequestService: CargoRequestService
+    private _cargoRequestService: CargoRequestService,
+    private _customTextTranslateService: CustomTextTranslateService
   ) {}
 
   public ngOnInit(): void {}
+
+  public onTranslateButtonClick(cargo: Cargo): void {
+    this._customTextTranslateService
+      .translateText(cargo.description)
+      .subscribe((resp) => {
+        const translation = resp[0].translations[0].text;
+        document.getElementById(cargo.id)!!.innerText = translation;
+      });
+  }
+
+  public onToggleClick(accordionItem: any, cargo: Cargo): void {
+    accordionItem.toggle();
+    if (!accordionItem._expanded) {
+      document.getElementById(cargo.id)!!.innerText = cargo.description;
+    }
+  }
+
   public getStatusName(index: number): string {
     const mapper = new RequestStatusMapper(this._translateService);
     return mapper.getRequestStatusString(this.cargoRequests[index].status);
