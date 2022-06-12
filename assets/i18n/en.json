@@ -95,7 +95,16 @@
         "myCompletedRequests": "My completed requests",
         "showPhotos": "Show photos",
         "cargoPhotos": "Cargo photos",
-        "emptyPhotos": "There aren't photos for this cargo"
+        "emptyPhotos": "There aren't photos for this cargo",
+        "uploadPhoto": "Upload Photo",
+        "uploadSuccess": "Upload success",
+        "wrongFileType": "You can upload only images",
+        "requestsCount": "Requests count",
+        "cargoRequestsCount": "Cargo requests count",
+        "route": "Route",
+        "showRecommendation": "Show recommendation",
+        "recommendedSettings": "Recommended environment settings",
+        "emptyRecommendations": "Unfortunatelly recommendations for this cargo type weren't found"
     },
     "adminFeatures": {
         "header": "Carrier management",
@@ -122,7 +131,15 @@
         "logsSection": "Logs section",
         "backupSection": "Database Backup Section",
         "backupInfo": "Backup file will be stored in Downloads folder",
-        "createBackup": "Create Backup"
+        "createBackup": "Create Backup",
+        "mapLegend": "Map Legend",
+        "optimalStores": "Potential cities to open new stores",
+        "currentStores": "Current opened stores",
+        "statisticsHeader": "Company statistics",
+        "legend": "Legend",
+        "requestStatistics": "Requests statistics",
+        "carrierStatistics": "Carriers statistics",
+        "showRoute": "Show route"
     },
     "statuses":{
         "inProgress": "In Progress",
@@ -141,7 +158,8 @@
     },
     "sidenav": {
         "carrierManagement": "Carrier management",
-        "storeManagement": "Store management"
+        "storeManagement": "Store management",
+        "statistics": "Statistics"
     },
     "changePassword": {
         "changePassword": "Change password",
@@ -187,6 +205,8 @@
         "goodAfternoon": "Good afternoon",
         "goodEvening": "Good evening",
         "copyToClipBoard": "Copy to clipboard",
-        "previous": "Previous"
+        "previous": "Previous",
+        "unexpectedError": "Something went wrong",
+        "carrierUsername": "Carrier name"
     }
 }

@@ -95,7 +95,16 @@
         "myCompletedRequests": "Выполненные заявки",
         "showPhotos": "Показать фотографии",
         "cargoPhotos": "Фото груза",
-        "emptyPhotos": "Фото для данного груза отсутсвуют"
+        "emptyPhotos": "Фото для данного груза отсутсвуют",
+        "uploadPhoto": "Загрузить фото",
+        "uploadSuccess": "Успешно загружено",
+        "wrongFileType": "Вы можете загрузить только фото",
+        "requestsCount": "Количество заявок",
+        "cargoRequestsCount": "Количество грузоперевозок",
+        "route": "Маршрут",
+        "showRecommendation": "Показать рекомендацию",
+        "recommendedSettings": "Рекомендуемые показатели окружающей среды",
+        "emptyRecommendations": "Рекоммендации для этого типа груза не были найдены"
     },
     "adminFeatures": {
         "header": "Управление перевозчиками",
@@ -122,7 +131,15 @@
         "logsSection": "Секция логов",
         "backupSection": "Секция бекапа базы данных",
         "backupInfo": "Файл бекапа будет сохранен в папку Downloads",
-        "createBackup": "Создать бекап"
+        "createBackup": "Создать бекап",
+        "mapLegend": "Легенда карты",
+        "optimalStores": "Потенциальные города для открытия новых складов",
+        "currentStores": "Текущие открытые склады",
+        "statisticsHeader": "Статистика компании",
+        "legend": "Легенда",
+        "requestStatistics": "Статистика по заявкам",
+        "carrierStatistics": "Статистика по перевозчикам",
+        "showRoute": "Показать маршрут"
     },
     "payment": {
         "header": "Оплата",
@@ -141,7 +158,8 @@
     },
     "sidenav": {
         "carrierManagement": "Управление перевозчиками",
-        "storeManagement": "Управление складами"
+        "storeManagement": "Управление складами",
+        "statistics": "Статистика"
     },
     "changePassword": {
         "changePassword": "Изменить пароль",
@@ -187,6 +205,8 @@
         "goodAfternoon": "Добрый день,",
         "goodEvening": "Добрый вечер,",
         "copyToClipBoard": "Скопировать",
-        "previous": "Предыдущее"
+        "previous": "Предыдущее",
+        "unexpectedError": "Что-то пошло не так",
+        "carrierUsername": "Имя перевозчика"
     }
 }

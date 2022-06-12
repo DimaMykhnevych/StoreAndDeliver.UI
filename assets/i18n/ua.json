@@ -95,7 +95,16 @@
         "myCompletedRequests": "Завершені заяви",
         "showPhotos": "Показати фото",
         "cargoPhotos": "Фото вантажу",
-        "emptyPhotos": "Фото для цього вантажу відсутні"
+        "emptyPhotos": "Фото для цього вантажу відсутні",
+        "uploadPhoto": "Завантажити фото",
+        "uploadSuccess": "Успішно завантажено",
+        "wrongFileType": "Ви можете завантажити лише фото",
+        "requestsCount": "Кількість заяв",
+        "cargoRequestsCount": "Кількість вантажоперевезень",
+        "route": "Маршрут",
+        "showRecommendation": "Показати рекомендацію",
+        "recommendedSettings": "Рекомендовані показники оточуючого середовища",
+        "emptyRecommendations": "Рекомендації для цього типу вантажу не були знайдені"
     },
     "adminFeatures": {
         "header": "Управлянні перевізниками",
@@ -122,7 +131,15 @@
         "logsSection": "Секція логів",
         "backupSection": "Секція бекапу бази даних",
         "backupInfo": "Файл бекапу буде зберігатися в папці Download",
-        "createBackup": "Створити бекап"
+        "createBackup": "Створити бекап",
+        "mapLegend": "Легенда карти",
+        "optimalStores": "Потенційні міста для створення нових складів",
+        "currentStores": "Поточні відкриті склади",
+        "statisticsHeader": "Статистика компанії",
+        "legend": "Легенда",
+        "requestStatistics": "Статистика по заявам",
+        "carrierStatistics": "Статистика по перевізникам",
+        "showRoute": "Показати маршрут"
     },
     "payment": {
         "header": "Оплата",
@@ -141,7 +158,8 @@
     },
     "sidenav": {
         "carrierManagement": "Управління перевізниками",
-        "storeManagement": "Управління складами"
+        "storeManagement": "Управління складами",
+        "statistics": "Статистика"
     },
     "changePassword": {
         "changePassword": "Змінити пароль",
@@ -187,6 +205,8 @@
         "goodAfternoon": "Доброго дня,",
         "goodEvening": "Доброго вечора,",
         "copyToClipBoard": "Скопіювати",
-        "previous": "Попереднє"
+        "previous": "Попереднє",
+        "unexpectedError": "Помилка. Спробуйте ще.",
+        "carrierUsername": "Ім'я перевізника"
     }
 }
